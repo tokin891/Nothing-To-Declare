@@ -1,0 +1,225 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 783b0835035eaa841bcc8271612a153f, type: 3}
+  m_Name: Muczo DT
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueTree
+  NPCData: {fileID: 11400000, guid: 52dbdde8112afff42a5574b2451c0d7b, type: 2}
+  nodes:
+  - nodeId: 1
+    actionId: 
+    npcLine:
+    - key: 
+      pl: "Dzie\u0144 dobry, moge wyj\u015B\u0107?"
+      en: 
+      de: 
+    options:
+    - playerLine:
+        key: 
+        pl: Tak! Spierdalaj
+        en: 
+        de: 
+      nextNodeId: 10
+      typeInteraction: 0
+    - playerLine:
+        key: 
+        pl: Nie?
+        en: 
+        de: 
+      nextNodeId: 2
+      typeInteraction: 0
+    exitNode: 0
+  - nodeId: 10
+    actionId: 
+    npcLine:
+    - key: 
+      pl: Co?
+      en: 
+      de: 
+    - key: "Jak mo\u017Cesz..."
+      pl: 
+      en: 
+      de: 
+    - key: 
+      pl: "Takiego mi\u0119\u015Bniaka jak ja to b\u0119dziesz \u017Ca\u0142owa\u0142.
+        Naura"
+      en: 
+      de: 
+    options: []
+    exitNode: 1
+  - nodeId: 2
+    actionId: 
+    npcLine:
+    - key: 
+      pl: "S\u0142ucham?"
+      en: 
+      de: 
+    options:
+    - playerLine:
+        key: 
+        pl: Co robisz w wolnym czasie?
+        en: 
+        de: 
+      nextNodeId: 4
+      typeInteraction: 0
+    - playerLine:
+        key: 
+        pl: Doswiadczenie zawodowe?
+        en: 
+        de: 
+      nextNodeId: 5
+      typeInteraction: 0
+    - playerLine:
+        key: 
+        pl: "Przejd\u017Amy do testow!"
+        en: 
+        de: 
+      nextNodeId: 6
+      typeInteraction: 0
+    exitNode: 0
+  - nodeId: 4
+    actionId: 
+    npcLine:
+    - key: 
+      pl: Lubie stopy...
+      en: 
+      de: 
+    - key: 
+      pl: "lubie par\xF3wki..."
+      en: 
+      de: 
+    - key: 
+      pl: Bije sie z kotem...
+      en: 
+      de: 
+    - key: 
+      pl: balsamuje mumina czasem...
+      en: 
+      de: 
+    options:
+    - playerLine:
+        key: 
+        pl: ...
+        en: 
+        de: 
+      nextNodeId: 2
+      typeInteraction: 0
+    exitNode: 0
+  - nodeId: 5
+    actionId: 
+    npcLine:
+    - key: 
+      pl: ubijam mnicha...
+      en: 
+      de: 
+    - key: 
+      pl: gotuje dla zony
+      en: 
+      de: 
+    - key: 
+      pl: cwicze cos tam, glownie szachy
+      en: 
+      de: 
+    options:
+    - playerLine:
+        key: 
+        pl: ...
+        en: 
+        de: 
+      nextNodeId: 2
+      typeInteraction: 0
+    exitNode: 0
+  - nodeId: 6
+    actionId: 
+    npcLine:
+    - key: 
+      pl: "Mam sie ba\u0107?"
+      en: 
+      de: 
+    options:
+    - playerLine:
+        key: 
+        pl: "Poka\u017C r\u0119ce"
+        en: 
+        de: 
+      nextNodeId: 7
+      typeInteraction: 1
+    - playerLine:
+        key: 
+        pl: (przejrzyj jego dane)
+        en: 
+        de: 
+      nextNodeId: 6
+      typeInteraction: 2
+    - playerLine:
+        key: 
+        pl: "Dobrze. To przejd\u017Amy do decyzji"
+        en: 
+        de: 
+      nextNodeId: 8
+      typeInteraction: 0
+    exitNode: 0
+  - nodeId: 7
+    actionId: 
+    npcLine:
+    - key: 
+      pl: "I co? Du\u017Ce"
+      en: 
+      de: 
+    - key: 
+      pl: "\u0106wicze moje przedramiona codziennie, balsamuj\u0105c mumina"
+      en: 
+      de: 
+    options:
+    - playerLine:
+        key: pc1
+        pl: ...
+        en: 
+        de: 
+      nextNodeId: 6
+      typeInteraction: 0
+    exitNode: 0
+  - nodeId: 8
+    actionId: 
+    npcLine:
+    - key: 
+      pl: To jak? Bierzesz mnie
+      en: 
+      de: 
+    options:
+    - playerLine:
+        key: 
+        pl: Tak
+        en: 
+        de: 
+      nextNodeId: 9
+      typeInteraction: 0
+    - playerLine:
+        key: 
+        pl: Nie
+        en: 
+        de: 
+      nextNodeId: 10
+      typeInteraction: 0
+    exitNode: 0
+  - nodeId: 9
+    actionId: 
+    npcLine:
+    - key: 
+      pl: "Super, ochroni\u0119 ten kraj moimi cyckami"
+      en: 
+      de: 
+    - key: 
+      pl: Dziekuje za zaufanie i zegnam
+      en: 
+      de: 
+    options: []
+    exitNode: 1

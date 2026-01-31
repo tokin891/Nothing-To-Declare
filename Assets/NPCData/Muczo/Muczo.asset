@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8dc4a063d2a7c6740bb90766467eb1ab, type: 3}
+  m_Name: Muczo
+  m_EditorClassIdentifier: Assembly-CSharp::NPCData
+  humanFace: {fileID: 0}
+  humanName: 'Giga '
+  humanSecondName: Chad
+  humanAge: 25
+  humanWeight: 85
+  humanHeight: 180
+  humanEyesColor: black
+  humanDate: 2000.01.01
+  humanGender: Male
+  humanAdditionalInfo: Lubi stopy
+  humanCountry: 0
+  humanID: 1
+  AllConscriptsNPC:
+  - {fileID: 11400000, guid: 52dda2277673ebc45bda2a893c3f004a, type: 2}
+  - {fileID: 11400000, guid: 3cb46cd96280ff24ca91bdcd9f40b8e4, type: 2}
