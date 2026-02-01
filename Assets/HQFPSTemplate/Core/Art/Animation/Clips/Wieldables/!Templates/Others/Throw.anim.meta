@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: c691e55d7e0e1a44988e0e1ee7eac4d1
+timeCreated: 1478349216
+licenseType: Store
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 177306
+  packageName: HQ FPS Template
+  packageVersion: 1.3.0.1
+  assetPath: Assets/HQFPSTemplate/Core/Art/Animation/Clips/Wieldables/!Templates/Others/Throw.anim
+  uploadId: 434594

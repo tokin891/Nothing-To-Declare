@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 63037c36aa56674438293d3667efcd3a
+timeCreated: 1478349216
+licenseType: Store
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 177306
+  packageName: HQ FPS Template
+  packageVersion: 1.3.0.1
+  assetPath: Assets/HQFPSTemplate/Core/Art/Animation/Clips/Wieldables/!Templates/Bows/Shoot
+    Arrow.anim
+  uploadId: 434594

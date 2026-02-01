@@ -260,13 +260,39 @@ MonoBehaviour:
         pl: Bierzemy ciebie
         en: 
         de: 
-      nextNodeId: 
+      nextNodeId: finish_get
       typeInteraction: 0
     - playerLine:
         key: 
         pl: Nie bierzemy Ciebie
         en: 
         de: 
-      nextNodeId: 
+      nextNodeId: finish_notget
       typeInteraction: 0
+    exitNode: 0
+  - nodeId: finish_get
+    actionId: 
+    npcLine:
+    - key: 
+      pl: Super, zly wybor
+      en: 
+      de: 
+    - key: 
+      pl: Rozwale ten kraj
+      en: 
+      de: 
+    options: []
+    exitNode: 1
+  - nodeId: finish_notget
+    actionId: 
+    npcLine:
+    - key: 
+      pl: No ale czemu!?
+      en: 
+      de: 
+    - key: 
+      pl: "Po\u017Ca\u0142ujesz tego"
+      en: 
+      de: 
+    options: []
     exitNode: 1

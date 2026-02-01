@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 1cee0a70c42f89f44ba4b62f9490d37d
+timeCreated: 1478349216
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 177306
+  packageName: HQ FPS Template
+  packageVersion: 1.3.0.1
+  assetPath: Assets/HQFPSTemplate/Core/Art/Animation/Clips/Wieldables/!Templates/!Core/Idle.anim
+  uploadId: 434594

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: d21a0895478122d4f9962a6520fa98aa
+timeCreated: 1481271693
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 177306
+  packageName: HQ FPS Template
+  packageVersion: 1.3.0.1
+  assetPath: Assets/HQFPSTemplate/Core/Art/Animation/Clips/User Interface/Gameplay/!Core/Loop_Empty.anim
+  uploadId: 434594

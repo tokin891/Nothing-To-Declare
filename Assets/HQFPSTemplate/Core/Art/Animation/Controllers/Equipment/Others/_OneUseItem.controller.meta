@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 0f70562277cafc2439947a60804d6400
+timeCreated: 1476207094
+licenseType: Store
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 177306
+  packageName: HQ FPS Template
+  packageVersion: 1.3.0.1
+  assetPath: Assets/HQFPSTemplate/Core/Art/Animation/Controllers/Equipment/Others/_OneUseItem.controller
+  uploadId: 434594

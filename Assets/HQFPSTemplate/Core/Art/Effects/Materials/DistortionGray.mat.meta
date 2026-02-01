@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: b7e4d9d496860ac4594483d6c44644f6
+timeCreated: 1489589585
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 177306
+  packageName: HQ FPS Template
+  packageVersion: 1.3.0.1
+  assetPath: Assets/HQFPSTemplate/Core/Art/Effects/Materials/DistortionGray.mat
+  uploadId: 434594

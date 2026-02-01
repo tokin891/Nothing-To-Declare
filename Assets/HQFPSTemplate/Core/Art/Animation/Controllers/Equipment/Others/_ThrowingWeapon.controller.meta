@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 8eea4d0d96005704ca5bb0b2ffced00f
+timeCreated: 1476207094
+licenseType: Store
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 177306
+  packageName: HQ FPS Template
+  packageVersion: 1.3.0.1
+  assetPath: Assets/HQFPSTemplate/Core/Art/Animation/Controllers/Equipment/Others/_ThrowingWeapon.controller
+  uploadId: 434594

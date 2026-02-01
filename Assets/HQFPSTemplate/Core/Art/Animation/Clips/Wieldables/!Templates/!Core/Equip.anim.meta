@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 6fcd4ef4b0dd5df49a09e341d846c3d2
+timeCreated: 1478349216
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 177306
+  packageName: HQ FPS Template
+  packageVersion: 1.3.0.1
+  assetPath: Assets/HQFPSTemplate/Core/Art/Animation/Clips/Wieldables/!Templates/!Core/Equip.anim
+  uploadId: 434594

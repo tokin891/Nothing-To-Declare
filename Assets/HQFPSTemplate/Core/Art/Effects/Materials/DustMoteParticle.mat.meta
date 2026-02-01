@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: e27a3e2f84809914fa5bf3a7ac14ce9f
+timeCreated: 1473686037
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 177306
+  packageName: HQ FPS Template
+  packageVersion: 1.3.0.1
+  assetPath: Assets/HQFPSTemplate/Core/Art/Effects/Materials/DustMoteParticle.mat
+  uploadId: 434594

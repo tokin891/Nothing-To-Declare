@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 19ba9f1e46df0da4aa609e306c076767
+timeCreated: 1521720591
+licenseType: Store
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 7400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 177306
+  packageName: HQ FPS Template
+  packageVersion: 1.3.0.1
+  assetPath: Assets/HQFPSTemplate/Core/Art/Animation/Clips/User Interface/Gameplay/HUD/Ammo/Ammo
+    Hide.anim
+  uploadId: 434594

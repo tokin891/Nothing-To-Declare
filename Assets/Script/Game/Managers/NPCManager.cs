@@ -33,6 +33,7 @@ public class NPCManager : MonoBehaviour
 
     private NPCData npcData;
     private NPCDataConscript npcDataConscript;
+    private Vector3 startPositionNPC;
 
     public Conscript CurrentConscript { get; private set; }
     public NPCObject CurrentNPCObject { get; private set; }
@@ -40,6 +41,7 @@ public class NPCManager : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+        startPositionNPC = Vector3.zero;
     }
 
     public void Initialize()
@@ -60,6 +62,7 @@ public class NPCManager : MonoBehaviour
 
     private IEnumerator ShowNPC()
     {
+        startPositionNPC = CurrentNPCObject.transform.position;
         CurrentNPCObject.gameObject.SetActive(true);
         while (Vector3.Distance(CurrentNPCObject.transform.position, targetPositionNPC.position) > 0.01f)
         {
@@ -70,6 +73,32 @@ public class NPCManager : MonoBehaviour
         CurrentNPCObject.transform.position = targetPositionNPC.position; // wyrównanie pozycji na koniec
         yield return new WaitForSeconds(1f);
         DialogueManager.Instance.StartDialogue(npcDataConscript.dialogueTree); // Open Dialogue
+    }
+
+    public void EndDialogue()
+    {
+        StartCoroutine(HideNPCCorutine());
+
+        // Logic stuff
+
+        // Clear 
+        npcData = null;
+        npcDataConscript = null;
+    }
+    private IEnumerator HideNPCCorutine()
+    {
+        yield return new WaitForSeconds(1.5f);  //Wait 3 second
+        
+        while (Vector3.Distance(CurrentNPCObject.transform.position, startPositionNPC) > 0.01f)
+        {
+            CurrentNPCObject.transform.position = Vector3.MoveTowards(CurrentNPCObject.transform.position, startPositionNPC, speed * Time.deltaTime);
+            yield return null; // czekaj do nastêpnej klatki
+        }
+
+        CurrentNPCObject.transform.position = startPositionNPC; // wyrównanie pozycji na koniec
+        CurrentNPCObject.gameObject.SetActive(false);
+        CurrentNPCObject = null;
+        startPositionNPC = Vector3.zero;
     }
 
     public void InteractionNode(PlayerInteractionType interactionType)

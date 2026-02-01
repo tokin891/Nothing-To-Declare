@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 540bad8439832bc44bb4b8554834474c
+timeCreated: 1488408949
+licenseType: Store
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 177306
+  packageName: HQ FPS Template
+  packageVersion: 1.3.0.1
+  assetPath: Assets/HQFPSTemplate/Core/Art/Animation/Controllers/Equipment/Melee
+    Weapons/_MeleeWeapon.controller
+  uploadId: 434594

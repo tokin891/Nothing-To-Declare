@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: fd335e08fffe73640b979b2a70d62984
+timeCreated: 1521362593
+licenseType: Store
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 7400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 177306
+  packageName: HQ FPS Template
+  packageVersion: 1.3.0.1
+  assetPath: Assets/HQFPSTemplate/Core/Art/Animation/Clips/Wieldables/!Templates/Bows/DrawArrow.anim
+  uploadId: 434594

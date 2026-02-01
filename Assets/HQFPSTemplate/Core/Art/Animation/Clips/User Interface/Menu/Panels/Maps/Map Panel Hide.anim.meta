@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: b6c4a0daa3b476c4fb376eb3427282d3
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 177306
+  packageName: HQ FPS Template
+  packageVersion: 1.3.0.1
+  assetPath: Assets/HQFPSTemplate/Core/Art/Animation/Clips/User Interface/Menu/Panels/Maps/Map
+    Panel Hide.anim
+  uploadId: 434594

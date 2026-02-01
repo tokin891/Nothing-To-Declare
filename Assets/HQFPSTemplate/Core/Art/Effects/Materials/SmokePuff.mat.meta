@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 1bb9961bd519b064e8e81c27bbc78109
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 177306
+  packageName: HQ FPS Template
+  packageVersion: 1.3.0.1
+  assetPath: Assets/HQFPSTemplate/Core/Art/Effects/Materials/SmokePuff.mat
+  uploadId: 434594

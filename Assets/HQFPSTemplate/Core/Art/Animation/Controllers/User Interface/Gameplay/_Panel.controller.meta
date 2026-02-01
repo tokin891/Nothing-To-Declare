@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 190f8b24ade8bdb44aac659cc7e5d313
+timeCreated: 1480062279
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 177306
+  packageName: HQ FPS Template
+  packageVersion: 1.3.0.1
+  assetPath: Assets/HQFPSTemplate/Core/Art/Animation/Controllers/User Interface/Gameplay/_Panel.controller
+  uploadId: 434594

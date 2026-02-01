@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: ccbaf3a8f5a7f994b80e5476ad81ba6c
+timeCreated: 1471944184
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 177306
+  packageName: HQ FPS Template
+  packageVersion: 1.3.0.1
+  assetPath: Assets/HQFPSTemplate/Core/Art/Effects/Materials/SmokeLightParticle.mat
+  uploadId: 434594

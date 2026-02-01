@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: c874006689ee2234da85bf462fc0ddae
+timeCreated: 1502354354
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 7400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 177306
+  packageName: HQ FPS Template
+  packageVersion: 1.3.0.1
+  assetPath: Assets/HQFPSTemplate/Core/Art/Animation/Clips/Wieldables/!Templates/Unarmed/LeftArmHold.anim
+  uploadId: 434594

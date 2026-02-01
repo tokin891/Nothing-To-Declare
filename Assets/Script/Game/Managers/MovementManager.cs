@@ -167,6 +167,8 @@ public class DeskState : IStateMovement
                 }
             }
         }
+
+        Cursor.lockState = CursorLockMode.None;
     }
 
     public void Exit()
@@ -255,6 +257,7 @@ public class MoveState : IStateMovement
                 }
             }
         }
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     public void Exit()

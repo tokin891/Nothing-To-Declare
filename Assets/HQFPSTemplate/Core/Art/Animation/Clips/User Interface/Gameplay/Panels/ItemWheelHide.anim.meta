@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 23a67636347f8424ebe2c4ee266a0d41
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 177306
+  packageName: HQ FPS Template
+  packageVersion: 1.3.0.1
+  assetPath: Assets/HQFPSTemplate/Core/Art/Animation/Clips/User Interface/Gameplay/Panels/ItemWheelHide.anim
+  uploadId: 434594

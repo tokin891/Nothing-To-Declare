@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: b367d6df9dfca974099bb40670f5ead9
+timeCreated: 1502354363
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 7400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 177306
+  packageName: HQ FPS Template
+  packageVersion: 1.3.0.1
+  assetPath: Assets/HQFPSTemplate/Core/Art/Animation/Clips/Wieldables/!Templates/Melee
+    Weapons/Swing 1.anim
+  uploadId: 434594
