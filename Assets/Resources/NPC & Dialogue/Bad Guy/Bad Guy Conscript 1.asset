@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: Bad Guy Conscript 1
+  m_EditorClassIdentifier: Assembly-CSharp::NPCDataConscript
+  NPCData: {fileID: 11400000, guid: fa19a2f3c9bc2194a98c1d811d06e893, type: 2}
+  humanConscript: 1
+  armSprite: {fileID: 21300000, guid: ac1317d00c9f3f2448674e251f1fc299, type: 3}
+  dialogueTree: {fileID: 11400000, guid: 1fea73264c635064688143b73bcfbc93, type: 2}

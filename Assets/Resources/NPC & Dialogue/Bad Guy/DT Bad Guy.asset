@@ -1,0 +1,272 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 783b0835035eaa841bcc8271612a153f, type: 3}
+  m_Name: DT Bad Guy
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueTree
+  NPCData: {fileID: 0}
+  nodes:
+  - nodeId: 1
+    actionId: 
+    npcLine:
+    - key: 
+      pl: "Dzie\u0144 dobry..."
+      en: 
+      de: 
+    options:
+    - playerLine:
+        key: 
+        pl: Witaj,
+        en: 
+        de: 
+      nextNodeId: start
+      typeInteraction: 0
+    - playerLine:
+        key: 
+        pl: "Witaj... Co\u015B blado wygl\u0105dasz?"
+        en: 
+        de: 
+      nextNodeId: blado
+      typeInteraction: 0
+    exitNode: 0
+  - nodeId: blado
+    actionId: BadGuy_Sprite_Stress
+    npcLine:
+    - key: 
+      pl: Blado!?
+      en: 
+      de: 
+    - key: 
+      pl: "Ostatnio mia\u0142em nie przespan\u0105 noc. Mo\u017Ce to dlatego"
+      en: 
+      de: 
+    options:
+    - playerLine:
+        key: 
+        pl: rozumiem...
+        en: 
+        de: 
+      nextNodeId: start
+      typeInteraction: 0
+    exitNode: 0
+  - nodeId: start
+    actionId: 
+    npcLine:
+    - key: 
+      pl: "Co mog\u0119 dla Pana zrobi\u0107"
+      en: 
+      de: 
+    options:
+    - playerLine:
+        key: 
+        pl: "Musze zada\u0107 Panu kilka pyta\u0144"
+        en: 
+        de: 
+      nextNodeId: question
+      typeInteraction: 0
+    exitNode: 0
+  - nodeId: question
+    actionId: 
+    npcLine:
+    - key: 
+      pl: "Pewnie, s\u0142ucham"
+      en: 
+      de: 
+    options:
+    - playerLine:
+        key: 
+        pl: "Jakie s\u0105 twoje zainteresowania?"
+        en: 
+        de: 
+      nextNodeId: hobby
+      typeInteraction: 0
+    - playerLine:
+        key: 
+        pl: "Czym si\u0119 zajmujesz?"
+        en: 
+        de: 
+      nextNodeId: job
+      typeInteraction: 0
+    - playerLine:
+        key: 
+        pl: "Czy by\u0142e\u015B os\u0105dzany"
+        en: 
+        de: 
+      nextNodeId: judged
+      typeInteraction: 0
+    - playerLine:
+        key: 
+        pl: "Przejd\u017Amy do test\xF3w"
+        en: 
+        de: 
+      nextNodeId: testy
+      typeInteraction: 0
+    exitNode: 0
+  - nodeId: hobby
+    actionId: 
+    npcLine:
+    - key: 
+      pl: "Gramy du\u017Co w gry"
+      en: 
+      de: 
+    - key: 
+      pl: "Co\u015B tam czasem \u0107wicz\u0119"
+      en: 
+      de: 
+    - key: 
+      pl: "Lubie gra\u0107 w pi\u0142k\u0119"
+      en: 
+      de: 
+    options:
+    - playerLine:
+        key: 
+        pl: okej...
+        en: 
+        de: 
+      nextNodeId: question
+      typeInteraction: 0
+    exitNode: 0
+  - nodeId: job
+    actionId: 
+    npcLine:
+    - key: 
+      pl: pracuje w McDonald
+      en: 
+      de: 
+    - key: 
+      pl: "Zarabiam na now\u0105 kart\u0119 graficzn\u0105 RTX 8090 TI Monster Edition"
+      en: 
+      de: 
+    options:
+    - playerLine:
+        key: 
+        pl: ...
+        en: 
+        de: 
+      nextNodeId: question
+      typeInteraction: 0
+    exitNode: 0
+  - nodeId: judged
+    actionId: BadGuy_Sprite_Stress
+    npcLine:
+    - key: 
+      pl: Emmm...
+      en: 
+      de: 
+    - key: 
+      pl: "T-ak by...\u0142em"
+      en: 
+      de: 
+    - key: 
+      pl: "Ale to tylko ma\u0142a sprawa"
+      en: 
+      de: 
+    options:
+    - playerLine:
+        key: 
+        pl: "Chcesz opowiedzie\u0107 wi\u0119cej?"
+        en: 
+        de: 
+      nextNodeId: judge2
+      typeInteraction: 0
+    - playerLine:
+        key: 
+        pl: okej...
+        en: 
+        de: 
+      nextNodeId: question
+      typeInteraction: 0
+    exitNode: 0
+  - nodeId: judge2
+    actionId: 
+    npcLine:
+    - key: 
+      pl: Bylem gdzies tam kiedys...
+      en: 
+      de: 
+    - key: 
+      pl: i ktos mi popchnal
+      en: 
+      de: 
+    - key: 
+      pl: ja go tez popchnalem
+      en: 
+      de: 
+    - key: 
+      pl: zaczelo sie robic niebezpiecznie
+      en: 
+      de: 
+    - key: 
+      pl: musialem uzyc broni
+      en: 
+      de: 
+    options:
+    - playerLine:
+        key: 
+        pl: ...
+        en: 
+        de: 
+      nextNodeId: question
+      typeInteraction: 0
+    exitNode: 0
+  - nodeId: testy
+    actionId: 
+    npcLine:
+    - key: 
+      pl: Jakie testy?
+      en: 
+      de: 
+    options:
+    - playerLine:
+        key: 
+        pl: "poka\u017C r\u0119ce?"
+        en: 
+        de: 
+      nextNodeId: testy
+      typeInteraction: 1
+    - playerLine:
+        key: 
+        pl: (przejrzyj dane)
+        en: 
+        de: 
+      nextNodeId: testy
+      typeInteraction: 2
+    - playerLine:
+        key: 
+        pl: (zadecyduj)
+        en: 
+        de: 
+      nextNodeId: finish
+      typeInteraction: 0
+    exitNode: 0
+  - nodeId: finish
+    actionId: 
+    npcLine:
+    - key: 
+      pl: Co teraz?
+      en: 
+      de: 
+    options:
+    - playerLine:
+        key: 
+        pl: Bierzemy ciebie
+        en: 
+        de: 
+      nextNodeId: 
+      typeInteraction: 0
+    - playerLine:
+        key: 
+        pl: Nie bierzemy Ciebie
+        en: 
+        de: 
+      nextNodeId: 
+      typeInteraction: 0
+    exitNode: 1
