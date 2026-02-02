@@ -18,6 +18,7 @@ public class Revolver : MonoBehaviour
     private float catchNextRayTriggerTime;
     private Camera cam;
     private bool doNotLoop;
+    private bool cantShoot;
 
     private void Awake()
     {
@@ -75,11 +76,11 @@ public class Revolver : MonoBehaviour
             revolverAnm[i].SetTrigger("shoot");
         }
         StartCoroutine(ShootCorutine(shootingObj));
-        MovementManager.instance.RemoveBullet();
     }
 
     private IEnumerator ShootCorutine(IShootable shootingObj)
     {
+        cantShoot = true;
         yield return new WaitForSeconds(0.1f);
         flashCanvas.alpha = 0f;
         while(flashCanvas.alpha < 1f)
@@ -88,6 +89,7 @@ public class Revolver : MonoBehaviour
             yield return null;
         }
         shootingObj.Shoot();
+        MovementManager.instance.RemoveBullet();
         flashCanvas.alpha = 1f;
         while (flashCanvas.alpha > 0f)
         {
@@ -98,6 +100,7 @@ public class Revolver : MonoBehaviour
         yield return new WaitForSeconds(2.5f);
         MovementManager.instance.SwitchState(MovementManager.instance.DeskState, true);
         GameManager.Instance.SetupNPCWithDelay(4);
+        cantShoot = false;
     }
 
     private bool IsRayCatchingSomething()
@@ -116,6 +119,9 @@ public class Revolver : MonoBehaviour
 
     public void TryShoot()
     {
+        if (cantShoot)
+            return;
+
         if (catchNextRayTriggerTime < Time.time)
         {
             catchNextRayTriggerTime = Time.time + 2.5f;

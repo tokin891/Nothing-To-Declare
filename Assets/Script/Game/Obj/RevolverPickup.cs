@@ -117,20 +117,27 @@ public class RevolverPickup : MonoBehaviour
         if (coroutineEnd != null)
             StopCoroutine(coroutineEnd);
 
+        readyToPick = true;
         Vector3 targetPos = awakePos + offsetPosHighlight;
+        bool fastClick = false;
 
         light.intensity = lightIntensityAwake + offsetLightIntenstiyHighligh;
 
         while (Vector3.Distance(transform.position, targetPos) > 0.005f)
         {
             transform.position = Vector3.Lerp(transform.position, targetPos, smoothHighlight * Time.deltaTime);
+            if(isClick)
+            {
+                transform.position = targetPos;
+                fastClick = true;
+            }
             yield return null;
         }
 
         transform.position = targetPos;
-        readyToPick = true;
-        yield return new WaitUntil(() => isClick);
+        yield return new WaitUntil(() => (isClick == true||fastClick));
         isClick = false;
+        fastClick = false;
 
         MovementManager.instance.SwitchState(MovementManager.instance.ShootState, true);
     }
