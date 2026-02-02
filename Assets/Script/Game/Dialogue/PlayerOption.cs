@@ -9,5 +9,6 @@ public enum PlayerInteractionType
 {
     None,
     Arms,
-    Files
+    Files,
+    Shoot
 }

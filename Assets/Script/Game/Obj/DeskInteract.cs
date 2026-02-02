@@ -14,6 +14,6 @@ public class DeskInteract : MonoBehaviour, IInteract
     {
         MovementManager.instance.SwitchState(MovementManager.instance.DeskState, true);
         yield return new WaitForSeconds(waitForCandidant);
-        NPCManager.Instance.Initialize();
+        GameManager.Instance.SetupNPC();
     }
 }

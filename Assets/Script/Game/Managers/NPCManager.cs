@@ -11,7 +11,7 @@ public class NPCManager : MonoBehaviour
     [Header("NPC References")]
     [SerializeField] float speed;
     [SerializeField] Transform targetPositionNPC;
-    [SerializeField] NPCObject[] allNPCs;
+    public NPCObject[] allNPCs;
 
     [Header("File")]
     [SerializeField] GameObject fileContainer;
@@ -38,26 +38,23 @@ public class NPCManager : MonoBehaviour
     public Conscript CurrentConscript { get; private set; }
     public NPCObject CurrentNPCObject { get; private set; }
 
+    private Coroutine coroutineEnd;
+    private Coroutine coroutineStart;
+
     private void Awake()
     {
         Instance = this;
         startPositionNPC = Vector3.zero;
     }
 
-    public void Initialize()
+    public void SetupNPC(NPCObject npcObj)
     {
-        CurrentNPCObject = allNPCs[Random.Range(0,allNPCs.Length)];
-
-        SetupNPC(CurrentNPCObject.NPCDatas);
-    }
-
-    public void SetupNPC(NPCData npc)
-    {
-        npcData = npc;
-        npcDataConscript = npc.AllConscriptsNPC[Random.Range(0, npc.AllConscriptsNPC.Length)];
+        CurrentNPCObject = npcObj;
+        npcData = npcObj.NPCDatas;
+        npcDataConscript = npcData.AllConscriptsNPC[Random.Range(0, npcData.AllConscriptsNPC.Length)];
         CurrentConscript = npcDataConscript.humanConscript;
         Debug.Log("Conscript: " + npcDataConscript.humanConscript.ToString());
-        StartCoroutine(ShowNPC());
+        coroutineStart = StartCoroutine(ShowNPC());
     }
 
     private IEnumerator ShowNPC()
@@ -77,13 +74,7 @@ public class NPCManager : MonoBehaviour
 
     public void EndDialogue()
     {
-        StartCoroutine(HideNPCCorutine());
-
-        // Logic stuff
-
-        // Clear 
-        npcData = null;
-        npcDataConscript = null;
+        coroutineEnd = StartCoroutine(HideNPCCorutine());
     }
     private IEnumerator HideNPCCorutine()
     {
@@ -95,7 +86,23 @@ public class NPCManager : MonoBehaviour
             yield return null; // czekaj do nastêpnej klatki
         }
 
-        CurrentNPCObject.transform.position = startPositionNPC; // wyrównanie pozycji na koniec
+        ClearDialogueNPC();
+    }
+
+    public void ClearDialogueNPC()
+    {
+        if (coroutineEnd != null)
+        {
+            StopCoroutine(coroutineEnd);
+        }
+        if (coroutineStart != null)
+        {
+            StopCoroutine(coroutineStart);
+        }
+        npcData = null;
+        npcDataConscript = null;
+
+        CurrentNPCObject.transform.position = startPositionNPC;
         CurrentNPCObject.gameObject.SetActive(false);
         CurrentNPCObject = null;
         startPositionNPC = Vector3.zero;
@@ -110,6 +117,9 @@ public class NPCManager : MonoBehaviour
                 break;
             case PlayerInteractionType.Arms:
                 ShowArms(npcData);
+                break;
+            case PlayerInteractionType.Shoot:
+                MovementManager.instance.SwitchState(MovementManager.instance.ShootState, true);
                 break;
         }
     }

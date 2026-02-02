@@ -9,10 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: 66cba58b592c59a44b33354238ae3a9a, type: 3}
   m_Name: Bad Guy Conscript 1
   m_EditorClassIdentifier: Assembly-CSharp::NPCDataConscript
   NPCData: {fileID: 11400000, guid: fa19a2f3c9bc2194a98c1d811d06e893, type: 2}
-  humanConscript: 1
+  humanConscript: 0
   armSprite: {fileID: 21300000, guid: ac1317d00c9f3f2448674e251f1fc299, type: 3}
   dialogueTree: {fileID: 11400000, guid: 1fea73264c635064688143b73bcfbc93, type: 2}

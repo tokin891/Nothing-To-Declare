@@ -32,7 +32,7 @@ MonoBehaviour:
         en: 
         de: 
       nextNodeId: jolkaDilemma
-      typeInteraction: 0
+      typeInteraction: 3
     exitNode: 0
   - nodeId: jolkaDilemma
     actionId: 
@@ -48,7 +48,7 @@ MonoBehaviour:
         en: 
         de: 
       nextNodeId: strictPose
-      typeInteraction: 0
+      typeInteraction: 3
     - playerLine:
         key: 
         pl: "Ale\u017C tak, Mateusz, czekaj sprawdz\u0119 co\u015B (si\u0119ga do
@@ -83,7 +83,7 @@ MonoBehaviour:
         en: 
         de: 
       nextNodeId: boomHeadshot
-      typeInteraction: 0
+      typeInteraction: 3
     - playerLine:
         key: 
         pl: "yhh tak, prosz\u0119 odprowadzi\u0107 tego Pana do wytrze\u017Awia\u0142ki."
@@ -91,7 +91,7 @@ MonoBehaviour:
         de: 
       nextNodeId: guardOnMission
       typeInteraction: 0
-    exitNode: 1
+    exitNode: 0
   - nodeId: adamDocument
     actionId: 
     npcLine:
@@ -176,7 +176,7 @@ MonoBehaviour:
       en: 
       de: 
     options: []
-    exitNode: 1
+    exitNode: 0
   - nodeId: guardOnMission
     actionId: 
     npcLine:

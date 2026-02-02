@@ -32,19 +32,6 @@ public class NPCData : ScriptableObject
     }
 }
 
-[Serializable, CreateAssetMenu(menuName ="NPC/Create Conscript NPC")]
-public class NPCDataConscript:ScriptableObject
-{
-    public NPCData NPCData;
-    public Conscript humanConscript;
-
-    [Header("Interaction")]
-    public Sprite armSprite;
-
-    [Header("Dialogue")]
-    public DialogueTree dialogueTree;
-}
-
 public enum CountryHuman
 {
     Poland,
@@ -55,5 +42,6 @@ public enum CountryHuman
 public enum Conscript
 {
     Good,
-    Bad
+    Bad,
+    Killer
 }

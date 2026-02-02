@@ -12,6 +12,7 @@ public class PlayerMove : MonoBehaviour
     public float sensitivity = 2f; 
     public float verticalClamp = 80f; 
     private float pitch = 0f;
+    [SerializeField] bool lockMove;
 
     [Header("Input Actions")]
     public InputActionReference moveAction;
@@ -43,6 +44,9 @@ public class PlayerMove : MonoBehaviour
 
     private void Move()
     {
+        if (lockMove)
+            return;
+
         // Input
         Vector2 input = moveAction.action.ReadValue<Vector2>();
         Vector3 move = new Vector3(input.x, 0, input.y);

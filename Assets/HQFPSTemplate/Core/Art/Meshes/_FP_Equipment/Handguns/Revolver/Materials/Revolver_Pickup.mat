@@ -208,8 +208,8 @@ Material:
     m_Ints: []
     m_Floats:
     - _AOIntensityReversed: 0.347
-    - _AORemapMax: 1
-    - _AORemapMin: 0
+    - _AORemapMax: 0.95911944
+    - _AORemapMin: 0.20125785
     - _ASEOutlineWidth: 0
     - _ATDistance: 1
     - _AddPrecomputedVelocity: 1
@@ -317,7 +317,7 @@ Material:
     - _SSRefractionProjectionModel: 0
     - _Smoothness: 0.5
     - _SmoothnessIntensity: 0.85
-    - _SmoothnessRemapMax: 0.92846024
+    - _SmoothnessRemapMax: 0.06682503
     - _SmoothnessRemapMin: 0
     - _SmoothnessTextureChannel: 0
     - _SpecularAAScreenSpaceVariance: 0.1

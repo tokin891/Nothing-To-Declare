@@ -22,13 +22,13 @@ public class DialogueManager : MonoBehaviour
     private bool interactionAreOpen = false;
     private PlayerInteractionType playerInteractionType = PlayerInteractionType.None;
 
-    public delegate void OnEndDialogue();
+    private Coroutine dialogueCorutine;
 
     private void Awake()
     {
         Instance = this;
         dialogueParent.SetActive(false);
-        
+        dialoguePOList = new List<GameObject>();
     }
 
     private void OnEnable()
@@ -36,11 +36,7 @@ public class DialogueManager : MonoBehaviour
         
     }
 
-    public void Initialize()
-    {
-        dialoguePOList = new List<GameObject>();
-    }
-
+    // Trigger By NPCManager
     public void StartDialogue(DialogueTree tree)
     {
         dialogueTree = tree;
@@ -50,13 +46,21 @@ public class DialogueManager : MonoBehaviour
 
     public void ChoseDialogueByID(string id, PlayerInteractionType pit = PlayerInteractionType.None)
     {
-        StartCoroutine(Dialogue(dialogueTree.GetNode(id), pit));
+        dialogueCorutine = StartCoroutine(Dialogue(dialogueTree.GetNode(id), pit));
     }
 
     private IEnumerator Dialogue(DialogueNode node, PlayerInteractionType pit)
     {
         dialogueParent.SetActive(true);
-        if(pit != PlayerInteractionType.None)
+        if (playerInteractionType == PlayerInteractionType.Shoot)
+        {
+            if (MovementManager.instance.CurrentBullet > 0)
+            {
+                interactionAreOpen = true;
+                StopCoroutine(dialogueCorutine);
+                NPCManager.Instance.InteractionNode(pit);
+            }
+        }else if (pit != PlayerInteractionType.None)
         {
             interactionAreOpen = true;
             NPCManager.Instance.InteractionNode(pit);
@@ -123,11 +127,14 @@ public class DialogueManager : MonoBehaviour
         {
             yield return new WaitUntil(() => Input.GetMouseButtonDown(0));
             EndDialogue();
+            NPCManager.Instance.EndDialogue();
         }
     }
 
-    private void EndDialogue()
+    public void EndDialogue()
     {
+        if(dialogueCorutine != null)
+            StopCoroutine(dialogueCorutine);
         currentNode = null;
         dialogueTree = null;
 
@@ -142,7 +149,7 @@ public class DialogueManager : MonoBehaviour
         }
         dialogueText.text = "";
         dialogueParent.gameObject.SetActive(false);
-        NPCManager.Instance.EndDialogue();
+        interactionAreOpen = false;
     }
 
     private void RunAction(string id)

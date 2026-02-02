@@ -15,41 +15,40 @@ public class MovementManager : MonoBehaviour
 
     [SerializeField] Transform playerTransformDesk;
     [SerializeField] DataState dataState;
+    [SerializeField] GameObject[] allBuletsObject;
 
     public MoveState MoveState { private set; get; }
     public DeskState DeskState { private set; get; }
+    public ShootState ShootState { private set; get; }
 
-    private IStateMovement currentState;
+    public IStateMovement CurrentState { private set; get; }
+    public int CurrentBullet { private set; get; }
     private float nextTimeToUpdate;
+    private int maxBullet;
 
     private void Awake()
     {
+        maxBullet = allBuletsObject.Length;
+        CurrentBullet = maxBullet;
         instance = this;
         Center();
 
         MoveState = new MoveState(dataState, playerTransformDesk);
         DeskState = new DeskState(dataState);
+        ShootState = new ShootState(dataState, playerTransformDesk);
         MoveState.Exit();
         DeskState.Exit();
+        ShootState.Exit();
         SwitchState(MoveState);
     }
 
     private void Update()
     {
-        if (currentState != null && nextTimeToUpdate < Time.time)
+        if (CurrentState != null && nextTimeToUpdate < Time.time)
         {
             // Update aktualizowany co 0.25s dla optymalizacji
-            currentState.Update();
+            CurrentState.Update();
             nextTimeToUpdate = Time.time + 0.25f;
-        }
-
-        if(Input.GetKeyDown(KeyCode.K))
-        {
-            SwitchState(DeskState, true);
-        }
-        if(Input.GetKeyDown(KeyCode.J))
-        {
-            SwitchState(MoveState, true);
         }
     }
 
@@ -83,7 +82,7 @@ public class MovementManager : MonoBehaviour
 
     public void SwitchState(IStateMovement state, bool withFade = false)
     {
-        if (state == currentState)
+        if (state == CurrentState)
             return;
 
         Debug.Log("Start swtch state");
@@ -93,10 +92,10 @@ public class MovementManager : MonoBehaviour
             return;
         }
 
-        currentState?.Exit();
+        CurrentState?.Exit();
 
-        currentState = state;
-        currentState.Enter();
+        CurrentState = state;
+        CurrentState.Enter();
     }
 
     private IEnumerator SwitchStateFade(IStateMovement state)
@@ -104,20 +103,28 @@ public class MovementManager : MonoBehaviour
         while(canvasGroupFade.alpha < 1f)
         {
             canvasGroupFade.alpha += speedFade * Time.deltaTime;
-            Debug.Log("alpha: " +  canvasGroupFade.alpha);
             yield return null;
         }
         canvasGroupFade.alpha = 1f;
-        currentState?.Exit();
+        CurrentState?.Exit();
 
-        currentState = state;
-        currentState.Enter();
+        CurrentState = state;
+        CurrentState.Enter();
         while (canvasGroupFade.alpha > 0)
         {
             canvasGroupFade.alpha -= speedFade * Time.deltaTime;
             yield return null;
         }
         canvasGroupFade.alpha = 0f;
+    }
+
+    public void RemoveBullet()
+    {
+        if(CurrentBullet > 0)
+        {
+            allBuletsObject[CurrentBullet-1].gameObject.SetActive(false);
+            CurrentBullet--;
+        }
     }
 }
 
@@ -169,6 +176,7 @@ public class DeskState : IStateMovement
         }
 
         Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 
     public void Exit()
@@ -258,6 +266,7 @@ public class MoveState : IStateMovement
             }
         }
         Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     public void Exit()
@@ -298,17 +307,109 @@ public class MoveState : IStateMovement
     }
 }
 
+public class ShootState : IStateMovement
+{
+    private DataState dataState;
+    Transform playerTransformDesk;
+
+    public ShootState(DataState dataState, Transform playerTransformDesk)
+    {
+        this.dataState = dataState;
+        this.playerTransformDesk = playerTransformDesk;
+    }
+
+    public void Enter()
+    {
+        if(MovementManager.instance.CurrentBullet <= 0)
+        {
+            MovementManager.instance.SwitchState(MovementManager.instance.DeskState);
+            return;
+        }
+
+        if (dataState == null)
+        {
+            return;
+        }
+        if (dataState.playerShoot != null)
+        {
+            dataState.playerShoot.SetActive(true);
+        }
+        if (dataState.objectActiveWhenShoot != null)
+        {
+            if (dataState.objectActiveWhenShoot.Length > 0)
+            {
+                for (int i = 0; i < dataState.objectActiveWhenShoot.Length; i++)
+                {
+                    dataState.objectActiveWhenShoot[i].SetActive(true);
+                }
+            }
+        }
+        if (dataState.lightsActiveWhenShoot != null)
+        {
+            if (dataState.lightsActiveWhenShoot.Length > 0)
+            {
+                for (int i = 0; i < dataState.lightsActiveWhenShoot.Length; i++)
+                {
+                    dataState.lightsActiveWhenShoot[i].gameObject.SetActive(true);
+                }
+            }
+        }
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+    }
+
+    public void Exit()
+    {
+        if (dataState == null)
+        {
+            return;
+        }
+        if (dataState.playerShoot != null)
+        {
+            dataState.playerShoot.SetActive(false);
+        }
+        if (dataState.objectActiveWhenShoot != null)
+        {
+            if (dataState.objectActiveWhenShoot.Length > 0)
+            {
+                for (int i = 0; i < dataState.objectActiveWhenShoot.Length; i++)
+                {
+                    dataState.objectActiveWhenShoot[i].SetActive(false);
+                }
+            }
+        }
+        if (dataState.lightsActiveWhenShoot != null)
+        {
+            if (dataState.lightsActiveWhenShoot.Length > 0)
+            {
+                for (int i = 0; i < dataState.lightsActiveWhenShoot.Length; i++)
+                {
+                    dataState.lightsActiveWhenShoot[i].gameObject.SetActive(false);
+                }
+            }
+        }
+    }
+
+    public void Update()
+    {
+        
+    }
+}
+
 [Serializable]
 public class DataState
 {
     public GameObject playerMove;
     public GameObject playerDesk;
+    public GameObject playerShoot;
 
     public Light[] lightsActiveWhenMove;
     public Light[] lightsActiveWhenSit;
+    public Light[] lightsActiveWhenShoot;
 
     public GameObject[] objectActiveWhenMove;
     public GameObject[] objectActiveWhenSit;
+    public GameObject[] objectActiveWhenShoot;
 
     public bool doNotResetPlayerMovePositionFirstTime = true;
 }
