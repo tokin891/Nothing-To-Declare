@@ -13,6 +13,7 @@ public class Revolver : MonoBehaviour
     [SerializeField] float flashFadeInSpeed = 0.001f;
     [SerializeField] float flashFadeOutSpeed = 0.1f;
     [SerializeField] CanvasGroup flashCanvas;
+    [SerializeField] AudioClip shootClip;
 
     private float catchNextRayTime;
     private float catchNextRayTriggerTime;
@@ -81,6 +82,7 @@ public class Revolver : MonoBehaviour
     private IEnumerator ShootCorutine(IShootable shootingObj)
     {
         cantShoot = true;
+        SoundsManager.instance.PlayOneTimeClip(shootClip, 0.75f);
         yield return new WaitForSeconds(0.1f);
         flashCanvas.alpha = 0f;
         while(flashCanvas.alpha < 1f)

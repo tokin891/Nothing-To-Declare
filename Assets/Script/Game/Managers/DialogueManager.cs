@@ -16,6 +16,7 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] GameObject dialogueParent;
     [SerializeField] TMP_Text dialogueText;
     [SerializeField] float speedShowingText = 1;
+    [SerializeField] AudioClip typingClip;
 
     private DialogueTree dialogueTree;
     private DialogueNode currentNode;
@@ -119,6 +120,7 @@ public class DialogueManager : MonoBehaviour
             char[] dialogueTextInChar = node.npcLine[i].Get().ToCharArray();
             dialogueText.text = NPCManager.Instance.CurrentNPCObject.NPCDatas.humanName + ": ";
             float waitForNextChar = 0f;
+            SoundsManager.instance.PlayOneTimeClipWithoutDestroying(typingClip, 0.6f, true);
             for (int j = 0; j < dialogueTextInChar.Length; j++)
             {
                 while (waitForNextChar > 0)
@@ -129,6 +131,7 @@ public class DialogueManager : MonoBehaviour
                 dialogueText.text += dialogueTextInChar[j];
                 waitForNextChar = speedShowingText;
             }
+            SoundsManager.instance.DestroyAudioSourceByClipFromAdditionalAudio(typingClip);
             Debug.Log("First dialogue ");
             countDialogs--;
             if (countDialogs != 0)

@@ -10,7 +10,7 @@ public class SoundsManager : MonoBehaviour
     [SerializeField] float speedTuningMainAmbient;
     [SerializeField] float targetVolumeMainAmbient = 0.65f;
 
-    [SerializeField] AudioSource mainAmbientSource;
+    public AudioSource mainAmbientSource;
 
     private List<AudioSource> additionalAmbientSource = new List<AudioSource>();
 
@@ -39,14 +39,18 @@ public class SoundsManager : MonoBehaviour
 
     private void PlayMainAmbient()
     {
-        StartCoroutine(PlaySound(mainAmbientSource, mainAmbient, speedTuningMainAmbient, targetVolumeMainAmbient, true));
+        StartCoroutine(SetVolumeAudioSourceAndPlay(mainAmbientSource, speedTuningMainAmbient, targetVolumeMainAmbient, true, mainAmbient));
     }
 
-    private IEnumerator PlaySound(AudioSource source, AudioClip clip, float speedAmplify, float targetValue, bool loop, float delay = 0, bool destroyAfterEnd = false)
+    private IEnumerator SetVolumeAudioSourceAndPlay(AudioSource source, float speedAmplify, float targetValue, bool loop, AudioClip clip = null, float delay = 0, bool destroyAfterEnd = false)
     {
-        source.clip = clip;
+        float volumeStart = source.volume;
+        if(clip != null)
+        {
+            source.clip = clip;
+            source.Play();
+        }
         source.loop = loop;
-        source.Play();
 
         float volume = source.volume;
         bool AddVolume = true;
@@ -65,17 +69,65 @@ public class SoundsManager : MonoBehaviour
 
         if(delay != 0)
         {
-            StartCoroutine(PlaySound(source, clip, speedAmplify, 0, false,0,true));
+            yield return new WaitForSeconds(delay);
+            StartCoroutine(SetVolumeAudioSourceAndPlay(source, speedAmplify, 0, false, null, 0, true));
         }
         if (destroyAfterEnd)
         {
             Destroy(source.gameObject);
         }
     }
+    private IEnumerator SetVolumeAudioSourceAndReturnIt(AudioSource source, float speedAmplify, float targetValue, bool loop,float delay, AudioClip clip = null)
+    {
+        float volumeStart = source.volume;
+        Coroutine cr = StartCoroutine(SetVolumeAudioSourceAndPlay(source, speedAmplify, targetValue, loop, clip));
+        yield return new WaitForSeconds(delay);
+        if (cr != null)
+        {
+            StopCoroutine(cr);
+        }
+        StartCoroutine(SetVolumeAudioSourceAndPlay(source, speedAmplify, volumeStart, loop, clip));
+    }
+
+    private IEnumerator PlayAudio(AudioSource source, AudioClip clip, float targetValue, bool destroy, bool loop)
+    {
+        source.volume = targetValue;
+        source.clip = clip; 
+        source.loop = loop;
+        source.Play();
+        if (destroy)
+        {
+            yield return new WaitForSeconds(clip.length);
+            Destroy(source.gameObject);
+        }
+    }
 
     public void PlayAudio(AudioClip clip, float speedAmplify, float targetValue, bool loop, float delay)
     {
-        StartCoroutine(PlaySound(GetAdditionalAudioSource(), clip, speedAmplify, targetValue, loop, delay));
+        StartCoroutine(SetVolumeAudioSourceAndPlay(GetAdditionalAudioSource(), speedAmplify, targetValue, loop, clip,delay));
+    }
+
+    public void PlayAudioAndBlendWithAudioSourceForTime(AudioClip clip, float speedAmplify, float targetValue, bool loop, float delay, AudioSource blendSource, float blendTargetValue)
+    {
+        StartCoroutine(SetVolumeAudioSourceAndReturnIt(blendSource, speedAmplify, blendTargetValue, true, delay));
+        StartCoroutine(SetVolumeAudioSourceAndPlay(GetAdditionalAudioSource(), speedAmplify, targetValue, loop, clip, delay));
+    }
+
+    public void PlayOneTimeClip(AudioClip clip, float targetValue)
+    {
+        StartCoroutine(PlayAudio(GetAdditionalAudioSource(), clip, targetValue, true, false));
+    }
+
+    public void PlayOneTimeClipWithoutDestroying(AudioClip clip, float targetValue, bool loop)
+    {
+        StartCoroutine(PlayAudio(GetAdditionalAudioSource(), clip, targetValue, false, loop));
+    }
+
+    public void DestroyAudioSourceByClipFromAdditionalAudio(AudioClip clip)
+    {
+        foreach (AudioSource source in additionalAmbientSource)
+            if (source != null && source.clip == clip)
+                Destroy(source.gameObject);
     }
 
     private AudioSource GetAdditionalAudioSource()
@@ -91,7 +143,7 @@ public class SoundsManager : MonoBehaviour
     {
         for (int i = 0; i < additionalAmbientSource.Count; i++)
         {
-            if (additionalAmbientSource[i].volume == 0)
+            if (additionalAmbientSource[i] != null && additionalAmbientSource[i].volume == 0)
                 Destroy(additionalAmbientSource[i]);
         }
     }

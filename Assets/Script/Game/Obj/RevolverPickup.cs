@@ -10,6 +10,8 @@ public class RevolverPickup : MonoBehaviour
     [SerializeField] float offsetLightIntenstiyHighligh = 1f;
     [SerializeField] InputActionReference InputAction;
     [SerializeField] Camera camDesk;
+    [SerializeField] AudioClip clipWhosh;
+    [SerializeField] AudioClip clipEquip;
 
 
     private Vector3 awakePos;
@@ -22,6 +24,7 @@ public class RevolverPickup : MonoBehaviour
     private float updateOptimization;
     private GameObject objectHit;
     private bool readyToPick;
+    private float nextTimeToPlayWhoshSound;
 
     private void Awake()
     {
@@ -116,6 +119,11 @@ public class RevolverPickup : MonoBehaviour
     {
         if (coroutineEnd != null)
             StopCoroutine(coroutineEnd);
+        if (nextTimeToPlayWhoshSound < Time.time)
+        {
+            SoundsManager.instance.PlayOneTimeClip(clipWhosh, 0.35f);
+            nextTimeToPlayWhoshSound = Time.time + 1f;
+        }
 
         readyToPick = true;
         Vector3 targetPos = awakePos + offsetPosHighlight;
@@ -140,6 +148,7 @@ public class RevolverPickup : MonoBehaviour
         fastClick = false;
 
         MovementManager.instance.SwitchState(MovementManager.instance.ShootState, true);
+        SoundsManager.instance.PlayOneTimeClip(clipEquip, 0.35f);
     }
 
     private IEnumerator Exit()

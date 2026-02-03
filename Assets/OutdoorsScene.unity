@@ -2404,6 +2404,38 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6747867465220865863, guid: c2463a2a0928ea44b8994acb7b94ac4a, type: 3}
   m_PrefabInstance: {fileID: 371975512}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &420135363
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 420135364}
+  m_Layer: 0
+  m_Name: Audio
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &420135364
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 420135363}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -5.68588, y: 2.38796, z: 12.53147}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1684240055}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &423048191
 GameObject:
   m_ObjectHideFlags: 0
@@ -3012,6 +3044,8 @@ MonoBehaviour:
   offsetLightIntenstiyHighligh: 0.5
   InputAction: {fileID: 820343162}
   camDesk: {fileID: 1823688466}
+  clipWhosh: {fileID: 8300000, guid: 7731878a15994dd42a8b6e77879facbb, type: 3}
+  clipEquip: {fileID: 8300000, guid: d4f6c8781400ed249a677bf9e029ca1e, type: 3}
 --- !u!1 &601628079
 GameObject:
   m_ObjectHideFlags: 0
@@ -4998,6 +5032,7 @@ MonoBehaviour:
   flashFadeInSpeed: 12
   flashFadeOutSpeed: 3
   flashCanvas: {fileID: 1809187166}
+  shootClip: {fileID: 8300000, guid: cd11b4f5312e8ee48a0f42f130c4ffeb, type: 3}
 --- !u!1 &982241783
 GameObject:
   m_ObjectHideFlags: 0
@@ -6962,6 +6997,7 @@ MonoBehaviour:
   dialogueParent: {fileID: 1860823678}
   dialogueText: {fileID: 1414020359}
   speedShowingText: 0.05
+  typingClip: {fileID: 8300000, guid: 2a0d33b6344af2c41b394aea4a95ad36, type: 3}
 --- !u!1 &1196670568
 GameObject:
   m_ObjectHideFlags: 0
@@ -7022,6 +7058,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BadGuyNPC
   stressMaterial: {fileID: 2100000, guid: a73c526c862b9fe4bb2a9eb86f2d07a8, type: 2}
+  clipMusic: {fileID: 8300000, guid: 2eb06f86bec1d6340861c154845381cd, type: 3}
+  speedTuningMusic: 0.025
 --- !u!1 &1199892511 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -7862391691550088030, guid: ca394b71de7749f419100d581812b159, type: 3}
@@ -9519,12 +9557,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1684240053}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.68588, y: 2.38796, z: 12.53147}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 420135364}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1687797927
 GameObject:
@@ -14523,4 +14561,4 @@ SceneRoots:
   - {fileID: 1247495813}
   - {fileID: 1663625129}
   - {fileID: 2023760263}
-  - {fileID: 1684240055}
+  - {fileID: 420135364}

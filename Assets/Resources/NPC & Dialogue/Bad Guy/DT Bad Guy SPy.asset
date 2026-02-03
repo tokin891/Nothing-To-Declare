@@ -237,7 +237,7 @@ MonoBehaviour:
       _typeConstraint: 0
       _dynamic: 1
   entry: 0
-  actionId: question
+  actionId: BadGuyMusic
   npcLine:
   - key: 
     pl: "S\u0142ucham, "
@@ -537,7 +537,7 @@ MonoBehaviour:
       _typeConstraint: 0
       _dynamic: 1
   entry: 0
-  actionId: Testy
+  actionId: BadGuy_Sprite_Stress
   npcLine:
   - key: 
     pl: Testy?
@@ -655,6 +655,13 @@ MonoBehaviour:
   - {fileID: -5973993469272994717}
   - {fileID: 8606082006083547352}
   - {fileID: -6715674178912165352}
+  - {fileID: -7478938552777752635}
+  - {fileID: -9190231739762235982}
+  - {fileID: -2152636447115699077}
+  - {fileID: 8116840987896097486}
+  - {fileID: -3489191535056230950}
+  - {fileID: -1332275014040890410}
+  - {fileID: 4741394630664691633}
 --- !u!114 &4741394630664691633
 MonoBehaviour:
   m_ObjectHideFlags: 0
