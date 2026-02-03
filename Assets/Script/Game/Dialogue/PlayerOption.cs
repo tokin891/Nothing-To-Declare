@@ -1,9 +1,9 @@
 [System.Serializable]
 public class PlayerOption
 {
-    public LocalizedLine playerLine;      // tekst odpowiedzi gracza
-    public string nextNodeId;             // do którego node przechodzimy
-    public PlayerInteractionType typeInteraction;   // enum opcji
+    public LocalizedLine playerLine;
+    public PlayerInteractionType typeInteraction;
+    // nextNodeId usuwamy - xNode u¿ywa portów
 }
 public enum PlayerInteractionType
 {

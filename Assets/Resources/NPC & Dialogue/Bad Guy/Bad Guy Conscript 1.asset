@@ -15,4 +15,4 @@ MonoBehaviour:
   NPCData: {fileID: 11400000, guid: fa19a2f3c9bc2194a98c1d811d06e893, type: 2}
   humanConscript: 0
   armSprite: {fileID: 21300000, guid: ac1317d00c9f3f2448674e251f1fc299, type: 3}
-  dialogueTree: {fileID: 11400000, guid: 1fea73264c635064688143b73bcfbc93, type: 2}
+  dialogueTree: {fileID: 11400000, guid: 58d68d5da77303946b465ffbe3523364, type: 2}

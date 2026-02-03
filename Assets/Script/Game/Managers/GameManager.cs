@@ -5,12 +5,14 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
-    public DialogueManager DialogueManager;
-    public NPCManager NPCManager;
+    [SerializeField] DialogueManager DialogueManager;
+    [SerializeField] NPCManager NPCManager;
+    [SerializeField] SoundsManager SoundsManager;
 
     private void Awake()
     {
         Instance = this;
+        SoundsManager.Initialize();
     }
 
     public void ClearNPC()

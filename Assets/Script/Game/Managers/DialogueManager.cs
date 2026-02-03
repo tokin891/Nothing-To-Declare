@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using XNode;
 using static UnityEditor.Rendering.MaterialUpgrader;
 
 public class DialogueManager : MonoBehaviour
@@ -40,13 +41,38 @@ public class DialogueManager : MonoBehaviour
     public void StartDialogue(DialogueTree tree)
     {
         dialogueTree = tree;
-        currentNode = tree.GetNode(1.ToString());
-        ChoseDialogueByID(currentNode.nodeId);
+
+        // Szukamy pierwszego DialogueNode w grafie
+        DialogueNode startNode = null;
+        foreach (var node in tree.nodes)
+        {
+            if (node is DialogueNode)
+            {
+                startNode = node as DialogueNode;
+                break; // Bierze pierwszy znaleziony
+            }
+        }
+
+        if (startNode != null)
+        {
+            ChoseDialogueByNode(startNode);
+        }
+        else
+        {
+            Debug.LogError("Graf nie zawiera ¿adnych wêz³ów DialogueNode!");
+        }
     }
 
     public void ChoseDialogueByID(string id, PlayerInteractionType pit = PlayerInteractionType.None)
     {
-        dialogueCorutine = StartCoroutine(Dialogue(dialogueTree.GetNode(id), pit));
+        //dialogueCorutine = StartCoroutine(Dialogue(dialogueTree.GetNode(id), pit));
+    }
+
+    // Zmieñ sygnaturê metody, by przyjmowa³a obiekt wêz³a zamiast ID
+    public void ChoseDialogueByNode(DialogueNode node, PlayerInteractionType pit = PlayerInteractionType.None)
+    {
+        if (dialogueCorutine != null) StopCoroutine(dialogueCorutine);
+        dialogueCorutine = StartCoroutine(Dialogue(node, pit));
     }
 
     private IEnumerator Dialogue(DialogueNode node, PlayerInteractionType pit)
@@ -117,8 +143,17 @@ public class DialogueManager : MonoBehaviour
         {
             GameObject obj = Instantiate(prefabPlayerOption, gridPlayerOption);
             obj.GetComponentInChildren<TMP_Text>().text = node.options[j].playerLine.Get();
+
+            // Pobieramy port wyjœciowy dla danej opcji
+            NodePort outPort = node.GetOutputPort("options " + j);
             ObjectPlayerOption pObj = obj.GetComponent<ObjectPlayerOption>();
-            pObj.nextID = node.options[j].nextNodeId;
+
+            // Przekazujemy referencjê do nastêpnego wêz³a
+            if (outPort != null && outPort.IsConnected)
+            {
+                pObj.nextNode = outPort.Connection.node as DialogueNode;
+            }
+
             pObj.interactionType = node.options[j].typeInteraction;
             dialoguePOList.Add(obj);
         }
