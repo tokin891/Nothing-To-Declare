@@ -1,105 +1,115 @@
-using System.Collections.Generic;
-using UnityEditor;
-using UnityEngine;
-using XNode;
-using XNodeEditor;
+//using System.Collections.Generic;
+//using UnityEditor;
+//using UnityEngine;
+//using XNode;
+//using XNodeEditor;
 
-[CustomNodeEditor(typeof(DialogueNode))]
-public class DialogueNodeEditor : NodeEditor
-{
-    public override void OnBodyGUI()
-    {
-        DialogueNode node = target as DialogueNode;
-        serializedObject.Update();
+//[CustomNodeEditor(typeof(DialogueNode))]
+//public class DialogueNodeEditor : NodeEditor
+//{
+//    public override void OnBodyGUI()
+//    {
+//        DialogueNode node = target as DialogueNode;
+//        if (node == null) return;
 
-        // 1. Port Wejœciowy
-        NodeEditorGUILayout.PortField(new GUIContent("Wejœcie (Entry)"), node.GetPort("entry"));
-        EditorGUILayout.Space();
+//        serializedObject.Update();
 
-        // 2. Sekcja NPC
-        EditorGUILayout.LabelField("KWESTIE NPC", EditorStyles.boldLabel);
-        EditorGUILayout.BeginVertical("helpbox");
+//        // 1. Wejœcie (Zawsze u góry)
+//        NodeEditorGUILayout.PortField(new GUIContent("Wejœcie (Entry)"), node.GetPort("entry"));
+//        EditorGUILayout.Space();
 
-        SerializedProperty npcLinesProp = serializedObject.FindProperty("npcLine");
+//        // 2. Sekcja NPC
+//        EditorGUILayout.LabelField("KWESTIE NPC", EditorStyles.boldLabel);
+//        EditorGUILayout.BeginVertical("helpbox");
+//        SerializedProperty npcLinesProp = serializedObject.FindProperty("npcLine");
+//        if (npcLinesProp != null)
+//        {
+//            for (int i = 0; i < npcLinesProp.arraySize; i++)
+//            {
+//                SerializedProperty lineProp = npcLinesProp.GetArrayElementAtIndex(i);
 
-        // SPRAWDZENIE: Czy property w ogóle istnieje w klasie?
-        if (npcLinesProp != null)
-        {
-            for (int i = 0; i < npcLinesProp.arraySize; i++)
-            {
-                SerializedProperty lineProp = npcLinesProp.GetArrayElementAtIndex(i);
+//                // Pobieranie podgl¹du tekstu
+//                string preview = "Pusta kwestia...";
+//                if (node.npcLine != null && i < node.npcLine.Count && node.npcLine[i] != null)
+//                    preview = !string.IsNullOrEmpty(node.npcLine[i].pl) ? node.npcLine[i].pl : preview;
 
-                // Bezpieczne pobieranie podgl¹du tekstu
-                string previewText = "Pusta kwestia...";
-                if (node.npcLine != null && i < node.npcLine.Count && node.npcLine[i] != null)
-                {
-                    if (!string.IsNullOrEmpty(node.npcLine[i].pl))
-                        previewText = node.npcLine[i].pl;
-                }
+//                EditorGUILayout.BeginHorizontal();
+//                EditorGUILayout.PropertyField(lineProp, new GUIContent($"{i}: {preview}"), true);
+//                if (GUILayout.Button("X", GUILayout.Width(20)))
+//                {
+//                    npcLinesProp.DeleteArrayElementAtIndex(i);
+//                    serializedObject.ApplyModifiedProperties();
+//                    return;
+//                }
+//                EditorGUILayout.EndHorizontal();
+//            }
+//        }
+//        if (GUILayout.Button("Dodaj kwestiê NPC"))
+//        {
+//            if (node.npcLine == null) node.npcLine = new List<LocalizedLine>();
+//            node.npcLine.Add(new LocalizedLine());
+//        }
+//        EditorGUILayout.EndVertical();
 
-                EditorGUILayout.BeginHorizontal();
-                // U¿ywamy lineProp zamiast bezpoœredniego obiektu, by unikn¹æ nulli
-                EditorGUILayout.PropertyField(lineProp, new GUIContent($"{i}: {previewText}"), true);
+//        EditorGUILayout.Space();
+//        EditorGUILayout.PropertyField(serializedObject.FindProperty("actionId"), new GUIContent("ID Akcji"));
+//        EditorGUILayout.PropertyField(serializedObject.FindProperty("exitNode"), new GUIContent("Koniec Dialogu?"));
 
-                if (GUILayout.Button("X", GUILayout.Width(20)))
-                {
-                    npcLinesProp.DeleteArrayElementAtIndex(i); // U¿ywamy SerializedProperty do usuwania
-                    serializedObject.ApplyModifiedProperties();
-                    return;
-                }
-                EditorGUILayout.EndHorizontal();
-            }
-        }
+//        // 3. Sekcja Opcji Gracza - PRZEBUDOWANY UK£AD
+//        EditorGUILayout.Space();
+//        EditorGUILayout.LabelField("OPCJE GRACZA", EditorStyles.boldLabel);
+//        EditorGUILayout.BeginVertical("box");
 
-        if (GUILayout.Button("Dodaj kwestiê NPC"))
-        {
-            if (node.npcLine == null) node.npcLine = new List<LocalizedLine>(); // Inicjalizacja jeœli null
-            node.npcLine.Add(new LocalizedLine());
-            EditorUtility.SetDirty(node); // Powiadomienie Unity o zmianie
-        }
-        EditorGUILayout.EndVertical();
+//        SerializedProperty optionsProp = serializedObject.FindProperty("options");
+//        if (optionsProp != null)
+//        {
+//            for (int i = 0; i < optionsProp.arraySize; i++)
+//            {
+//                SerializedProperty optionProp = optionsProp.GetArrayElementAtIndex(i);
 
-        EditorGUILayout.Space();
-        EditorGUILayout.PropertyField(serializedObject.FindProperty("actionId"), new GUIContent("ID Akcji"));
-        EditorGUILayout.PropertyField(serializedObject.FindProperty("exitNode"), new GUIContent("Koniec Dialogu?"));
+//                // Pobieranie labelName
+//                string labelName = "Opcja " + i;
+//                SerializedProperty playerLineProp = optionProp.FindPropertyRelative("playerLine");
+//                if (playerLineProp != null)
+//                {
+//                    SerializedProperty plProp = playerLineProp.FindPropertyRelative("pl");
+//                    if (plProp != null && !string.IsNullOrEmpty(plProp.stringValue))
+//                        labelName = "Opcja: " + plProp.stringValue;
+//                }
 
-        // 3. Sekcja Opcji Gracza (ju¿ dopracowana)
-        EditorGUILayout.Space();
-        EditorGUILayout.LabelField("OPCJE GRACZA", EditorStyles.boldLabel);
-        EditorGUILayout.BeginVertical("box");
+//                EditorGUILayout.BeginHorizontal();
 
-        for (int i = 0; i < node.options.Count; i++)
-        {
-            SerializedProperty optionProp = serializedObject.FindProperty("options").GetArrayElementAtIndex(i);
+//                // PRZYCISK X NA POCZ¥TKU - Nie zas³ania ju¿ niczego
+//                if (GUILayout.Button("X", GUILayout.Width(20)))
+//                {
+//                    optionsProp.DeleteArrayElementAtIndex(i);
+//                    serializedObject.ApplyModifiedProperties();
+//                    return;
+//                }
 
-            string labelName = (node.options[i].playerLine != null && !string.IsNullOrEmpty(node.options[i].playerLine.pl))
-                ? "Opcja: " + node.options[i].playerLine.pl
-                : "Opcja " + i;
+//                // PORT WYJŒCIOWY (Kó³eczko)
+//                NodePort dynamicPort = node.GetOutputPort("options " + i);
+//                if (dynamicPort != null)
+//                {
+//                    NodeEditorGUILayout.PortField(GUIContent.none, dynamicPort, GUILayout.Width(20));
+//                }
 
-            EditorGUILayout.BeginHorizontal();
-            EditorGUILayout.PropertyField(optionProp, new GUIContent(labelName), true);
+//                // TREŒÆ OPCJI (Input)
+//                EditorGUILayout.PropertyField(optionProp, new GUIContent(labelName), true);
 
-            NodePort dynamicPort = node.GetOutputPort("options " + i);
-            if (dynamicPort != null)
-            {
-                NodeEditorGUILayout.PortField(GUIContent.none, dynamicPort, GUILayout.Width(20));
-            }
+//                EditorGUILayout.EndHorizontal();
+//                GUILayout.Space(2);
+//            }
+//        }
 
-            if (GUILayout.Button("X", GUILayout.Width(20)))
-            {
-                node.options.RemoveAt(i);
-                serializedObject.ApplyModifiedProperties();
-                return;
-            }
-            EditorGUILayout.EndHorizontal();
-        }
+//        if (GUILayout.Button("Dodaj now¹ opcjê gracza"))
+//        {
+//            if (node.options == null) node.options = new List<PlayerOption>();
+//            node.options.Add(new PlayerOption());
+//            EditorUtility.SetDirty(node);
+//        }
+//        EditorGUILayout.EndVertical();
 
-        if (GUILayout.Button("Dodaj now¹ opcjê gracza"))
-        {
-            node.options.Add(new PlayerOption());
-        }
-        EditorGUILayout.EndVertical();
-
-        serializedObject.ApplyModifiedProperties();
-    }
-}
+//        serializedObject.ApplyModifiedProperties();
+//    }
+//}

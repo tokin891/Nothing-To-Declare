@@ -22,8 +22,8 @@ MonoBehaviour:
     values:
     - _fieldName: entry
       _node: {fileID: -9190231739762235982}
-      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
+      _typeQualifiedName: PlayerOption, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
       connections:
       - fieldName: options 1
         node: {fileID: -6715674178912165352}
@@ -54,7 +54,13 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 1
-  entry: 0
+  entry:
+    playerLine:
+      key: 
+      pl: 
+      en: 
+      de: 
+    typeInteraction: 0
   actionId: Tralala
   npcLine:
   - key: 
@@ -95,8 +101,8 @@ MonoBehaviour:
     values:
     - _fieldName: entry
       _node: {fileID: -7478938552777752635}
-      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
+      _typeQualifiedName: PlayerOption, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
       connections:
       - fieldName: options 0
         node: {fileID: -6715674178912165352}
@@ -127,7 +133,13 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 1
-  entry: 0
+  entry:
+    playerLine:
+      key: 
+      pl: 
+      en: 
+      de: 
+    typeInteraction: 0
   actionId: hobby
   npcLine:
   - key: 
@@ -174,8 +186,8 @@ MonoBehaviour:
     values:
     - _fieldName: entry
       _node: {fileID: -6715674178912165352}
-      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
+      _typeQualifiedName: PlayerOption, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
       connections:
       - fieldName: options 1
         node: {fileID: -5973993469272994717}
@@ -236,7 +248,13 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 1
-  entry: 0
+  entry:
+    playerLine:
+      key: 
+      pl: 
+      en: 
+      de: 
+    typeInteraction: 0
   actionId: BadGuyMusic
   npcLine:
   - key: 
@@ -286,8 +304,8 @@ MonoBehaviour:
     values:
     - _fieldName: entry
       _node: {fileID: -5973993469272994717}
-      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
+      _typeQualifiedName: PlayerOption, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
       connections: []
       _direction: 0
       _connectionType: 0
@@ -327,7 +345,13 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 1
-  entry: 1
+  entry:
+    playerLine:
+      key: 
+      pl: 
+      en: 
+      de: 
+    typeInteraction: 0
   actionId: Entry
   npcLine:
   - key: 
@@ -375,8 +399,8 @@ MonoBehaviour:
     values:
     - _fieldName: entry
       _node: {fileID: -3489191535056230950}
-      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
+      _typeQualifiedName: PlayerOption, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
       connections:
       - fieldName: options 0
         node: {fileID: 8116840987896097486}
@@ -419,7 +443,13 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 1
-  entry: 0
+  entry:
+    playerLine:
+      key: 
+      pl: 
+      en: 
+      de: 
+    typeInteraction: 0
   actionId: Decyzjon
   npcLine:
   - key: 
@@ -465,8 +495,8 @@ MonoBehaviour:
     values:
     - _fieldName: entry
       _node: {fileID: -2152636447115699077}
-      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
+      _typeQualifiedName: PlayerOption, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
       connections:
       - fieldName: options 2
         node: {fileID: -6715674178912165352}
@@ -536,7 +566,13 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 1
-  entry: 0
+  entry:
+    playerLine:
+      key: 
+      pl: 
+      en: 
+      de: 
+    typeInteraction: 0
   actionId: BadGuy_Sprite_Stress
   npcLine:
   - key: 
@@ -590,8 +626,8 @@ MonoBehaviour:
     values:
     - _fieldName: entry
       _node: {fileID: -1332275014040890410}
-      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
+      _typeQualifiedName: PlayerOption, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
       connections:
       - fieldName: options 1
         node: {fileID: -3489191535056230950}
@@ -610,7 +646,13 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
-  entry: 0
+  entry:
+    playerLine:
+      key: 
+      pl: 
+      en: 
+      de: 
+    typeInteraction: 0
   actionId: accept
   npcLine:
   - key: 
@@ -683,8 +725,8 @@ MonoBehaviour:
     values:
     - _fieldName: entry
       _node: {fileID: 4741394630664691633}
-      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
+      _typeQualifiedName: PlayerOption, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
       connections:
       - fieldName: options 0
         node: {fileID: -3489191535056230950}
@@ -703,7 +745,13 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
-  entry: 0
+  entry:
+    playerLine:
+      key: 
+      pl: 
+      en: 
+      de: 
+    typeInteraction: 0
   actionId: Decline
   npcLine:
   - key: 
@@ -742,8 +790,8 @@ MonoBehaviour:
     values:
     - _fieldName: entry
       _node: {fileID: 8116840987896097486}
-      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
+      _typeQualifiedName: PlayerOption, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
       connections:
       - fieldName: options 3
         node: {fileID: -2152636447115699077}
@@ -774,7 +822,13 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 1
-  entry: 0
+  entry:
+    playerLine:
+      key: 
+      pl: 
+      en: 
+      de: 
+    typeInteraction: 0
   actionId: Finish
   npcLine:
   - key: 
@@ -810,8 +864,8 @@ MonoBehaviour:
     values:
     - _fieldName: entry
       _node: {fileID: 8606082006083547352}
-      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
+      _typeQualifiedName: PlayerOption, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
       connections:
       - fieldName: options 0
         node: {fileID: -5973993469272994717}
@@ -830,7 +884,13 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
-  entry: 0
+  entry:
+    playerLine:
+      key: 
+      pl: 
+      en: 
+      de: 
+    typeInteraction: 0
   actionId: naura
   npcLine:
   - key: 
