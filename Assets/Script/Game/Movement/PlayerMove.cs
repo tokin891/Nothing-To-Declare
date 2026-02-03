@@ -13,10 +13,15 @@ public class PlayerMove : MonoBehaviour
     public float verticalClamp = 80f; 
     private float pitch = 0f;
     [SerializeField] bool lockMove;
+    [SerializeField] float delayFS = 1.5f;
 
     [Header("Input Actions")]
     public InputActionReference moveAction;
     public InputActionReference lookAction;
+
+    private Vector3 lastPosition;
+    private float checkLastPosition;
+    private float updateLastPosition;
 
     private void OnEnable()
     {
@@ -34,12 +39,23 @@ public class PlayerMove : MonoBehaviour
     private void Awake()
     {
         controller = GetComponent<CharacterController>();
+        lastPosition = transform.position;
     }
 
     private void Update()
     {
         Move();
         Look();
+
+        if(lastPosition != transform.position)
+        {
+            lastPosition = transform.position;
+            if (Time.time > checkLastPosition)
+            {
+                checkLastPosition = Time.time + delayFS;
+                SoundsManager.instance.PlayFS(); ;
+            }
+        }
     }
 
     private void Move()

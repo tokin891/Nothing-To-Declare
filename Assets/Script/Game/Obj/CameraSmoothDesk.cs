@@ -13,8 +13,9 @@ public class CameraSmoothDesk : MonoBehaviour
     private float _x;
     private float _x2;
 
-    [SerializeField] float smooth = 10f;
-    [SerializeField] float smooth2 = 3f;
+    [SerializeField] float smoothChaningXY = 10f;
+    [SerializeField] float smoothLerp = 3f;
+    [SerializeField] float max = 0.5f;
 
     private void Awake()
     {
@@ -28,35 +29,31 @@ public class CameraSmoothDesk : MonoBehaviour
         if(_y < mousePos.y)
         {
             _y = mousePos.y;
-            _y2 = Mathf.Clamp(_y2 + smooth * Time.deltaTime, -1,1);
-            // Add Y
-            Debug.Log("add y");
+            _y2 = Mathf.Clamp(_y2 + smoothChaningXY * Time.deltaTime, -max,max);
         }
 
         if(_y > mousePos.y)
         {
             _y = mousePos.y;
-            _y2 = Mathf.Clamp(_y2 - smooth * Time.deltaTime, -1, 1);
-            // Remove Y
-            Debug.Log("remove y");
+            _y2 = Mathf.Clamp(_y2 - smoothChaningXY * Time.deltaTime, -max, max);
         }
 
         if(_x < mousePos.x)
         {
             _x = mousePos.x;
-            _x2 = Mathf.Clamp(_x2 + smooth * Time.deltaTime, -1, 1);
+            _x2 = Mathf.Clamp(_x2 + smoothChaningXY * Time.deltaTime, -max, max);
             // Add X
         }
 
         if(_x > mousePos.x)
         {
             _x = mousePos.x;
-            _x2 = Mathf.Clamp(_x2 - smooth * Time.deltaTime, -1, 1);
+            _x2 = Mathf.Clamp(_x2 - smoothChaningXY * Time.deltaTime, -max, max);
             // Remove X
         }
 
         Vector3 targetRotOffset = new Vector3(-(_y2), _x2, 0);
 
-        transform.localRotation = Quaternion.Slerp(transform.localRotation, Quaternion.Euler(awakeRot + targetRotOffset), smooth2 * Time.deltaTime);
+        transform.localRotation = Quaternion.Slerp(transform.localRotation, Quaternion.Euler(awakeRot + targetRotOffset), smoothLerp * Time.deltaTime);
     }
 }

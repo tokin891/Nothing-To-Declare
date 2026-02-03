@@ -144,6 +144,7 @@ public class RevolverPickup : MonoBehaviour
 
         transform.position = targetPos;
         yield return new WaitUntil(() => (isClick == true||fastClick));
+        readyToPick = fastClick;
         isClick = false;
         fastClick = false;
 

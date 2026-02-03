@@ -171,8 +171,11 @@ public class DialogueManager : MonoBehaviour
 
     public void EndDialogue()
     {
-        if(dialogueCorutine != null)
+        if (dialogueCorutine != null)
+        {
             StopCoroutine(dialogueCorutine);
+            SoundsManager.instance.DestroyAudioSourceByClipFromAdditionalAudio(typingClip);
+        }
         currentNode = null;
         dialogueTree = null;
 

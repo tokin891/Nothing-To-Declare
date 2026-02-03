@@ -9,10 +9,11 @@ public class SoundsManager : MonoBehaviour
     [SerializeField] AudioClip mainAmbient;
     [SerializeField] float speedTuningMainAmbient;
     [SerializeField] float targetVolumeMainAmbient = 0.65f;
+    [SerializeField] AudioClip[] fsClip;
 
     public AudioSource mainAmbientSource;
-
     private List<AudioSource> additionalAmbientSource = new List<AudioSource>();
+    private AudioSource fsSource;
 
     private float timerClearUslessAdditionalAmbient;
 
@@ -89,7 +90,7 @@ public class SoundsManager : MonoBehaviour
         StartCoroutine(SetVolumeAudioSourceAndPlay(source, speedAmplify, volumeStart, loop, clip));
     }
 
-    private IEnumerator PlayAudio(AudioSource source, AudioClip clip, float targetValue, bool destroy, bool loop)
+    private IEnumerator PlayAudioCoroutine(AudioSource source, AudioClip clip, float targetValue, bool destroy, bool loop)
     {
         source.volume = targetValue;
         source.clip = clip; 
@@ -115,12 +116,19 @@ public class SoundsManager : MonoBehaviour
 
     public void PlayOneTimeClip(AudioClip clip, float targetValue)
     {
-        StartCoroutine(PlayAudio(GetAdditionalAudioSource(), clip, targetValue, true, false));
+        StartCoroutine(PlayAudioCoroutine(GetAdditionalAudioSource(), clip, targetValue, true, false));
     }
 
     public void PlayOneTimeClipWithoutDestroying(AudioClip clip, float targetValue, bool loop)
     {
-        StartCoroutine(PlayAudio(GetAdditionalAudioSource(), clip, targetValue, false, loop));
+        StartCoroutine(PlayAudioCoroutine(GetAdditionalAudioSource(), clip, targetValue, false, loop));
+    }
+
+    public void PlayFS()
+    {
+        if (fsSource == null)
+            fsSource = GetAdditionalAudioSource();
+        StartCoroutine(PlayAudioCoroutine(fsSource, fsClip[Random.Range(0,fsClip.Length)], 0.75f, false, false));
     }
 
     public void DestroyAudioSourceByClipFromAdditionalAudio(AudioClip clip)

@@ -1602,8 +1602,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4843135384c000c45a4ec91a3692640f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraSmoothDesk
-  smooth: 10
-  smooth2: 3
+  smoothChaningXY: 2
+  smoothLerp: 2
+  max: 0.5
 --- !u!1 &295873481
 GameObject:
   m_ObjectHideFlags: 0
@@ -3827,6 +3828,14 @@ MonoBehaviour:
   mainAmbient: {fileID: 8300000, guid: a36b2ea3c08f0464abb73f813f9879ad, type: 3}
   speedTuningMainAmbient: 0.5
   targetVolumeMainAmbient: 0.65
+  fsClip:
+  - {fileID: 8300000, guid: 1b10c37a71ee6e449be9cebc2b80a330, type: 3}
+  - {fileID: 8300000, guid: 6813195a1e8b0b64394159af8a70bfd4, type: 3}
+  - {fileID: 8300000, guid: 51c482cd0e4d37140b93787f1da029ef, type: 3}
+  - {fileID: 8300000, guid: 67230920223604946a6c62d63992806f, type: 3}
+  - {fileID: 8300000, guid: 1f0af894cf268e54ba02d9ee39bed433, type: 3}
+  - {fileID: 8300000, guid: 99a5621f313a00c45b057ce923e62937, type: 3}
+  - {fileID: 8300000, guid: cb8b688c2707af04c947695bcffbdad8, type: 3}
   mainAmbientSource: {fileID: 1684240054}
 --- !u!1 &771063609
 GameObject:
@@ -7487,6 +7496,7 @@ MonoBehaviour:
   sensitivity: 10
   verticalClamp: 80
   lockMove: 0
+  delayFS: 0.75
   moveAction: {fileID: 722001827}
   lookAction: {fileID: 192412236}
 --- !u!1001 &1303738374
@@ -9854,6 +9864,7 @@ MonoBehaviour:
   sensitivity: 10
   verticalClamp: 80
   lockMove: 1
+  delayFS: 1.5
   moveAction: {fileID: 722001827}
   lookAction: {fileID: 192412236}
 --- !u!143 &1736532460
