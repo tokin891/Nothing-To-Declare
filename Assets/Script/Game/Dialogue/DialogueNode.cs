@@ -12,7 +12,7 @@ public class DialogueNode : Node
     public List<LocalizedLine> npcLine;
 
     // KLUCZOWA ZMIANA: Musi byæ [Output] z dynamicPortList
-    [Output(dynamicPortList = true)] public List<PlayerOption> options;
+    [Output(dynamicPortList = true, connectionType = ConnectionType.Override)] public List<PlayerOption> options;
 
     public bool exitNode = false;
 
