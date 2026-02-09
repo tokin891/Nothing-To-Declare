@@ -1,0 +1,1685 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8705731669258593900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d1d4c657b40b52429b23209d4bc523c, type: 3}
+  m_Name: Jakie testy?
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
+  graph: {fileID: 11400000}
+  position: {x: 1416, y: -104}
+  ports:
+    keys:
+    - entry
+    - options
+    - options 0
+    - options 1
+    - options 2
+    - options 3
+    values:
+    - _fieldName: entry
+      _node: {fileID: -8705731669258593900}
+      _typeQualifiedName: PlayerOption, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: options 0
+        node: {fileID: 6099129444723083675}
+        reroutePoints: []
+      - fieldName: options 0
+        node: {fileID: -8705731669258593900}
+        reroutePoints: []
+      - fieldName: options 1
+        node: {fileID: -8705731669258593900}
+        reroutePoints: []
+      - fieldName: options 2
+        node: {fileID: -8705731669258593900}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: options
+      _node: {fileID: -8705731669258593900}
+      _typeQualifiedName: System.Collections.Generic.List`1[[PlayerOption, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=4.0.0.0,
+        Culture=neutral, PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: options 0
+      _node: {fileID: -8705731669258593900}
+      _typeQualifiedName: PlayerOption, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: entry
+        node: {fileID: -8705731669258593900}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 1
+    - _fieldName: options 1
+      _node: {fileID: -8705731669258593900}
+      _typeQualifiedName: PlayerOption, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: entry
+        node: {fileID: -8705731669258593900}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 1
+    - _fieldName: options 2
+      _node: {fileID: -8705731669258593900}
+      _typeQualifiedName: PlayerOption, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: entry
+        node: {fileID: -8705731669258593900}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 1
+    - _fieldName: options 3
+      _node: {fileID: -8705731669258593900}
+      _typeQualifiedName: PlayerOption, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: entry
+        node: {fileID: -4352043426878378295}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 1
+  entry:
+    playerLine:
+      key: 
+      pl: 
+      en: 
+      de: 
+    typeInteraction: 0
+  actionId: 
+  npcLine:
+  - key: 
+    pl: Jakie testy?
+    en: 
+    de: 
+  options:
+  - playerLine:
+      key: 
+      pl: "(sp\xF3jrz w pliki)"
+      en: 
+      de: 
+    typeInteraction: 2
+  - playerLine:
+      key: 
+      pl: "Poka\u017C swoj\u0119 r\u0119ce"
+      en: 
+      de: 
+    typeInteraction: 1
+  - playerLine:
+      key: 
+      pl: (zastrzel)
+      en: 
+      de: 
+    typeInteraction: 3
+  - playerLine:
+      key: 
+      pl: (zadecyduj)
+      en: 
+      de: 
+    typeInteraction: 3
+  exitNode: 0
+--- !u!114 &-7667168868899745430
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d1d4c657b40b52429b23209d4bc523c, type: 3}
+  m_Name: Tak! Studia
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
+  graph: {fileID: 11400000}
+  position: {x: 1112, y: 120}
+  ports:
+    keys:
+    - entry
+    - options
+    - options 0
+    values:
+    - _fieldName: entry
+      _node: {fileID: -7667168868899745430}
+      _typeQualifiedName: PlayerOption, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: options 1
+        node: {fileID: 8010026312086219707}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: options
+      _node: {fileID: -7667168868899745430}
+      _typeQualifiedName: System.Collections.Generic.List`1[[PlayerOption, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=4.0.0.0,
+        Culture=neutral, PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: options 0
+      _node: {fileID: -7667168868899745430}
+      _typeQualifiedName: PlayerOption, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: entry
+        node: {fileID: 8349160547384139829}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 1
+  entry:
+    playerLine:
+      key: 
+      pl: 
+      en: 
+      de: 
+    typeInteraction: 0
+  actionId: 
+  npcLine:
+  - key: 
+    pl: Tak! Studia
+    en: 
+    de: 
+  - key: 
+    pl: "Chcia\u0142bym dosta\u0107 si\u0119 na fizjologie"
+    en: 
+    de: 
+  options:
+  - playerLine:
+      key: 
+      pl: ...
+      en: 
+      de: 
+    typeInteraction: 0
+  exitNode: 0
+--- !u!114 &-4352043426878378295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d1d4c657b40b52429b23209d4bc523c, type: 3}
+  m_Name: "Co z decyzj\u0105?"
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
+  graph: {fileID: 11400000}
+  position: {x: 1672, y: -72}
+  ports:
+    keys:
+    - entry
+    - options
+    - options 0
+    - options 1
+    - options 2
+    values:
+    - _fieldName: entry
+      _node: {fileID: -4352043426878378295}
+      _typeQualifiedName: PlayerOption, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: options 3
+        node: {fileID: -8705731669258593900}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: options
+      _node: {fileID: -4352043426878378295}
+      _typeQualifiedName: System.Collections.Generic.List`1[[PlayerOption, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=4.0.0.0,
+        Culture=neutral, PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: options 0
+      _node: {fileID: -4352043426878378295}
+      _typeQualifiedName: PlayerOption, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: entry
+        node: {fileID: 189458693549787667}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 1
+    - _fieldName: options 1
+      _node: {fileID: -4352043426878378295}
+      _typeQualifiedName: PlayerOption, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: entry
+        node: {fileID: -818105861839218075}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 1
+    - _fieldName: options 2
+      _node: {fileID: -4352043426878378295}
+      _typeQualifiedName: PlayerOption, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: entry
+        node: {fileID: 7965478984651827751}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 1
+  entry:
+    playerLine:
+      key: 
+      pl: 
+      en: 
+      de: 
+    typeInteraction: 0
+  actionId: 
+  npcLine:
+  - key: 
+    pl: "Co z decyzj\u0105?"
+    en: 
+    de: 
+  options:
+  - playerLine:
+      key: 
+      pl: "Tak, bierzemy ci\u0119!"
+      en: 
+      de: 
+    typeInteraction: 0
+  - playerLine:
+      key: 
+      pl: "Musimy si\u0119 jeszcze zastanowi\u0107"
+      en: 
+      de: 
+    typeInteraction: 0
+  - playerLine:
+      key: 
+      pl: Odpadasz
+      en: 
+      de: 
+    typeInteraction: 0
+  exitNode: 0
+--- !u!114 &-2689614875484667085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d1d4c657b40b52429b23209d4bc523c, type: 3}
+  m_Name: "No racja (wida\u0107 \u017Ce czuj\u0119 si\u0119 nie komfortowo)"
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
+  graph: {fileID: 11400000}
+  position: {x: 72, y: 24}
+  ports:
+    keys:
+    - entry
+    - options
+    - options 0
+    values:
+    - _fieldName: entry
+      _node: {fileID: -2689614875484667085}
+      _typeQualifiedName: PlayerOption, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: options 0
+        node: {fileID: -985802367046627607}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: options
+      _node: {fileID: -2689614875484667085}
+      _typeQualifiedName: System.Collections.Generic.List`1[[PlayerOption, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=4.0.0.0,
+        Culture=neutral, PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: options 0
+      _node: {fileID: -2689614875484667085}
+      _typeQualifiedName: PlayerOption, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: entry
+        node: {fileID: 8349160547384139829}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 1
+  entry:
+    playerLine:
+      key: 
+      pl: 
+      en: 
+      de: 
+    typeInteraction: 0
+  actionId: Adrien_Uncom
+  npcLine:
+  - key: 
+    pl: "No racja (wida\u0107 \u017Ce czuj\u0119 si\u0119 nie komfortowo)"
+    en: 
+    de: 
+  options:
+  - playerLine:
+      key: 
+      pl: "Dobra! Pozw\xF3l \u017Ce zadam Tobie kilka pyta\u0144."
+      en: 
+      de: 
+    typeInteraction: 0
+  exitNode: 0
+--- !u!114 &-2429798682386861190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d1d4c657b40b52429b23209d4bc523c, type: 3}
+  m_Name: Przepraszam
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
+  graph: {fileID: 11400000}
+  position: {x: 72, y: 248}
+  ports:
+    keys:
+    - entry
+    - options
+    - options 0
+    values:
+    - _fieldName: entry
+      _node: {fileID: -2429798682386861190}
+      _typeQualifiedName: PlayerOption, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: options 1
+        node: {fileID: -985802367046627607}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: options
+      _node: {fileID: -2429798682386861190}
+      _typeQualifiedName: System.Collections.Generic.List`1[[PlayerOption, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=4.0.0.0,
+        Culture=neutral, PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: options 0
+      _node: {fileID: -2429798682386861190}
+      _typeQualifiedName: PlayerOption, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: entry
+        node: {fileID: 8349160547384139829}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 1
+  entry:
+    playerLine:
+      key: 
+      pl: 
+      en: 
+      de: 
+    typeInteraction: 0
+  actionId: Adrien_Stress
+  npcLine:
+  - key: 
+    pl: Przepraszam
+    en: 
+    de: 
+  options:
+  - playerLine:
+      key: 
+      pl: "A teraz zadam Tobie kilka pyta\u0144"
+      en: 
+      de: 
+    typeInteraction: 0
+  exitNode: 0
+--- !u!114 &-1569523496213903518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d1d4c657b40b52429b23209d4bc523c, type: 3}
+  m_Name: "Tak. Ucz\u0119szczam do szko\u0142y"
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
+  graph: {fileID: 11400000}
+  position: {x: 632, y: 56}
+  ports:
+    keys:
+    - entry
+    - options
+    - options 0
+    - options 1
+    values:
+    - _fieldName: entry
+      _node: {fileID: -1569523496213903518}
+      _typeQualifiedName: PlayerOption, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: options 1
+        node: {fileID: 8349160547384139829}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: options
+      _node: {fileID: -1569523496213903518}
+      _typeQualifiedName: System.Collections.Generic.List`1[[PlayerOption, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=4.0.0.0,
+        Culture=neutral, PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: options 0
+      _node: {fileID: -1569523496213903518}
+      _typeQualifiedName: PlayerOption, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: entry
+        node: {fileID: 8010026312086219707}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 1
+    - _fieldName: options 1
+      _node: {fileID: -1569523496213903518}
+      _typeQualifiedName: PlayerOption, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: entry
+        node: {fileID: 8349160547384139829}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 1
+  entry:
+    playerLine:
+      key: 
+      pl: 
+      en: 
+      de: 
+    typeInteraction: 0
+  actionId: 
+  npcLine:
+  - key: 
+    pl: "Tak. Ucz\u0119szczam do szko\u0142y"
+    en: 
+    de: 
+  - key: 
+    pl: "Na szcz\u0119\u015Bcie ju\u017C ostatni rok"
+    en: 
+    de: 
+  - key: 
+    pl: "Nie przepadam za chodzeniem do szko\u0142y"
+    en: 
+    de: 
+  - key: 
+    pl: "Nie lubie tam marnowa\u0107 czasu. W domu mam tyle rzeczy do roobty zawsze"
+    en: 
+    de: 
+  - key: 
+    pl: "Nigdy nie mia\u0142em problem\xF3w z r\xF3wnie\u015Bnikami a wi\u0119c jako\u015B
+      ten czas zlatywa\u0142"
+    en: 
+    de: 
+  options:
+  - playerLine:
+      key: 
+      pl: "Nauka jest wa\u017Cne"
+      en: 
+      de: 
+    typeInteraction: 0
+  - playerLine:
+      key: 
+      pl: ...
+      en: 
+      de: 
+    typeInteraction: 0
+  exitNode: 0
+--- !u!114 &-985802367046627607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d1d4c657b40b52429b23209d4bc523c, type: 3}
+  m_Name: 'Tak jest. A po co takie pytanie? '
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
+  graph: {fileID: 11400000}
+  position: {x: -168, y: 8}
+  ports:
+    keys:
+    - entry
+    - options
+    - options 0
+    - options 1
+    values:
+    - _fieldName: entry
+      _node: {fileID: -985802367046627607}
+      _typeQualifiedName: PlayerOption, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: options 1
+        node: {fileID: 544350672810628241}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: options
+      _node: {fileID: -985802367046627607}
+      _typeQualifiedName: System.Collections.Generic.List`1[[PlayerOption, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=4.0.0.0,
+        Culture=neutral, PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: options 0
+      _node: {fileID: -985802367046627607}
+      _typeQualifiedName: PlayerOption, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: entry
+        node: {fileID: -2689614875484667085}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 1
+    - _fieldName: options 1
+      _node: {fileID: -985802367046627607}
+      _typeQualifiedName: PlayerOption, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: entry
+        node: {fileID: -2429798682386861190}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 1
+  entry:
+    playerLine:
+      key: 
+      pl: 
+      en: 
+      de: 
+    typeInteraction: 0
+  actionId: 
+  npcLine:
+  - key: 
+    pl: 'Tak jest. A po co takie pytanie? '
+    en: 
+    de: 
+  options:
+  - playerLine:
+      key: 
+      pl: W tych czasach nie wiadomo
+      en: 
+      de: 
+    typeInteraction: 0
+  - playerLine:
+      key: 
+      pl: Nie twoja sprawa!
+      en: 
+      de: 
+    typeInteraction: 0
+  exitNode: 0
+--- !u!114 &-818105861839218075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d1d4c657b40b52429b23209d4bc523c, type: 3}
+  m_Name: Emm... Jasne?
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
+  graph: {fileID: 11400000}
+  position: {x: 1992, y: -24}
+  ports:
+    keys:
+    - entry
+    - options
+    values:
+    - _fieldName: entry
+      _node: {fileID: -818105861839218075}
+      _typeQualifiedName: PlayerOption, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: options 1
+        node: {fileID: -4352043426878378295}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: options
+      _node: {fileID: -818105861839218075}
+      _typeQualifiedName: System.Collections.Generic.List`1[[PlayerOption, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=4.0.0.0,
+        Culture=neutral, PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+  entry:
+    playerLine:
+      key: 
+      pl: 
+      en: 
+      de: 
+    typeInteraction: 0
+  actionId: 
+  npcLine:
+  - key: 
+    pl: Emm... Jasne?
+    en: 
+    de: 
+  - key: 
+    pl: "W takim razie czekam na informacje zwrotn\u0105. A na razie \u017Cegnam"
+    en: 
+    de: 
+  options: []
+  exitNode: 1
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 783b0835035eaa841bcc8271612a153f, type: 3}
+  m_Name: DT Adrien
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueTree
+  nodes:
+  - {fileID: 544350672810628241}
+  - {fileID: 5047316792756882972}
+  - {fileID: -985802367046627607}
+  - {fileID: -2689614875484667085}
+  - {fileID: -2429798682386861190}
+  - {fileID: 8349160547384139829}
+  - {fileID: 8155533732114509665}
+  - {fileID: 6643611959748058815}
+  - {fileID: -1569523496213903518}
+  - {fileID: 8010026312086219707}
+  - {fileID: 5826726100323241352}
+  - {fileID: -7667168868899745430}
+  - {fileID: 6099129444723083675}
+  - {fileID: -8705731669258593900}
+  - {fileID: -4352043426878378295}
+  - {fileID: 189458693549787667}
+  - {fileID: -818105861839218075}
+  - {fileID: 7965478984651827751}
+  NPCData: {fileID: 0}
+  nodes:
+  - {fileID: 544350672810628241}
+  - {fileID: 5047316792756882972}
+  - {fileID: -985802367046627607}
+  - {fileID: -2689614875484667085}
+  - {fileID: -2429798682386861190}
+  - {fileID: 8349160547384139829}
+  - {fileID: 8155533732114509665}
+  - {fileID: 6643611959748058815}
+  - {fileID: -1569523496213903518}
+  - {fileID: 8010026312086219707}
+  - {fileID: 5826726100323241352}
+  - {fileID: -7667168868899745430}
+  - {fileID: 6099129444723083675}
+  - {fileID: -8705731669258593900}
+  - {fileID: -4352043426878378295}
+  - {fileID: 189458693549787667}
+  - {fileID: -818105861839218075}
+  - {fileID: 7965478984651827751}
+--- !u!114 &189458693549787667
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d1d4c657b40b52429b23209d4bc523c, type: 3}
+  m_Name: "Super, ciesz\u0119 si\u0119 \u017Ce mog\u0119 pom\xF3c"
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
+  graph: {fileID: 11400000}
+  position: {x: 1992, y: -248}
+  ports:
+    keys:
+    - entry
+    - options
+    values:
+    - _fieldName: entry
+      _node: {fileID: 189458693549787667}
+      _typeQualifiedName: PlayerOption, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: options 0
+        node: {fileID: -4352043426878378295}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: options
+      _node: {fileID: 189458693549787667}
+      _typeQualifiedName: System.Collections.Generic.List`1[[PlayerOption, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=4.0.0.0,
+        Culture=neutral, PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+  entry:
+    playerLine:
+      key: 
+      pl: 
+      en: 
+      de: 
+    typeInteraction: 0
+  actionId: 
+  npcLine:
+  - key: 
+    pl: "Super, ciesz\u0119 si\u0119 \u017Ce mog\u0119 pom\xF3c"
+    en: 
+    de: 
+  - key: 
+    pl: "\u017Begnam"
+    en: 
+    de: 
+  options: []
+  exitNode: 1
+--- !u!114 &544350672810628241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d1d4c657b40b52429b23209d4bc523c, type: 3}
+  m_Name: "(kilka krok\xF3w do przodu)"
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
+  graph: {fileID: 11400000}
+  position: {x: -408, y: -184}
+  ports:
+    keys:
+    - entry
+    - options
+    - options 0
+    - options 1
+    values:
+    - _fieldName: entry
+      _node: {fileID: 544350672810628241}
+      _typeQualifiedName: PlayerOption, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: options
+      _node: {fileID: 544350672810628241}
+      _typeQualifiedName: System.Collections.Generic.List`1[[PlayerOption, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=4.0.0.0,
+        Culture=neutral, PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: options 0
+      _node: {fileID: 544350672810628241}
+      _typeQualifiedName: PlayerOption, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: entry
+        node: {fileID: 5047316792756882972}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 1
+    - _fieldName: options 1
+      _node: {fileID: 544350672810628241}
+      _typeQualifiedName: PlayerOption, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: entry
+        node: {fileID: -985802367046627607}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 1
+  entry:
+    playerLine:
+      key: 
+      pl: 
+      en: 
+      de: 
+    typeInteraction: 0
+  actionId: 
+  npcLine:
+  - key: 
+    pl: "(kilka krok\xF3w do przodu)"
+    en: 
+    de: 
+  options:
+  - playerLine:
+      key: 
+      pl: "Adrien. Rocznik 2006. Zgadza si\u0119?"
+      en: 
+      de: 
+    typeInteraction: 0
+  - playerLine:
+      key: 
+      pl: "Adrien. P\u0142e\u0107 m\u0119\u017Cczyzna, zgadza si\u0119?"
+      en: 
+      de: 
+    typeInteraction: 0
+  exitNode: 0
+--- !u!114 &5047316792756882972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d1d4c657b40b52429b23209d4bc523c, type: 3}
+  m_Name: "Tak jest. Wszystko si\u0119 zgadza."
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
+  graph: {fileID: 11400000}
+  position: {x: -168, y: -280}
+  ports:
+    keys:
+    - entry
+    - options
+    - options 0
+    values:
+    - _fieldName: entry
+      _node: {fileID: 5047316792756882972}
+      _typeQualifiedName: PlayerOption, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: options 0
+        node: {fileID: 544350672810628241}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: options
+      _node: {fileID: 5047316792756882972}
+      _typeQualifiedName: System.Collections.Generic.List`1[[PlayerOption, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=4.0.0.0,
+        Culture=neutral, PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: options 0
+      _node: {fileID: 5047316792756882972}
+      _typeQualifiedName: PlayerOption, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: entry
+        node: {fileID: 8349160547384139829}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 1
+  entry:
+    playerLine:
+      key: 
+      pl: 
+      en: 
+      de: 
+    typeInteraction: 0
+  actionId: 
+  npcLine:
+  - key: 
+    pl: "Tak jest. Wszystko si\u0119 zgadza."
+    en: 
+    de: 
+  options:
+  - playerLine:
+      key: 
+      pl: "Pozw\xF3l \u017Ce zadam kilka pyta\u0144"
+      en: 
+      de: 
+    typeInteraction: 0
+  exitNode: 0
+--- !u!114 &5826726100323241352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d1d4c657b40b52429b23209d4bc523c, type: 3}
+  m_Name: Pewnie!
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
+  graph: {fileID: 11400000}
+  position: {x: 632, y: -168}
+  ports:
+    keys:
+    - entry
+    - options
+    - options 0
+    values:
+    - _fieldName: entry
+      _node: {fileID: 5826726100323241352}
+      _typeQualifiedName: PlayerOption, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: options 2
+        node: {fileID: 8349160547384139829}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: options
+      _node: {fileID: 5826726100323241352}
+      _typeQualifiedName: System.Collections.Generic.List`1[[PlayerOption, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=4.0.0.0,
+        Culture=neutral, PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: options 0
+      _node: {fileID: 5826726100323241352}
+      _typeQualifiedName: PlayerOption, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: entry
+        node: {fileID: 8349160547384139829}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 1
+  entry:
+    playerLine:
+      key: 
+      pl: 
+      en: 
+      de: 
+    typeInteraction: 0
+  actionId: 
+  npcLine:
+  - key: 
+    pl: Pewnie!
+    en: 
+    de: 
+  - key: 
+    pl: "Mieszkam z rodzicami dalej, chodz\u0119 do szko\u0142y, sp\u0119dzam czas
+      aktywnie"
+    en: 
+    de: 
+  - key: 
+    pl: "A no i lubie sp\u0119dza\u0107 czas ze swoimi zwierz\u0119tami. Mam 2 kr\xF3liki"
+    en: 
+    de: 
+  options:
+  - playerLine:
+      key: 
+      pl: ...
+      en: 
+      de: 
+    typeInteraction: 0
+  exitNode: 0
+--- !u!114 &6099129444723083675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d1d4c657b40b52429b23209d4bc523c, type: 3}
+  m_Name: "Nie do ko\u0144ca wiem o co chodzi ale dobrze"
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
+  graph: {fileID: 11400000}
+  position: {x: 632, y: -392}
+  ports:
+    keys:
+    - entry
+    - options
+    - options 0
+    values:
+    - _fieldName: entry
+      _node: {fileID: 6099129444723083675}
+      _typeQualifiedName: PlayerOption, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: options 3
+        node: {fileID: 8349160547384139829}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: options
+      _node: {fileID: 6099129444723083675}
+      _typeQualifiedName: System.Collections.Generic.List`1[[PlayerOption, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=4.0.0.0,
+        Culture=neutral, PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: options 0
+      _node: {fileID: 6099129444723083675}
+      _typeQualifiedName: PlayerOption, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: entry
+        node: {fileID: -8705731669258593900}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 1
+  entry:
+    playerLine:
+      key: 
+      pl: 
+      en: 
+      de: 
+    typeInteraction: 0
+  actionId: 
+  npcLine:
+  - key: 
+    pl: "Nie do ko\u0144ca wiem o co chodzi ale dobrze"
+    en: 
+    de: 
+  options:
+  - playerLine:
+      key: 
+      pl: bez obaw
+      en: 
+      de: 
+    typeInteraction: 0
+  exitNode: 0
+--- !u!114 &6643611959748058815
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d1d4c657b40b52429b23209d4bc523c, type: 3}
+  m_Name: "Dzi\u0119kuje!"
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
+  graph: {fileID: 11400000}
+  position: {x: 872, y: 344}
+  ports:
+    keys:
+    - entry
+    - options
+    - options 0
+    values:
+    - _fieldName: entry
+      _node: {fileID: 6643611959748058815}
+      _typeQualifiedName: PlayerOption, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: options 1
+        node: {fileID: 8155533732114509665}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: options
+      _node: {fileID: 6643611959748058815}
+      _typeQualifiedName: System.Collections.Generic.List`1[[PlayerOption, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=4.0.0.0,
+        Culture=neutral, PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: options 0
+      _node: {fileID: 6643611959748058815}
+      _typeQualifiedName: PlayerOption, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: entry
+        node: {fileID: 8349160547384139829}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 1
+  entry:
+    playerLine:
+      key: 
+      pl: 
+      en: 
+      de: 
+    typeInteraction: 0
+  actionId: Adrien_Respekt
+  npcLine:
+  - key: 
+    pl: "Dzi\u0119kuje!"
+    en: 
+    de: 
+  options:
+  - playerLine:
+      key: 
+      pl: ...
+      en: 
+      de: 
+    typeInteraction: 0
+  exitNode: 0
+--- !u!114 &7965478984651827751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d1d4c657b40b52429b23209d4bc523c, type: 3}
+  m_Name: Nie jestem pewien czemu?
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
+  graph: {fileID: 11400000}
+  position: {x: 1992, y: 200}
+  ports:
+    keys:
+    - entry
+    - options
+    values:
+    - _fieldName: entry
+      _node: {fileID: 7965478984651827751}
+      _typeQualifiedName: PlayerOption, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: options 2
+        node: {fileID: -4352043426878378295}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: options
+      _node: {fileID: 7965478984651827751}
+      _typeQualifiedName: System.Collections.Generic.List`1[[PlayerOption, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=4.0.0.0,
+        Culture=neutral, PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+  entry:
+    playerLine:
+      key: 
+      pl: 
+      en: 
+      de: 
+    typeInteraction: 0
+  actionId: 
+  npcLine:
+  - key: 
+    pl: Nie jestem pewien czemu?
+    en: 
+    de: 
+  - key: 
+    pl: Ale przyjmuje to na klate
+    en: 
+    de: 
+  - key: 
+    pl: "\u017Cegnam"
+    en: 
+    de: 
+  options: []
+  exitNode: 1
+--- !u!114 &8010026312086219707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d1d4c657b40b52429b23209d4bc523c, type: 3}
+  m_Name: "Zadaje sobie z tego spraw\u0119"
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
+  graph: {fileID: 11400000}
+  position: {x: 872, y: 88}
+  ports:
+    keys:
+    - entry
+    - options
+    - options 0
+    - options 1
+    values:
+    - _fieldName: entry
+      _node: {fileID: 8010026312086219707}
+      _typeQualifiedName: PlayerOption, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: options 0
+        node: {fileID: -1569523496213903518}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: options
+      _node: {fileID: 8010026312086219707}
+      _typeQualifiedName: System.Collections.Generic.List`1[[PlayerOption, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=4.0.0.0,
+        Culture=neutral, PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: options 0
+      _node: {fileID: 8010026312086219707}
+      _typeQualifiedName: PlayerOption, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: entry
+        node: {fileID: 8349160547384139829}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 1
+    - _fieldName: options 1
+      _node: {fileID: 8010026312086219707}
+      _typeQualifiedName: PlayerOption, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: entry
+        node: {fileID: -7667168868899745430}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 1
+  entry:
+    playerLine:
+      key: 
+      pl: 
+      en: 
+      de: 
+    typeInteraction: 0
+  actionId: 
+  npcLine:
+  - key: 
+    pl: "Zadaje sobie z tego spraw\u0119"
+    en: 
+    de: 
+  - key: 
+    pl: "Bardzo du\u017Co w domu si\u0119 ucz\u0119 "
+    en: 
+    de: 
+  options:
+  - playerLine:
+      key: 
+      pl: ...
+      en: 
+      de: 
+    typeInteraction: 0
+  - playerLine:
+      key: 
+      pl: "Masz jakie\u015B plany po szkole?"
+      en: 
+      de: 
+    typeInteraction: 0
+  exitNode: 0
+--- !u!114 &8155533732114509665
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d1d4c657b40b52429b23209d4bc523c, type: 3}
+  m_Name: "Tak! Dok\u0142adnie"
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
+  graph: {fileID: 11400000}
+  position: {x: 632, y: 296}
+  ports:
+    keys:
+    - entry
+    - options
+    - options 0
+    - options 1
+    values:
+    - _fieldName: entry
+      _node: {fileID: 8155533732114509665}
+      _typeQualifiedName: PlayerOption, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: options 0
+        node: {fileID: 8349160547384139829}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: options
+      _node: {fileID: 8155533732114509665}
+      _typeQualifiedName: System.Collections.Generic.List`1[[PlayerOption, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=4.0.0.0,
+        Culture=neutral, PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: options 0
+      _node: {fileID: 8155533732114509665}
+      _typeQualifiedName: PlayerOption, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: entry
+        node: {fileID: 8349160547384139829}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 1
+    - _fieldName: options 1
+      _node: {fileID: 8155533732114509665}
+      _typeQualifiedName: PlayerOption, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: entry
+        node: {fileID: 6643611959748058815}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 1
+  entry:
+    playerLine:
+      key: 
+      pl: 
+      en: 
+      de: 
+    typeInteraction: 0
+  actionId: Adrien_Proud
+  npcLine:
+  - key: 
+    pl: "Tak! Dok\u0142adnie"
+    en: 
+    de: 
+  - key: 
+    pl: "Staram si\u0119 \u017Cy\u0107 aktywnie"
+    en: 
+    de: 
+  - key: 
+    pl: "Si\u0142ownia, bilard, du\u017Co ruchu. Nie lubi\u0119 siedzie\u0107 w miejscu"
+    en: 
+    de: 
+  - key: 
+    pl: "Z wyj\u0105tkiem siedzenia przy PC"
+    en: 
+    de: 
+  options:
+  - playerLine:
+      key: 
+      pl: ...
+      en: 
+      de: 
+    typeInteraction: 0
+  - playerLine:
+      key: 
+      pl: "Szanuj\u0119!"
+      en: 
+      de: 
+    typeInteraction: 0
+  exitNode: 0
+--- !u!114 &8349160547384139829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d1d4c657b40b52429b23209d4bc523c, type: 3}
+  m_Name: "S\u0142ucham pyta\u0144?"
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
+  graph: {fileID: 11400000}
+  position: {x: 360, y: -200}
+  ports:
+    keys:
+    - entry
+    - options
+    - options 0
+    - options 1
+    - options 2
+    - options 3
+    values:
+    - _fieldName: entry
+      _node: {fileID: 8349160547384139829}
+      _typeQualifiedName: PlayerOption, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: options 0
+        node: {fileID: 5047316792756882972}
+        reroutePoints: []
+      - fieldName: options 0
+        node: {fileID: -2689614875484667085}
+        reroutePoints: []
+      - fieldName: options 0
+        node: {fileID: -2429798682386861190}
+        reroutePoints: []
+      - fieldName: options 0
+        node: {fileID: 8155533732114509665}
+        reroutePoints: []
+      - fieldName: options 0
+        node: {fileID: 6643611959748058815}
+        reroutePoints: []
+      - fieldName: options 1
+        node: {fileID: -1569523496213903518}
+        reroutePoints: []
+      - fieldName: options 0
+        node: {fileID: 8010026312086219707}
+        reroutePoints: []
+      - fieldName: options 0
+        node: {fileID: 5826726100323241352}
+        reroutePoints: []
+      - fieldName: options 0
+        node: {fileID: -7667168868899745430}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: options
+      _node: {fileID: 8349160547384139829}
+      _typeQualifiedName: System.Collections.Generic.List`1[[PlayerOption, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=4.0.0.0,
+        Culture=neutral, PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: options 0
+      _node: {fileID: 8349160547384139829}
+      _typeQualifiedName: PlayerOption, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: entry
+        node: {fileID: 8155533732114509665}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 1
+    - _fieldName: options 1
+      _node: {fileID: 8349160547384139829}
+      _typeQualifiedName: PlayerOption, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: entry
+        node: {fileID: -1569523496213903518}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 1
+    - _fieldName: options 2
+      _node: {fileID: 8349160547384139829}
+      _typeQualifiedName: PlayerOption, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: entry
+        node: {fileID: 5826726100323241352}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 1
+    - _fieldName: options 3
+      _node: {fileID: 8349160547384139829}
+      _typeQualifiedName: PlayerOption, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: entry
+        node: {fileID: 6099129444723083675}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 1
+  entry:
+    playerLine:
+      key: 
+      pl: 
+      en: 
+      de: 
+    typeInteraction: 0
+  actionId: 
+  npcLine:
+  - key: 
+    pl: "S\u0142ucham pyta\u0144?"
+    en: 
+    de: 
+  options:
+  - playerLine:
+      key: 
+      pl: "Widz\u0119, \u017Ce trenujesz. Si\u0142ownia?"
+      en: 
+      de: 
+    typeInteraction: 0
+  - playerLine:
+      key: 
+      pl: "Jeste\u015B w technikum, tak?"
+      en: 
+      de: 
+    typeInteraction: 0
+  - playerLine:
+      key: 
+      pl: "Opowiesz mi co\u015B tak og\xF3lnie o sobie?"
+      en: 
+      de: 
+    typeInteraction: 0
+  - playerLine:
+      key: 
+      pl: "Mo\u017Cemy przej\u015B\u0107 do test\xF3w?"
+      en: 
+      de: 
+    typeInteraction: 0
+  exitNode: 0

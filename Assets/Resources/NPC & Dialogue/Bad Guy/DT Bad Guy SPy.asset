@@ -39,7 +39,7 @@ MonoBehaviour:
         Culture=neutral, PublicKeyToken=b77a5c561934e089
       connections: []
       _direction: 1
-      _connectionType: 0
+      _connectionType: 1
       _typeConstraint: 0
       _dynamic: 0
     - _fieldName: options 0
@@ -51,7 +51,7 @@ MonoBehaviour:
         node: {fileID: -6715674178912165352}
         reroutePoints: []
       _direction: 1
-      _connectionType: 0
+      _connectionType: 1
       _typeConstraint: 0
       _dynamic: 1
   entry:
@@ -118,7 +118,7 @@ MonoBehaviour:
         Culture=neutral, PublicKeyToken=b77a5c561934e089
       connections: []
       _direction: 1
-      _connectionType: 0
+      _connectionType: 1
       _typeConstraint: 0
       _dynamic: 0
     - _fieldName: options 0
@@ -130,7 +130,7 @@ MonoBehaviour:
         node: {fileID: -6715674178912165352}
         reroutePoints: []
       _direction: 1
-      _connectionType: 0
+      _connectionType: 1
       _typeConstraint: 0
       _dynamic: 1
   entry:
@@ -175,7 +175,7 @@ MonoBehaviour:
   m_Name: "S\u0142ucham, "
   m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
   graph: {fileID: 11400000}
-  position: {x: -120, y: 56}
+  position: {x: -104, y: 40}
   ports:
     keys:
     - entry
@@ -209,7 +209,7 @@ MonoBehaviour:
         Culture=neutral, PublicKeyToken=b77a5c561934e089
       connections: []
       _direction: 1
-      _connectionType: 0
+      _connectionType: 1
       _typeConstraint: 0
       _dynamic: 0
     - _fieldName: options 0
@@ -221,7 +221,7 @@ MonoBehaviour:
         node: {fileID: -7478938552777752635}
         reroutePoints: []
       _direction: 1
-      _connectionType: 0
+      _connectionType: 1
       _typeConstraint: 0
       _dynamic: 1
     - _fieldName: options 1
@@ -233,7 +233,7 @@ MonoBehaviour:
         node: {fileID: -9190231739762235982}
         reroutePoints: []
       _direction: 1
-      _connectionType: 0
+      _connectionType: 1
       _typeConstraint: 0
       _dynamic: 1
     - _fieldName: options 2
@@ -245,7 +245,7 @@ MonoBehaviour:
         node: {fileID: -2152636447115699077}
         reroutePoints: []
       _direction: 1
-      _connectionType: 0
+      _connectionType: 1
       _typeConstraint: 0
       _dynamic: 1
   entry:
@@ -318,7 +318,7 @@ MonoBehaviour:
         Culture=neutral, PublicKeyToken=b77a5c561934e089
       connections: []
       _direction: 1
-      _connectionType: 0
+      _connectionType: 1
       _typeConstraint: 0
       _dynamic: 0
     - _fieldName: options 0
@@ -330,7 +330,7 @@ MonoBehaviour:
         node: {fileID: 8606082006083547352}
         reroutePoints: []
       _direction: 1
-      _connectionType: 0
+      _connectionType: 1
       _typeConstraint: 0
       _dynamic: 1
     - _fieldName: options 1
@@ -342,7 +342,7 @@ MonoBehaviour:
         node: {fileID: -6715674178912165352}
         reroutePoints: []
       _direction: 1
-      _connectionType: 0
+      _connectionType: 1
       _typeConstraint: 0
       _dynamic: 1
   entry:
@@ -416,7 +416,7 @@ MonoBehaviour:
         Culture=neutral, PublicKeyToken=b77a5c561934e089
       connections: []
       _direction: 1
-      _connectionType: 0
+      _connectionType: 1
       _typeConstraint: 0
       _dynamic: 0
     - _fieldName: options 0
@@ -428,7 +428,7 @@ MonoBehaviour:
         node: {fileID: 4741394630664691633}
         reroutePoints: []
       _direction: 1
-      _connectionType: 0
+      _connectionType: 1
       _typeConstraint: 0
       _dynamic: 1
     - _fieldName: options 1
@@ -440,7 +440,7 @@ MonoBehaviour:
         node: {fileID: -1332275014040890410}
         reroutePoints: []
       _direction: 1
-      _connectionType: 0
+      _connectionType: 1
       _typeConstraint: 0
       _dynamic: 1
   entry:
@@ -518,7 +518,7 @@ MonoBehaviour:
         Culture=neutral, PublicKeyToken=b77a5c561934e089
       connections: []
       _direction: 1
-      _connectionType: 0
+      _connectionType: 1
       _typeConstraint: 0
       _dynamic: 0
     - _fieldName: options 0
@@ -530,7 +530,7 @@ MonoBehaviour:
         node: {fileID: -2152636447115699077}
         reroutePoints: []
       _direction: 1
-      _connectionType: 0
+      _connectionType: 1
       _typeConstraint: 0
       _dynamic: 1
     - _fieldName: options 1
@@ -542,7 +542,7 @@ MonoBehaviour:
         node: {fileID: -2152636447115699077}
         reroutePoints: []
       _direction: 1
-      _connectionType: 0
+      _connectionType: 1
       _typeConstraint: 0
       _dynamic: 1
     - _fieldName: options 2
@@ -551,7 +551,7 @@ MonoBehaviour:
         PublicKeyToken=null
       connections: []
       _direction: 1
-      _connectionType: 0
+      _connectionType: 1
       _typeConstraint: 0
       _dynamic: 1
     - _fieldName: options 3
@@ -563,7 +563,7 @@ MonoBehaviour:
         node: {fileID: 8116840987896097486}
         reroutePoints: []
       _direction: 1
-      _connectionType: 0
+      _connectionType: 1
       _typeConstraint: 0
       _dynamic: 1
   entry:
@@ -643,7 +643,7 @@ MonoBehaviour:
         Culture=neutral, PublicKeyToken=b77a5c561934e089
       connections: []
       _direction: 1
-      _connectionType: 0
+      _connectionType: 1
       _typeConstraint: 0
       _dynamic: 0
   entry:
@@ -742,7 +742,7 @@ MonoBehaviour:
         Culture=neutral, PublicKeyToken=b77a5c561934e089
       connections: []
       _direction: 1
-      _connectionType: 0
+      _connectionType: 1
       _typeConstraint: 0
       _dynamic: 0
   entry:
@@ -807,7 +807,7 @@ MonoBehaviour:
         Culture=neutral, PublicKeyToken=b77a5c561934e089
       connections: []
       _direction: 1
-      _connectionType: 0
+      _connectionType: 1
       _typeConstraint: 0
       _dynamic: 0
     - _fieldName: options 0
@@ -819,7 +819,7 @@ MonoBehaviour:
         node: {fileID: -3489191535056230950}
         reroutePoints: []
       _direction: 1
-      _connectionType: 0
+      _connectionType: 1
       _typeConstraint: 0
       _dynamic: 1
   entry:
@@ -881,7 +881,7 @@ MonoBehaviour:
         Culture=neutral, PublicKeyToken=b77a5c561934e089
       connections: []
       _direction: 1
-      _connectionType: 0
+      _connectionType: 1
       _typeConstraint: 0
       _dynamic: 0
   entry:

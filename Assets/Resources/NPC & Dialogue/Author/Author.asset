@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8dc4a063d2a7c6740bb90766467eb1ab, type: 3}
+  m_Name: Author
+  m_EditorClassIdentifier: Assembly-CSharp::NPCData
+  humanFace: {fileID: 0}
+  humanName: Adrien
+  humanSecondName: Dres
+  humanAge: 19
+  humanWeight: 80
+  humanHeight: 180
+  humanEyesColor: black
+  humanDate: 2006.12.20
+  humanGender: Male
+  humanAdditionalInfo: "Uczy si\u0119 w technikum"
+  humanCountry: 0
+  humanID: 3
+  AllConscriptsNPC:
+  - {fileID: 11400000, guid: 731061e5cb663714b9f42a518102ccbd, type: 2}

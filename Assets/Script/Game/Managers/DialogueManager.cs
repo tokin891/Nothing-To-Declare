@@ -152,9 +152,14 @@ public class DialogueManager : MonoBehaviour
             ObjectPlayerOption pObj = obj.GetComponent<ObjectPlayerOption>();
 
             // Przekazujemy referencjê do nastêpnego wêz³a
-            if (outPort != null && outPort.IsConnected)
+            if (outPort != null)
             {
-                pObj.nextNode = outPort.Connection.node as DialogueNode;
+                if (outPort.IsConnected)
+                {
+                    pObj.nextNode = outPort.Connection.node as DialogueNode;
+                }
+                else
+                    pObj.nextNode = outPort.node as DialogueNode;
             }
 
             pObj.interactionType = node.options[j].typeInteraction;
