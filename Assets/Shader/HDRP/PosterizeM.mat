@@ -143,6 +143,7 @@ Material:
     - _Anisotropy: 0
     - _BlendMode: 0
     - _CoatMask: 0
+    - _ConservativeDepthOffsetEnable: 0
     - _CullMode: 2
     - _CullModeForward: 2
     - _Cutoff: 0.5
@@ -168,9 +169,19 @@ Material:
     - _EnableFogOnTransparent: 1
     - _EnableGeometricSpecularAA: 0
     - _EnergyConservingSpecularColor: 1
-    - _Float: 3
+    - _ExcludeFromTUAndAA: 0
+    - _Float: 6
     - _Float_1: 0.3
+    - _Fullscreen_DepthTest: 8
     - _Fullscreen_DepthWrite: 0
+    - _Fullscreen_Stencil: 0
+    - _Fullscreen_StencilComparison: 8
+    - _Fullscreen_StencilDepthFail: 0
+    - _Fullscreen_StencilFail: 0
+    - _Fullscreen_StencilPass: 0
+    - _Fullscreen_StencilReadMask: 192
+    - _Fullscreen_StencilReference: 0
+    - _Fullscreen_StencilWriteMask: 192
     - _HeightAmplitude: 0.02
     - _HeightCenter: 0.5
     - _HeightMapParametrization: 0
@@ -204,6 +215,7 @@ Material:
     - _ReceivesSSR: 1
     - _ReceivesSSRTransparent: 0
     - _RefractionModel: 0
+    - _RenderQueueType: 1
     - _Smoothness: 0.5
     - _SmoothnessRemapMax: 1
     - _SmoothnessRemapMin: 0
@@ -213,10 +225,12 @@ Material:
     - _SrcBlend: 1
     - _StencilRef: 0
     - _StencilRefDepth: 8
+    - _StencilRefDistortionVec: 4
     - _StencilRefGBuffer: 10
     - _StencilRefMV: 40
     - _StencilWriteMask: 6
     - _StencilWriteMaskDepth: 9
+    - _StencilWriteMaskDistortionVec: 4
     - _StencilWriteMaskGBuffer: 15
     - _StencilWriteMaskMV: 41
     - _SubsurfaceMask: 1

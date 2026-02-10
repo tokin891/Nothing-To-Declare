@@ -394,7 +394,7 @@ MonoBehaviour:
       en: 
       de: 
     typeInteraction: 0
-  actionId: Adrien_Uncom
+  actionId: stress
   npcLine:
   - key: 
     pl: "No racja (wida\u0107 \u017Ce czuj\u0119 si\u0119 nie komfortowo)"
@@ -469,7 +469,7 @@ MonoBehaviour:
       en: 
       de: 
     typeInteraction: 0
-  actionId: Adrien_Stress
+  actionId: stress
   npcLine:
   - key: 
     pl: Przepraszam
@@ -1197,7 +1197,7 @@ MonoBehaviour:
   m_Name: "Dzi\u0119kuje!"
   m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
   graph: {fileID: 11400000}
-  position: {x: 872, y: 344}
+  position: {x: 936, y: 376}
   ports:
     keys:
     - entry
@@ -1245,7 +1245,7 @@ MonoBehaviour:
       en: 
       de: 
     typeInteraction: 0
-  actionId: Adrien_Respekt
+  actionId: happy
   npcLine:
   - key: 
     pl: "Dzi\u0119kuje!"
@@ -1495,7 +1495,7 @@ MonoBehaviour:
       en: 
       de: 
     typeInteraction: 0
-  actionId: Adrien_Proud
+  actionId: muscle
   npcLine:
   - key: 
     pl: "Tak! Dok\u0142adnie"

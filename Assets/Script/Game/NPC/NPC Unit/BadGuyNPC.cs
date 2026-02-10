@@ -7,7 +7,6 @@ public class BadGuyNPC : MonoBehaviour, IActionNPC
     private const string musicActionID = "BadGuyMusic";
 
     private MeshRenderer mRender;
-    private Material defualtMaterial;
     [SerializeField] private Material stressMaterial;
     [SerializeField] AudioClip clipMusic;
     [SerializeField] float speedTuningMusic = 0.05f;
@@ -15,7 +14,6 @@ public class BadGuyNPC : MonoBehaviour, IActionNPC
     private void Awake()
     {
         mRender = GetComponentInChildren<MeshRenderer>();
-        defualtMaterial = mRender.material;
     }
 
     public void InputAction(string actionID)
@@ -23,19 +21,11 @@ public class BadGuyNPC : MonoBehaviour, IActionNPC
         switch(actionID)
         {
             case stressActionID:
-                StartCoroutine(ShowStress());
+                NPCManager.ChangeMaterialNPCForTime(mRender, stressMaterial, Random.Range(3, 6));
                 break;
             case musicActionID:
                 SoundsManager.instance.PlayAudioAndBlendWithAudioSourceForTime(clipMusic, speedTuningMusic, 0.05f, true, Random.Range(6, 10), SoundsManager.instance.mainAmbientSource, 0.4f);
                 break;
         }
-    }
-
-    private IEnumerator ShowStress()
-    {
-        mRender.material = stressMaterial;
-        yield return new WaitForSeconds(Random.Range(3, 6));
-
-        mRender.material = defualtMaterial;
     }
 }

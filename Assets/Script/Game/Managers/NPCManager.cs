@@ -41,6 +41,8 @@ public class NPCManager : MonoBehaviour
     private Coroutine coroutineEnd;
     private Coroutine coroutineStart;
 
+    public Coroutine changeMaterialForDelayC;
+
     private void Awake()
     {
         Instance = this;
@@ -166,5 +168,21 @@ public class NPCManager : MonoBehaviour
         DialogueManager.Instance.StopInteraction();
         armContainer.SetActive(false);
         armImage.sprite = null;
+    }
+
+    public static void ChangeMaterialNPCForTime(MeshRenderer npcRender, Material changeTo, float delay)
+    {
+        if (Instance.changeMaterialForDelayC != null)
+            return;
+        Instance.changeMaterialForDelayC = Instance.StartCoroutine(Instance.ChangeMaterialNPCForTimeI(npcRender, changeTo, delay));
+    }
+
+    private IEnumerator ChangeMaterialNPCForTimeI(MeshRenderer npcR, Material m, float d)
+    {
+        Material defaultM = npcR.material;
+        npcR.material = m;
+        yield return new WaitForSeconds(d);
+        npcR.material = defaultM;
+        changeMaterialForDelayC = null;
     }
 }
