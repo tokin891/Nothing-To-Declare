@@ -53,7 +53,7 @@ public class PlayerMove : MonoBehaviour
             if (Time.time > checkLastPosition)
             {
                 checkLastPosition = Time.time + delayFS;
-                SoundsManager.instance.PlayFS(); ;
+                GameManager.Instance.SoundsManager.PlayFS();
             }
         }
     }

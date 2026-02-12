@@ -8,6 +8,6 @@ public class ObjectPlayerOption : MonoBehaviour
     public void ChoseOption()
     {
         // Wywo³ujemy now¹ metodê managera
-        DialogueManager.Instance.ChoseDialogueByNode(nextNode, interactionType);
+        GameManager.Instance.DialogueManager.ChoseDialogueByNode(nextNode, interactionType);
     }
 }

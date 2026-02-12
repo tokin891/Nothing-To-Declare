@@ -139,7 +139,7 @@ MonoBehaviour:
       pl: (zadecyduj)
       en: 
       de: 
-    typeInteraction: 3
+    typeInteraction: 0
   exitNode: 0
 --- !u!114 &-7667168868899745430
 MonoBehaviour:

@@ -82,7 +82,7 @@ public class Revolver : MonoBehaviour
     private IEnumerator ShootCorutine(IShootable shootingObj)
     {
         cantShoot = true;
-        SoundsManager.instance.PlayOneTimeClip(shootClip, 0.75f);
+        GameManager.Instance.SoundsManager.PlayOneTimeClip(shootClip, 0.75f);
         yield return new WaitForSeconds(0.1f);
         flashCanvas.alpha = 0f;
         while(flashCanvas.alpha < 1f)
@@ -91,7 +91,7 @@ public class Revolver : MonoBehaviour
             yield return null;
         }
         shootingObj.Shoot();
-        MovementManager.instance.RemoveBullet();
+        GameManager.Instance.MovementManager.RemoveBullet();
         flashCanvas.alpha = 1f;
         while (flashCanvas.alpha > 0f)
         {
@@ -99,9 +99,9 @@ public class Revolver : MonoBehaviour
             yield return null;
         }
         GameManager.Instance.ClearNPC();
+        GameManager.Instance.NpcFlowController.OnNpcFinished(true);
         yield return new WaitForSeconds(2.5f);
-        MovementManager.instance.SwitchState(MovementManager.instance.DeskState, true);
-        GameManager.Instance.SetupNPCWithDelay(4);
+        GameManager.Instance.MovementManager.SwitchState(GameManager.Instance.MovementManager.DeskState, true);
         cantShoot = false;
     }
 

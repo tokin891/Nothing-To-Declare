@@ -32,16 +32,14 @@ public class CameraPickableSystem : MonoBehaviour
 
             CatchRay();
 
-            if (MovementManager.instance.CurrentState is not DeskState && isHover && pob != null)
+            if (GameManager.Instance.MovementManager.CurrentState is not DeskState && isHover && pob != null)
             {
                 pob.ExitPick();
                 pob = null;
                 Debug.Log("Update revolver pickup");
             }
 
-            if (objectHit == null)
-                return;
-            if (pob == null)
+            if (pob == null && objectHit != null)
             {
                 if (!objectHit.TryGetComponent<PickableObjectBehaviour>(out pob))
                 {
@@ -77,7 +75,7 @@ public class CameraPickableSystem : MonoBehaviour
 
     public void Click()
     {
-        if (MovementManager.instance.CurrentState is not DeskState)
+        if (GameManager.Instance.MovementManager.CurrentState is not DeskState)
             return;
 
         if (pob != null)
@@ -141,7 +139,7 @@ public abstract class PickableObjectBehaviour : MonoBehaviour
 
         if (nextTimeToPlayWhoshSound < Time.time)
         {
-            SoundsManager.instance.PlayOneTimeClip(clipWhosh, 0.35f);
+            GameManager.Instance.SoundsManager.PlayOneTimeClip(clipWhosh, 0.35f);
             nextTimeToPlayWhoshSound = Time.time + 1f;
         }
 
@@ -175,7 +173,7 @@ public abstract class PickableObjectBehaviour : MonoBehaviour
         fastClick = false;
 
         ExitPick();
-        SoundsManager.instance.PlayOneTimeClip(clipEquip, 0.35f);
+        GameManager.Instance.SoundsManager.PlayOneTimeClip(clipEquip, 0.35f);
         OnClickSuccesfully();
     }
 

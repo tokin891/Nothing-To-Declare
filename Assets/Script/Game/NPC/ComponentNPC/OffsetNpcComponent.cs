@@ -1,21 +1,19 @@
 using UnityEngine;
 
-public class NPCOffset : MonoBehaviour
+[CreateAssetMenu(menuName ="NPC/Components/Offset Position and Scale")]
+public class OffsetNpcComponent : NPCBehaviour
 {
     public Vector3 positionOffset;
     public Vector3 scaleMultiplier = Vector3.one; // U¿ywamy mno¿nika dla skali
-    public Transform transformNPC;
 
-    private void Awake()
+    public override void Execute(NPCObject npc)
     {
-        if (transformNPC == null) transformNPC = transform;
-
         // Ustawianie offsetu pozycji
-        transformNPC.localPosition += positionOffset;
+        npc.TransformOfRenderMesh.localPosition = npc.PositionAwakeOfRenderMesh + positionOffset;
 
         // Skalowanie (bezpieczniejsze mno¿enie)
-        Vector3 currentScale = transformNPC.localScale;
-        transformNPC.localScale = new Vector3(
+        Vector3 currentScale = Vector3.one;
+        npc.TransformOfRenderMesh.localScale = new Vector3(
             currentScale.x * scaleMultiplier.x,
             currentScale.y * scaleMultiplier.y,
             currentScale.z * scaleMultiplier.z

@@ -9,8 +9,6 @@ using static UnityEditor.Rendering.MaterialUpgrader;
 
 public class DialogueManager : MonoBehaviour
 {
-    public static DialogueManager Instance;
-
     [SerializeField] GameObject prefabPlayerOption;
     [SerializeField] Transform gridPlayerOption;
     [SerializeField] GameObject dialogueParent;
@@ -28,7 +26,6 @@ public class DialogueManager : MonoBehaviour
 
     private void Awake()
     {
-        Instance = this;
         dialogueParent.SetActive(false);
         dialoguePOList = new List<GameObject>();
     }
@@ -38,7 +35,7 @@ public class DialogueManager : MonoBehaviour
         
     }
 
-    // Trigger By NPCManager
+    // Trigger By NPCMovement
     public void StartDialogue(DialogueTree tree)
     {
         dialogueTree = tree;
@@ -81,16 +78,16 @@ public class DialogueManager : MonoBehaviour
         dialogueParent.SetActive(true);
         if (playerInteractionType == PlayerInteractionType.Shoot)
         {
-            if (MovementManager.instance.CurrentBullet > 0)
+            if (GameManager.Instance.MovementManager.CurrentBullet > 0)
             {
                 interactionAreOpen = true;
                 StopCoroutine(dialogueCorutine);
-                NPCManager.Instance.InteractionNode(pit);
+                GameManager.Instance.NPCDocumentDisplay.InteractionNode(pit, GameManager.Instance.GetCurrentNpcData);
             }
         }else if (pit != PlayerInteractionType.None)
         {
             interactionAreOpen = true;
-            NPCManager.Instance.InteractionNode(pit);
+            GameManager.Instance.NPCDocumentDisplay.InteractionNode(pit, GameManager.Instance.GetCurrentNpcData);
         }
 
         yield return new WaitUntil(() => !interactionAreOpen);
@@ -105,22 +102,18 @@ public class DialogueManager : MonoBehaviour
             dialoguePOList.Clear();
         }
 
-        Debug.Log("Start dialog");
         if(!string.IsNullOrEmpty(node.actionId))
         {
-            NPCManager.Instance.CurrentNPCObject.ActionNPC(node.actionId);
-        }
-        if(!string.IsNullOrEmpty(node.actionId))
-        {
+            GameManager.Instance.NPCMovement.CurrentNPCObject.ActionNPC(node.actionId);
             RunAction(node.actionId);
         }
         int countDialogs = node.npcLine.Count;
         for (int i = 0; i < node.npcLine.Count; i++)
         {
             char[] dialogueTextInChar = node.npcLine[i].Get().ToCharArray();
-            dialogueText.text = NPCManager.Instance.CurrentNPCObject.NPCDatas.humanName + ": ";
+            dialogueText.text = GameManager.Instance.NPCMovement.CurrentNPCObject.NPCData.humanName + ": ";
             float waitForNextChar = 0f;
-            SoundsManager.instance.PlayOneTimeClipWithoutDestroying(typingClip, 0.6f, true);
+            GameManager.Instance.SoundsManager.PlayOneTimeClipWithoutDestroying(typingClip, 0.6f, true);
             for (int j = 0; j < dialogueTextInChar.Length; j++)
             {
                 while (waitForNextChar > 0)
@@ -131,7 +124,7 @@ public class DialogueManager : MonoBehaviour
                 dialogueText.text += dialogueTextInChar[j];
                 waitForNextChar = speedShowingText;
             }
-            SoundsManager.instance.DestroyAudioSourceByClipFromAdditionalAudio(typingClip);
+            GameManager.Instance.SoundsManager.DestroyAudioSourceByClipFromAdditionalAudio(typingClip);
             Debug.Log("First dialogue ");
             countDialogs--;
             if (countDialogs != 0)
@@ -170,7 +163,7 @@ public class DialogueManager : MonoBehaviour
         {
             yield return new WaitUntil(() => Input.GetMouseButtonDown(0));
             EndDialogue();
-            NPCManager.Instance.EndDialogue();
+            GameManager.Instance.NPCMovement.EndDialogue();
         }
     }
 
@@ -179,7 +172,7 @@ public class DialogueManager : MonoBehaviour
         if (dialogueCorutine != null)
         {
             StopCoroutine(dialogueCorutine);
-            SoundsManager.instance.DestroyAudioSourceByClipFromAdditionalAudio(typingClip);
+            GameManager.Instance.SoundsManager.DestroyAudioSourceByClipFromAdditionalAudio(typingClip);
         }
         currentNode = null;
         dialogueTree = null;

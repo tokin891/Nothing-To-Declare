@@ -27,3 +27,5 @@ MonoBehaviour:
   AllConscriptsNPC:
   - {fileID: 11400000, guid: 52dda2277673ebc45bda2a893c3f004a, type: 2}
   - {fileID: 11400000, guid: 3cb46cd96280ff24ca91bdcd9f40b8e4, type: 2}
+  normalMaterial: {fileID: 2100000, guid: 08a1b8768c7e12d449ed220ee5995fe8, type: 2}
+  npcCustomScript: []

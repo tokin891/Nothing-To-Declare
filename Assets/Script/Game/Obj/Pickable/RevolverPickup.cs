@@ -7,6 +7,6 @@ public class RevolverPickup : PickableObjectBehaviour
 {
     public override void OnClickSuccesfully()
     {
-        MovementManager.instance.SwitchState(MovementManager.instance.ShootState, true);
+        GameManager.Instance.MovementManager.SwitchState(GameManager.Instance.MovementManager.ShootState, true);
     }
 }

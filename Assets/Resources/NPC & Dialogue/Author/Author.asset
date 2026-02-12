@@ -26,3 +26,9 @@ MonoBehaviour:
   humanID: 3
   AllConscriptsNPC:
   - {fileID: 11400000, guid: 731061e5cb663714b9f42a518102ccbd, type: 2}
+  normalMaterial: {fileID: 2100000, guid: 6230d1d85f3dbca48a3c45f2fc7b7cc9, type: 2}
+  npcCustomScript:
+  - {fileID: 11400000, guid: 7cb5361e4d05f9e428295036ddda4fb9, type: 2}
+  - {fileID: 11400000, guid: b8dc5d0cd90c2c44d8c0730ed2b666e8, type: 2}
+  - {fileID: 11400000, guid: 901005aef64666145816ce76ded264c2, type: 2}
+  - {fileID: 11400000, guid: 0e5904887d39a7740ad3426a66a4597e, type: 2}

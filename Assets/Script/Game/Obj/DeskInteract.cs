@@ -7,13 +7,7 @@ public class DeskInteract : MonoBehaviour, IInteract
 
     public void Interact()
     {
-        StartCoroutine(Delay());
-    }
-
-    private IEnumerator Delay()
-    {
-        MovementManager.instance.SwitchState(MovementManager.instance.DeskState, true);
-        yield return new WaitForSeconds(waitForCandidant);
-        GameManager.Instance.SetupNPC();
+        GameManager.Instance.MovementManager.SwitchState(GameManager.Instance.MovementManager.DeskState, true);
+        GameManager.Instance.NpcFlowController.Initialize();
     }
 }

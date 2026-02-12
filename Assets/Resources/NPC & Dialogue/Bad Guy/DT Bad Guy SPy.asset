@@ -255,7 +255,7 @@ MonoBehaviour:
       en: 
       de: 
     typeInteraction: 0
-  actionId: BadGuyMusic
+  actionId: stress
   npcLine:
   - key: 
     pl: "S\u0142ucham, "
@@ -829,7 +829,7 @@ MonoBehaviour:
       en: 
       de: 
     typeInteraction: 0
-  actionId: Finish
+  actionId: stress
   npcLine:
   - key: 
     pl: Co teraz?

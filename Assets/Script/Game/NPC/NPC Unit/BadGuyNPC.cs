@@ -21,10 +21,10 @@ public class BadGuyNPC : MonoBehaviour, IActionNPC
         switch(actionID)
         {
             case stressActionID:
-                NPCManager.ChangeMaterialNPCForTime(mRender, stressMaterial, Random.Range(3, 6));
+                NPCMovement.FlashMaterialNPC(mRender, stressMaterial, Random.Range(3, 6));
                 break;
             case musicActionID:
-                SoundsManager.instance.PlayAudioAndBlendWithAudioSourceForTime(clipMusic, speedTuningMusic, 0.05f, true, Random.Range(6, 10), SoundsManager.instance.mainAmbientSource, 0.4f);
+                GameManager.Instance.SoundsManager.PlayAudioAndBlendWithAudioSourceForTime(clipMusic, speedTuningMusic, 0.05f, true, Random.Range(6, 10), GameManager.Instance.SoundsManager.mainAmbientSource, 0.4f);
                 break;
         }
     }

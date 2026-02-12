@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class SoundsManager : MonoBehaviour
 {
-    public static SoundsManager instance;
-
     [SerializeField] AudioClip mainAmbient;
     [SerializeField] float speedTuningMainAmbient;
     [SerializeField] float targetVolumeMainAmbient = 0.65f;
@@ -17,10 +15,6 @@ public class SoundsManager : MonoBehaviour
 
     private float timerClearUslessAdditionalAmbient;
 
-    private void Awake()
-    {
-        instance = this;
-    }
     private void Update()
     {
         if(Time.time > timerClearUslessAdditionalAmbient)

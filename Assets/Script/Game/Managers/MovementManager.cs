@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class MovementManager : MonoBehaviour
 {
-    public static MovementManager instance;
-
     [SerializeField] Animator camAnm;
 
     [SerializeField] GameObject[] canvasCenter;
@@ -23,6 +21,7 @@ public class MovementManager : MonoBehaviour
 
     public IStateMovement CurrentState { private set; get; }
     public int CurrentBullet { private set; get; }
+
     private float nextTimeToUpdate;
     private int maxBullet;
 
@@ -30,7 +29,6 @@ public class MovementManager : MonoBehaviour
     {
         maxBullet = allBuletsObject.Length;
         CurrentBullet = maxBullet;
-        instance = this;
         Center();
 
         MoveState = new MoveState(dataState, playerTransformDesk);
@@ -154,26 +152,8 @@ public class DeskState : IStateMovement
         {
             dataState.playerDesk.SetActive(true);
         }
-        if(dataState.objectActiveWhenSit != null)
-        {
-            if (dataState.objectActiveWhenSit.Length > 0)
-            {
-                for (int i = 0; i < dataState.objectActiveWhenSit.Length; i++)
-                {
-                    dataState.objectActiveWhenSit[i].SetActive(true);
-                }
-            }
-        }
-        if (dataState.lightsActiveWhenSit != null)
-        {
-            if (dataState.lightsActiveWhenSit.Length > 0)
-            {
-                for (int i = 0; i < dataState.lightsActiveWhenSit.Length; i++)
-                {
-                    dataState.lightsActiveWhenSit[i].gameObject.SetActive(true);
-                }
-            }
-        }
+        Extensions.SetActiveAll(dataState.objectActiveWhenSit, true);
+        Extensions.SetEnabledAll(dataState.lightsActiveWhenSit, true);
 
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
@@ -189,26 +169,8 @@ public class DeskState : IStateMovement
         {
             dataState.playerDesk.SetActive(false);
         }
-        if (dataState.objectActiveWhenSit != null)
-        {
-            if (dataState.objectActiveWhenSit.Length > 0)
-            {
-                for (int i = 0; i < dataState.objectActiveWhenSit.Length; i++)
-                {
-                    dataState.objectActiveWhenSit[i].SetActive(false);
-                }
-            }
-        }
-        if (dataState.lightsActiveWhenSit != null)
-        {
-            if (dataState.lightsActiveWhenSit.Length > 0)
-            {
-                for (int i = 0; i < dataState.lightsActiveWhenSit.Length; i++)
-                {
-                    dataState.lightsActiveWhenSit[i].gameObject.SetActive(false);
-                }
-            }
-        }
+        Extensions.SetActiveAll(dataState.objectActiveWhenSit, false);
+        Extensions.SetEnabledAll(dataState.lightsActiveWhenSit, false);        
     }
 
     public void Update()
@@ -245,26 +207,8 @@ public class MoveState : IStateMovement
 
             dataState.playerMove.SetActive(true);
         }
-        if (dataState.objectActiveWhenMove != null)
-        {
-            if (dataState.objectActiveWhenMove.Length > 0)
-            {
-                for (int i = 0; i < dataState.objectActiveWhenMove.Length; i++)
-                {
-                    dataState.objectActiveWhenMove[i].SetActive(true);
-                }
-            }
-        }
-        if (dataState.lightsActiveWhenMove != null)
-        {
-            if (dataState.lightsActiveWhenMove.Length > 0)
-            {
-                for (int i = 0; i < dataState.lightsActiveWhenMove.Length; i++)
-                {
-                    dataState.lightsActiveWhenMove[i].gameObject.SetActive(true);
-                }
-            }
-        }
+        Extensions.SetActiveAll(dataState.objectActiveWhenMove, true);
+        Extensions.SetEnabledAll(dataState.lightsActiveWhenMove, true);
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
@@ -279,26 +223,8 @@ public class MoveState : IStateMovement
         {
             dataState.playerMove.SetActive(false);
         }
-        if (dataState.objectActiveWhenMove != null)
-        {
-            if (dataState.objectActiveWhenMove.Length > 0)
-            {
-                for (int i = 0; i < dataState.objectActiveWhenMove.Length; i++)
-                {
-                    dataState.objectActiveWhenMove[i].SetActive(false);
-                }
-            }
-        }
-        if (dataState.lightsActiveWhenMove != null)
-        {
-            if (dataState.lightsActiveWhenMove.Length > 0)
-            {
-                for (int i = 0; i < dataState.lightsActiveWhenMove.Length; i++)
-                {
-                    dataState.lightsActiveWhenMove[i].gameObject.SetActive(false);
-                }
-            }
-        }
+        Extensions.SetActiveAll(dataState.objectActiveWhenMove, false);
+        Extensions.SetEnabledAll(dataState.lightsActiveWhenMove, false);
     }
 
     public void Update()
@@ -320,9 +246,9 @@ public class ShootState : IStateMovement
 
     public void Enter()
     {
-        if(MovementManager.instance.CurrentBullet <= 0)
+        if(GameManager.Instance.MovementManager.CurrentBullet <= 0)
         {
-            MovementManager.instance.SwitchState(MovementManager.instance.DeskState);
+            GameManager.Instance.MovementManager.SwitchState(GameManager.Instance.MovementManager.DeskState);
             return;
         }
 
@@ -334,26 +260,9 @@ public class ShootState : IStateMovement
         {
             dataState.playerShoot.SetActive(true);
         }
-        if (dataState.objectActiveWhenShoot != null)
-        {
-            if (dataState.objectActiveWhenShoot.Length > 0)
-            {
-                for (int i = 0; i < dataState.objectActiveWhenShoot.Length; i++)
-                {
-                    dataState.objectActiveWhenShoot[i].SetActive(true);
-                }
-            }
-        }
-        if (dataState.lightsActiveWhenShoot != null)
-        {
-            if (dataState.lightsActiveWhenShoot.Length > 0)
-            {
-                for (int i = 0; i < dataState.lightsActiveWhenShoot.Length; i++)
-                {
-                    dataState.lightsActiveWhenShoot[i].gameObject.SetActive(true);
-                }
-            }
-        }
+
+        Extensions.SetActiveAll(dataState.objectActiveWhenShoot, true);
+        Extensions.SetEnabledAll(dataState.lightsActiveWhenShoot, true);
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
@@ -368,26 +277,9 @@ public class ShootState : IStateMovement
         {
             dataState.playerShoot.SetActive(false);
         }
-        if (dataState.objectActiveWhenShoot != null)
-        {
-            if (dataState.objectActiveWhenShoot.Length > 0)
-            {
-                for (int i = 0; i < dataState.objectActiveWhenShoot.Length; i++)
-                {
-                    dataState.objectActiveWhenShoot[i].SetActive(false);
-                }
-            }
-        }
-        if (dataState.lightsActiveWhenShoot != null)
-        {
-            if (dataState.lightsActiveWhenShoot.Length > 0)
-            {
-                for (int i = 0; i < dataState.lightsActiveWhenShoot.Length; i++)
-                {
-                    dataState.lightsActiveWhenShoot[i].gameObject.SetActive(false);
-                }
-            }
-        }
+
+        Extensions.SetActiveAll(dataState.objectActiveWhenShoot, false);
+        Extensions.SetEnabledAll(dataState.lightsActiveWhenShoot, false);
     }
 
     public void Update()
