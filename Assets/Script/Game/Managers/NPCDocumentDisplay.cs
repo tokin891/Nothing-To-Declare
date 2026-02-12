@@ -2,7 +2,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 
-public class NPCDocumentDisplay : MonoBehaviour
+public class NpcDocumentDisplay : MonoBehaviour
 {
     [Header("File")]
     [SerializeField] GameObject fileContainer;

@@ -6,24 +6,26 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
 
     [SerializeField] DialogueManager dialogueManager;
-    [SerializeField] NPCMovement npcMovement;
+    [SerializeField] NpcMovement npcMovement;
     [SerializeField] SoundsManager soundsManager;
     [SerializeField] NpcFlowController npcFlowController;
-    [SerializeField] NPCDocumentDisplay npcDocumentDisplay;
+    [SerializeField] NpcDocumentDisplay npcDocumentDisplay;
     [SerializeField] MovementManager movementManager;
+    [SerializeField] NpcVisuals npcVisuals;
     public NPCObject NpcObject;
     private NPCData[] allNpcDataFromResources;
 
-    public DialogueManager DialogueManager => dialogueManager;
-    public NpcFlowController NpcFlowController => npcFlowController;
-    public NPCDocumentDisplay NPCDocumentDisplay => npcDocumentDisplay;
-    public MovementManager MovementManager => movementManager;
-    public NPCMovement NPCMovement => npcMovement;
-    public SoundsManager SoundsManager => soundsManager;
+    [HideInInspector] public DialogueManager DialogueManager => dialogueManager;
+    [HideInInspector] public NpcFlowController NpcFlowController => npcFlowController;
+    [HideInInspector] public NpcDocumentDisplay NPCDocumentDisplay => npcDocumentDisplay;
+    [HideInInspector] public MovementManager MovementManager => movementManager;
+    [HideInInspector] public NpcMovement NPCMovement => npcMovement;
+    [HideInInspector] public SoundsManager SoundsManager => soundsManager;
+    [HideInInspector] public NpcVisuals NpcVisuals => npcVisuals;
 
-    public NPCData GetCurrentNpcData => NPCMovement.CurrentNPCObject.NPCData;
-    public Conscript CurrentConscript => NPCMovement.CurrentConscript;
-    public NPCData[] GetAllNpcDatas => allNpcDataFromResources;
+    [HideInInspector] public NPCData GetCurrentNpcData => NPCMovement.CurrentNPCObject.NpcData;
+    [HideInInspector] public Conscript CurrentConscript => NPCMovement.CurrentConscript;
+    [HideInInspector] public NPCData[] GetAllNpcDatas => allNpcDataFromResources;
 
     private void Start()
     {

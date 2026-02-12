@@ -9,6 +9,7 @@ public class NpcFlowController : MonoBehaviour
 
     [Header("Settings")]
     [SerializeField] private float delayBetweenNpcs = 3f;
+    [SerializeField] private int candidatPerDay;
 
     private int currentDay = 1;
     private int npcsLeftToday;
@@ -16,7 +17,7 @@ public class NpcFlowController : MonoBehaviour
 
     public void Initialize()
     {
-        StartNewDay(10); 
+        StartNewDay(candidatPerDay); 
     }
 
     public void StartNewDay(int npcCount)

@@ -10,8 +10,8 @@ public class ChangeMaterialNpcComponentna : NPCBehaviour
     public override void Execute(NPCObject npc)
     {
         if (duration == 0)
-            NPCMovement.SetMaterialNPC(npc.renderNPC, material[Random.Range(0,material.Length)]);
+            NpcVisuals.SetMaterialNPC(npc.renderNPC, material[Random.Range(0,material.Length)]);
         else
-            NPCMovement.FlashMaterialNPC(npc.renderNPC, material[Random.Range(0, material.Length)], duration);
+            NpcVisuals.FlashMaterialNPC(npc.renderNPC, material[Random.Range(0, material.Length)], duration);
     }
 }

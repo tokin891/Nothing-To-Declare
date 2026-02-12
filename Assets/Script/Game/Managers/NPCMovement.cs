@@ -1,16 +1,13 @@
 using System.Collections;
-using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
-using static UnityEngine.GraphicsBuffer;
 
-public class NPCMovement : MonoBehaviour
+public class NpcMovement : MonoBehaviour
 {
     [Header("NPC References")]
     [SerializeField] float speed;
     [SerializeField] Transform targetPositionNPC;
     [Tooltip("set it only if you want to test some npc")]
-    public NPCObject testNpc;
+    public NPCData testNpc;
 
     private NPCData npcData;
     private NPCDataConscript npcDataConscript;
@@ -22,8 +19,6 @@ public class NPCMovement : MonoBehaviour
     private Coroutine coroutineEnd;
     private Coroutine coroutineStart;
 
-    public Coroutine changeMaterialForDelayC;
-
     private void Awake()
     {
         startPositionNPC = Vector3.zero;
@@ -31,13 +26,20 @@ public class NPCMovement : MonoBehaviour
 
     public void SetupNPC(NPCObject npcObj, NPCData data, NPCDataConscript conscript)
     {
+        NPCData useData = data;
+
+#if UNITY_EDITOR
+        if (testNpc != null)
+            useData = testNpc;
+#endif
+
         CurrentNPCObject = npcObj;
-        npcData = data;
-        npcObj.NPCData = data;
+        npcData = useData;
+        npcObj.NpcData = useData;
         npcDataConscript = conscript;
         CurrentConscript = npcDataConscript.humanConscript;
         Debug.Log("Conscript: " + npcDataConscript.humanConscript.ToString());
-        npcObj.NPCData = npcData;
+        npcObj.NpcData = npcData;
         npcObj.renderNPC.enabled = true;
         npcObj.Initialize();
         coroutineStart = StartCoroutine(ShowNPC());
@@ -88,34 +90,11 @@ public class NPCMovement : MonoBehaviour
         npcData = null;
         npcDataConscript = null;
 
-        CurrentNPCObject.NPCData = null;
+        CurrentNPCObject.NpcData = null;
         CurrentNPCObject.renderNPC.enabled = false;
         CurrentNPCObject.transform.position = startPositionNPC;
         CurrentNPCObject.gameObject.SetActive(false);
         CurrentNPCObject = null;
         startPositionNPC = Vector3.zero;
-    }
-
-    public static void FlashMaterialNPC(MeshRenderer npcRender, Material changeTo, float duration)
-    {
-        if (GameManager.Instance.NPCMovement.changeMaterialForDelayC != null)
-            return;
-        GameManager.Instance.NPCMovement.changeMaterialForDelayC = 
-            GameManager.Instance.NPCMovement.StartCoroutine(GameManager.Instance.NPCMovement.ChangeMaterialNPCForTimeI
-            (npcRender, changeTo, duration));
-    }
-
-    private IEnumerator ChangeMaterialNPCForTimeI(MeshRenderer npcR, Material m, float d)
-    {
-        Material defaultM = npcR.material;
-        npcR.material = m;
-        yield return new WaitForSeconds(d);
-        npcR.material = defaultM;
-        changeMaterialForDelayC = null;
-    }
-
-    public static void SetMaterialNPC(MeshRenderer npcRender, Material mat)
-    {
-        npcRender.material = mat;
-    }
+    }   
 }

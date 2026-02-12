@@ -39,23 +39,23 @@ public class NPCData : ScriptableObject
         return null;
     }
 
-    public void InputAction(string actionID, NPCObject nObject)
-    {
-        for (int i = 0; i < npcCustomScript.Count; i++)
-        {
-            if (npcCustomScript[i].actionID == actionID)
-                npcCustomScript[i].Execute(nObject);
-        }
+    //public void InputAction(string actionID, NPCObject nObject)
+    //{
+    //    for (int i = 0; i < npcCustomScript.Count; i++)
+    //    {
+    //        if (npcCustomScript[i].actionID == actionID)
+    //            npcCustomScript[i].Execute(nObject);
+    //    }
 
-        for (int i = 0; i < AllConscriptsNPC.Length; i++)
-        {
-            for (int j = 0; j < AllConscriptsNPC[i].npcConscriptCustomScripts.Count; j++)
-            {
-                if (AllConscriptsNPC[i].npcConscriptCustomScripts[j].actionID == actionID)
-                    AllConscriptsNPC[i].npcConscriptCustomScripts[j].Execute(nObject);
-            }
-        }
-    }
+    //    for (int i = 0; i < AllConscriptsNPC.Length; i++)
+    //    {
+    //        for (int j = 0; j < AllConscriptsNPC[i].npcConscriptCustomScripts.Count; j++)
+    //        {
+    //            if (AllConscriptsNPC[i].npcConscriptCustomScripts[j].actionID == actionID)
+    //                AllConscriptsNPC[i].npcConscriptCustomScripts[j].Execute(nObject);
+    //        }
+    //    }
+    //}
 }
 
 public enum CountryHuman

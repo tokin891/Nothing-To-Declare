@@ -111,7 +111,7 @@ public class DialogueManager : MonoBehaviour
         for (int i = 0; i < node.npcLine.Count; i++)
         {
             char[] dialogueTextInChar = node.npcLine[i].Get().ToCharArray();
-            dialogueText.text = GameManager.Instance.NPCMovement.CurrentNPCObject.NPCData.humanName + ": ";
+            dialogueText.text = GameManager.Instance.NPCMovement.CurrentNPCObject.NpcData.humanName + ": ";
             float waitForNextChar = 0f;
             GameManager.Instance.SoundsManager.PlayOneTimeClipWithoutDestroying(typingClip, 0.6f, true);
             for (int j = 0; j < dialogueTextInChar.Length; j++)
@@ -193,12 +193,7 @@ public class DialogueManager : MonoBehaviour
 
     private void RunAction(string id)
     {
-        switch (id)
-        {
-            case "test":
-
-                break;
-        }
+        // Test
     }
 
 
