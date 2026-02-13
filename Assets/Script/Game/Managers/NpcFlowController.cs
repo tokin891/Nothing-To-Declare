@@ -1,5 +1,7 @@
 using UnityEngine;
 using TMPro;
+using System.Collections.Generic;
+using System.Linq;
 
 public class NpcFlowController : MonoBehaviour
 {
@@ -11,9 +13,18 @@ public class NpcFlowController : MonoBehaviour
     [SerializeField] private float delayBetweenNpcs = 3f;
     [SerializeField] private int candidatPerDay;
 
+    [Header("Day")]
+    public DayOption[] dayOptions;
+
     private int currentDay = 1;
     private int npcsLeftToday;
     private int totalNpcsToday;
+    private int currentNpcIndex = 0;
+
+    public int GetCurrentDay => currentDay;
+    public int GetCurrentNpcIndex => currentNpcIndex;
+    public List<DayOption.DayNpcData> AllNpcForToday { private set; get; }
+
 
     public void Initialize()
     {
@@ -22,17 +33,15 @@ public class NpcFlowController : MonoBehaviour
 
     public void StartNewDay(int npcCount)
     {
-        totalNpcsToday = npcCount;
-        npcsLeftToday = npcCount;
         UpdateUI();
 
+        PrepareDayQueue(currentDay);
         SpawnNextNpcWithDelay();
     }
 
     public void OnNpcFinished(bool eliminated)
     {
         npcsLeftToday--;
-        UpdateUI();
 
         if (eliminated)
         {
@@ -42,11 +51,69 @@ public class NpcFlowController : MonoBehaviour
         if (npcsLeftToday > 0)
         {
             SpawnNextNpcWithDelay();
+            currentNpcIndex++;
         }
         else
         {
             Debug.Log("Koniec dnia! Brak kandydatów.");
         }
+        UpdateUI();
+    }
+
+    private void PrepareDayQueue(int day)
+    {
+        var dayConfig = dayOptions.FirstOrDefault(d => d.selectDay == day);
+        List<DayOption.DayNpcData> todayNpcs = new List<DayOption.DayNpcData>();
+
+        if (dayConfig != null)
+        {
+            todayNpcs.AddRange(dayConfig.dayNpcDatas);
+        }
+        for (int i = 0; i < dayConfig.dayNpcDatas.Length; i++)
+        {
+            GameManager.Instance.PlayerStats.TrySaveNpc(
+                dayConfig.dayNpcDatas[i].npc,
+                dayConfig.dayNpcDatas[i].selectConscript.humanConscript);
+        }
+
+        int randomsNeeded = candidatPerDay - todayNpcs.Count;
+        for (int i = 0; i < randomsNeeded; i++)
+        {
+            DayOption.DayNpcData dnd = GenerateRandomNpcData();
+            if (dnd.npc != null)
+            {
+                GameManager.Instance.PlayerStats.TrySaveNpc(dnd.npc, dnd.selectConscript.humanConscript);
+                todayNpcs.Add(dnd);
+            }
+        }
+
+        todayNpcs = todayNpcs.OrderBy(x => Random.value).ToList();
+        AllNpcForToday = todayNpcs;
+
+        totalNpcsToday = AllNpcForToday.Count;
+        npcsLeftToday = totalNpcsToday;
+        UpdateUI();
+    }
+
+    private DayOption.DayNpcData GenerateRandomNpcData()
+    {
+        // Tutaj logika losowania zwyk³ego NPC z puli ogólnej
+        DayOption.DayNpcData fnd = new DayOption.DayNpcData();
+        NPCData npc = null;
+        int maxAttempts = 100;
+        while((npc == null || IsFabularNpc(npc) || GameManager.Instance.PlayerStats.CheckIsHumanWasHere(npc)) && maxAttempts > 0)
+        {
+            npc = GameManager.Instance.GetAllNpcDatas[
+                Random.Range(0, GameManager.Instance.GetAllNpcDatas.Length)];
+            maxAttempts--;
+        }
+        if (maxAttempts <= 0)
+            npc = null;
+
+        fnd.npc = npc;
+        if(npc != null)
+            fnd.selectConscript = npc.AllConscriptsNPC[Random.Range(0, npc.AllConscriptsNPC.Length)];
+        return fnd;
     }
 
     private void SpawnNextNpcWithDelay()
@@ -58,5 +125,36 @@ public class NpcFlowController : MonoBehaviour
     {
         countCandidat.text = $"{npcsLeftToday}/{totalNpcsToday}";
         countDay.text = $"Day: {currentDay}";
+    }
+
+    public static bool IsFabularNpc(NPCData npcData)
+    {
+        if (GameManager.Instance.NpcFlowController == null || npcData == null) return false;
+
+        // Szukamy ustawieñ dla obecnego dnia
+        foreach (var dayOpt in GameManager.Instance.NpcFlowController.dayOptions)
+        {
+            foreach(var fabNpc in dayOpt.dayNpcDatas)
+            {
+                if (npcData == fabNpc.npc)
+                    return true;
+            }
+        }
+        return false;
+    }
+}
+
+[System.Serializable]
+public class DayOption
+{
+    public int selectDay;
+    [Tooltip("Those npc's must be in selected day")]
+    public DayNpcData[] dayNpcDatas;
+
+    [System.Serializable]
+    public class DayNpcData
+    {
+        public NPCData npc;
+        public NPCDataConscript selectConscript;
     }
 }

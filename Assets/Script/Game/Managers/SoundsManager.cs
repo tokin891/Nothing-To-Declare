@@ -8,6 +8,7 @@ public class SoundsManager : MonoBehaviour
     [SerializeField] float speedTuningMainAmbient;
     [SerializeField] float targetVolumeMainAmbient = 0.65f;
     [SerializeField] AudioClip[] fsClip;
+    [SerializeField] Transform parentAudioSource;
 
     public AudioSource mainAmbientSource;
     private List<AudioSource> additionalAmbientSource = new List<AudioSource>();
@@ -136,6 +137,7 @@ public class SoundsManager : MonoBehaviour
     {
         GameObject audioObject = new GameObject();
         AudioSource source = audioObject.AddComponent<AudioSource>();
+        audioObject.transform.SetParent(parentAudioSource.transform);
         source.volume = 0.05f;
         additionalAmbientSource.Add(source);
         return source;

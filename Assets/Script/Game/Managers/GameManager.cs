@@ -54,8 +54,8 @@ public class GameManager : MonoBehaviour
 
     public void SetupNPC()
     {
-        NPCData npcCurrent = GetNextCandidat();
-        npcMovement.SetupNPC(NpcObject,npcCurrent , GetConscriptFromNpc(npcCurrent));
+        DayOption.DayNpcData npcCurrent = GetNextCandidat();
+        npcMovement.SetupNPC(NpcObject,npcCurrent.npc , npcCurrent.selectConscript);
     }
 
     public void SetupNPCWithDelay(float delay)
@@ -70,13 +70,8 @@ public class GameManager : MonoBehaviour
         SetupNPC();
     }
 
-    private NPCData GetNextCandidat()
+    private DayOption.DayNpcData GetNextCandidat()
     {
-        return GetAllNpcDatas[Random.Range(0, GetAllNpcDatas.Length)];
-    }
-
-    private NPCDataConscript GetConscriptFromNpc(NPCData data)
-    {
-        return data.AllConscriptsNPC[Random.Range(0, data.AllConscriptsNPC.Length)];
+        return NpcFlowController.AllNpcForToday[NpcFlowController.GetCurrentNpcIndex];
     }
 }

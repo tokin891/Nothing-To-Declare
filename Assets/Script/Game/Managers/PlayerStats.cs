@@ -6,20 +6,32 @@ using System.Linq;
 public class PlayerStats : MonoBehaviour
 {
     private Dictionary<string, int> savedRespectModifier;
+    private Dictionary<string, bool> savedHumansWhoWhere;
 
     private string SavePath => Path.Combine(Application.persistentDataPath, "ntd_save_file.json");
 
     public int RespectTotal { set; get; }
 
+    public List<string> humanKeys = new List<string>();
+    public List<bool> humanValues = new List<bool>();
+
     private void Awake()
     {
+        savedHumansWhoWhere = new Dictionary<string, bool>();
+        savedHumansWhoWhere.Clear();
         savedRespectModifier = new Dictionary<string, int>();
         savedRespectModifier.Clear();
     }
 
+    private void Update()
+    {
+        humanKeys = savedHumansWhoWhere.Keys.ToList();
+        humanValues = savedHumansWhoWhere.Values.ToList();
+    }
+
     #region Methods
 
-    public void TrySaveRespectModifierByOptionId(NPCData npcData, Conscript cons, OptionEffect optionEffect)
+    public void TrySaveTotalRespectByOptionEffect(NPCData npcData, Conscript cons, OptionEffect optionEffect)
     {
         string save = GetPathToSearchRespectValue(npcData, cons) + optionEffect.optionID;
         if (!HasSavedRespecModifierByOptionId(optionEffect, npcData, cons))
@@ -46,6 +58,34 @@ public class PlayerStats : MonoBehaviour
         return respectOfNpc;
     }
 
+    public void TrySaveNpc(NPCData npcData, Conscript con)
+    {
+        string path = GetPathToNpc(npcData, con);
+        if (savedHumansWhoWhere.ContainsKey(path))
+            return;
+
+            savedHumansWhoWhere.Add(path, true);
+    }
+    public bool CheckIsHumanWasHere(NPCData npcData)
+    {
+        List<string> allPathToNpc = new List<string>();
+        for (int i = 0; i < npcData.AllConscriptsNPC.Length; i++)
+        {
+            allPathToNpc.Add(GetPathToNpc(npcData, npcData.AllConscriptsNPC[i].humanConscript));
+        }
+
+        
+        foreach (var path in allPathToNpc)
+        {
+            if (savedHumansWhoWhere.ContainsKey(path))
+            {
+                Debug.Log("human was here");
+                return true;
+            }
+        }
+        return false;
+    }
+
     #endregion
 
     #region Save
@@ -55,9 +95,11 @@ public class PlayerStats : MonoBehaviour
     {
         SaveData data = new SaveData
         {
-            respectTotal = RespectTotal,
+            RespectTotal = RespectTotal,
             keys = savedRespectModifier.Keys.ToList(),
             values = savedRespectModifier.Values.ToList(),
+
+            Day = GameManager.Instance.NpcFlowController.GetCurrentDay,
 
             CurrentState = GetMovementStateString(GameManager.Instance.MovementManager.CurrentState)
         };
@@ -84,7 +126,7 @@ public class PlayerStats : MonoBehaviour
         //    GetStateFromString(data.CurrentState));
         Debug.Log(data.CurrentState);
 
-        RespectTotal = data.respectTotal;
+        RespectTotal = data.RespectTotal;
         Debug.Log("Wczytano zapis.");
     }
 
@@ -98,7 +140,6 @@ public class PlayerStats : MonoBehaviour
             return "Move";
         return "";
     }
-
     private IStateMovement GetStateFromString(string state)
     {
         if (state == "Desk")
@@ -117,7 +158,7 @@ public class PlayerStats : MonoBehaviour
 
     private OptionEffect SearchForOptionId(DialogueTree tree, NPCData data, Conscript conscript, string optionID)
     {
-        string searchingOptionID = GetPathToSearchOptionID(data, conscript) + optionID;
+        string searchingOptionID = GetPathToOptionID(data, conscript) + optionID;
 
         for (int i = 0; i < tree.nodes.Count; i++)
         {
@@ -141,17 +182,22 @@ public class PlayerStats : MonoBehaviour
         return false;
     }
 
-    private string GetPathToSearchOptionID(NPCData data, Conscript cons) => data.humanID + cons.ToString();
-    private string GetPathToSearchRespectValue(NPCData data, Conscript cons) => GetPathToSearchOptionID(data, cons) + "_respect_";
+    public string GetPathToNpc(NPCData npcd, Conscript con) => GetPathToNpcWithConscript(con) + npcd.humanID;
+    private string GetPathToNpcWithConscript(Conscript con) => GetPathToBaseNpc() + ("con_" + con.ToString()+"_");
+    private string GetPathToBaseNpc() => "npc_"; 
+    private string GetPathToOptionID(NPCData data, Conscript cons) => "optionId_"+ data.humanID + cons.ToString();
+    private string GetPathToSearchRespectValue(NPCData data, Conscript cons) => GetPathToOptionID(data, cons) + "_respect_";
 
     #endregion
 }
 
 public class SaveData
 {
-    public int respectTotal;
+    public int RespectTotal;
     public List<string> keys;
     public List<int> values;
+
+    public int Day;
 
     public string CurrentState;
 }

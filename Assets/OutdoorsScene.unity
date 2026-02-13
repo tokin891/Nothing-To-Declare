@@ -4635,6 +4635,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 1f0af894cf268e54ba02d9ee39bed433, type: 3}
   - {fileID: 8300000, guid: 99a5621f313a00c45b057ce923e62937, type: 3}
   - {fileID: 8300000, guid: cb8b688c2707af04c947695bcffbdad8, type: 3}
+  parentAudioSource: {fileID: 420135364}
   mainAmbientSource: {fileID: 1684240054}
 --- !u!1 &771063609
 GameObject:
@@ -6927,6 +6928,13 @@ MonoBehaviour:
   countDay: {fileID: 518620435}
   delayBetweenNpcs: 10
   candidatPerDay: 4
+  dayOptions:
+  - selectDay: 1
+    dayNpcDatas:
+    - npc: {fileID: 11400000, guid: ce97245fff8312f42a20d2fa36220f65, type: 2}
+      selectConscript: {fileID: 11400000, guid: 731061e5cb663714b9f42a518102ccbd, type: 2}
+    - npc: {fileID: 11400000, guid: fa19a2f3c9bc2194a98c1d811d06e893, type: 2}
+      selectConscript: {fileID: 11400000, guid: 75e8aee0f94388345b413ebd5c44f0e8, type: 2}
 --- !u!1 &1114552649
 GameObject:
   m_ObjectHideFlags: 0

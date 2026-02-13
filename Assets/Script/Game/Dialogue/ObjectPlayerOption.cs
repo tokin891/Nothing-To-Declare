@@ -12,7 +12,7 @@ public class ObjectPlayerOption : MonoBehaviour
         {
             if(optionEffects.respectModifier != 0)
             {
-                GameManager.Instance.PlayerStats.TrySaveRespectModifierByOptionId(
+                GameManager.Instance.PlayerStats.TrySaveTotalRespectByOptionEffect(
                     GameManager.Instance.GetCurrentNpcData, GameManager.Instance.CurrentConscript,
                     optionEffects);
             }
