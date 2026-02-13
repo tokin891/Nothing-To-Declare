@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 783b0835035eaa841bcc8271612a153f, type: 3}
-  m_Name: New Dialogue Tree
+  m_Name: DT Muczo Good
   m_EditorClassIdentifier: Assembly-CSharp::DialogueTree
   nodes:
   - {fileID: 3698827202315535845}
   - {fileID: 4246349958914753622}
-  NPCData: {fileID: 0}
+  NPCData: {fileID: 11400000, guid: 52dbdde8112afff42a5574b2451c0d7b, type: 2}
   nodes:
   - {fileID: 3698827202315535845}
   - {fileID: 4246349958914753622}
@@ -75,7 +75,10 @@ MonoBehaviour:
       _node: {fileID: 3698827202315535845}
       _typeQualifiedName: PlayerOption, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
-      connections: []
+      connections:
+      - fieldName: entry
+        node: {fileID: 4246349958914753622}
+        reroutePoints: []
       _direction: 1
       _connectionType: 1
       _typeConstraint: 0
@@ -87,6 +90,9 @@ MonoBehaviour:
       en: 
       de: 
     typeInteraction: 0
+    optionEffect:
+      optionID: 
+      respectModifier: 0
   actionId: 
   npcLine:
   - key: 
@@ -100,12 +106,18 @@ MonoBehaviour:
       en: 
       de: 
     typeInteraction: 0
+    optionEffect:
+      optionID: 
+      respectModifier: 0
   - playerLine:
       key: 
       pl: "zaci\u0105gneli\u015Bmy cie tu by cie zgwalici"
       en: 
       de: 
     typeInteraction: 0
+    optionEffect:
+      optionID: 
+      respectModifier: 0
   exitNode: 0
 --- !u!114 &4246349958914753622
 MonoBehaviour:
@@ -120,7 +132,7 @@ MonoBehaviour:
   m_Name: "\u017Ce niby ja?"
   m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
   graph: {fileID: 11400000}
-  position: {x: -88, y: -200}
+  position: {x: -136, y: -248}
   ports:
     keys:
     - entry
@@ -134,6 +146,9 @@ MonoBehaviour:
         PublicKeyToken=null
       connections:
       - fieldName: options 0
+        node: {fileID: 3698827202315535845}
+        reroutePoints: []
+      - fieldName: options 1
         node: {fileID: 3698827202315535845}
         reroutePoints: []
       _direction: 0
@@ -175,6 +190,9 @@ MonoBehaviour:
       en: 
       de: 
     typeInteraction: 0
+    optionEffect:
+      optionID: 
+      respectModifier: 0
   actionId: 
   npcLine:
   - key: 
@@ -193,10 +211,16 @@ MonoBehaviour:
       en: 
       de: 
     typeInteraction: 0
+    optionEffect:
+      optionID: re1
+      respectModifier: 10
   - playerLine:
       key: 
       pl: "Jezu, wyjd\u017A"
       en: 
       de: 
     typeInteraction: 0
-  exitNode: 0
+    optionEffect:
+      optionID: 
+      respectModifier: 0
+  exitNode: 1

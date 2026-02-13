@@ -9,10 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: 66cba58b592c59a44b33354238ae3a9a, type: 3}
   m_Name: Muczo Conscript Good
   m_EditorClassIdentifier: Assembly-CSharp::NPCDataConscript
   NPCData: {fileID: 11400000, guid: 52dbdde8112afff42a5574b2451c0d7b, type: 2}
   humanConscript: 0
-  armSprite: {fileID: 21300000, guid: ac1317d00c9f3f2448674e251f1fc299, type: 3}
-  dialogueTree: {fileID: 11400000, guid: 376f966e3da156e45bd05364560e7e3c, type: 2}
+  armSprite: {fileID: 21300000, guid: b0d3c0de4357c8a4dbe0b0b053a19500, type: 3}
+  eyeSprite: {fileID: 21300000, guid: a892153e63a8a8b46a7923dd687e144a, type: 3}
+  dialogueTree: {fileID: 11400000, guid: 08c16abaff8876f4488d7ae049324405, type: 2}
+  npcConscriptCustomScripts: []

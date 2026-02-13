@@ -47,6 +47,8 @@ public class NpcMovement : MonoBehaviour
         npcObj.renderNPC.enabled = true;
         npcObj.Initialize();
         coroutineStart = StartCoroutine(ShowNPC());
+
+        Debug.Log(npcData.humanName + " " + GameManager.Instance.PlayerStats.TryGetRespectFromNpcData(useData, CurrentConscript));
     }
 
     private IEnumerator ShowNPC()

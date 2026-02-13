@@ -91,6 +91,9 @@ MonoBehaviour:
       en: 
       de: 
     typeInteraction: 0
+    optionEffect:
+      optionID: 
+      respectModifier: 0
   actionId: 
   npcLine:
   - key: 
@@ -104,24 +107,36 @@ MonoBehaviour:
       en: 
       de: 
     typeInteraction: 2
+    optionEffect:
+      optionID: 
+      respectModifier: 0
   - playerLine:
       key: 
       pl: "Poka\u017C swoj\u0119 r\u0119ce"
       en: 
       de: 
     typeInteraction: 1
+    optionEffect:
+      optionID: 
+      respectModifier: 0
   - playerLine:
       key: 
       pl: (zastrzel)
       en: 
       de: 
     typeInteraction: 3
+    optionEffect:
+      optionID: 
+      respectModifier: 0
   - playerLine:
       key: 
       pl: (zadecyduj)
       en: 
       de: 
     typeInteraction: 0
+    optionEffect:
+      optionID: 
+      respectModifier: 0
   exitNode: 0
 --- !u!114 &-7667168868899745430
 MonoBehaviour:
@@ -184,6 +199,9 @@ MonoBehaviour:
       en: 
       de: 
     typeInteraction: 0
+    optionEffect:
+      optionID: 
+      respectModifier: 0
   actionId: 
   npcLine:
   - key: 
@@ -201,6 +219,9 @@ MonoBehaviour:
       en: 
       de: 
     typeInteraction: 0
+    optionEffect:
+      optionID: 
+      respectModifier: 0
   exitNode: 0
 --- !u!114 &-4352043426878378295
 MonoBehaviour:
@@ -289,6 +310,9 @@ MonoBehaviour:
       en: 
       de: 
     typeInteraction: 0
+    optionEffect:
+      optionID: 
+      respectModifier: 0
   actionId: 
   npcLine:
   - key: 
@@ -302,18 +326,27 @@ MonoBehaviour:
       en: 
       de: 
     typeInteraction: 0
+    optionEffect:
+      optionID: 
+      respectModifier: 0
   - playerLine:
       key: 
       pl: "Musimy si\u0119 jeszcze zastanowi\u0107"
       en: 
       de: 
     typeInteraction: 0
+    optionEffect:
+      optionID: 
+      respectModifier: 0
   - playerLine:
       key: 
       pl: Odpadasz
       en: 
       de: 
     typeInteraction: 0
+    optionEffect:
+      optionID: 
+      respectModifier: 0
   exitNode: 0
 --- !u!114 &-2689614875484667085
 MonoBehaviour:
@@ -376,6 +409,9 @@ MonoBehaviour:
       en: 
       de: 
     typeInteraction: 0
+    optionEffect:
+      optionID: 
+      respectModifier: 0
   actionId: stress
   npcLine:
   - key: 
@@ -389,6 +425,9 @@ MonoBehaviour:
       en: 
       de: 
     typeInteraction: 0
+    optionEffect:
+      optionID: 
+      respectModifier: 0
   exitNode: 0
 --- !u!114 &-2429798682386861190
 MonoBehaviour:
@@ -451,6 +490,9 @@ MonoBehaviour:
       en: 
       de: 
     typeInteraction: 0
+    optionEffect:
+      optionID: 
+      respectModifier: 0
   actionId: stress
   npcLine:
   - key: 
@@ -464,6 +506,9 @@ MonoBehaviour:
       en: 
       de: 
     typeInteraction: 0
+    optionEffect:
+      optionID: 
+      respectModifier: 0
   exitNode: 0
 --- !u!114 &-1569523496213903518
 MonoBehaviour:
@@ -539,6 +584,9 @@ MonoBehaviour:
       en: 
       de: 
     typeInteraction: 0
+    optionEffect:
+      optionID: 
+      respectModifier: 0
   actionId: 
   npcLine:
   - key: 
@@ -569,12 +617,18 @@ MonoBehaviour:
       en: 
       de: 
     typeInteraction: 0
+    optionEffect:
+      optionID: 
+      respectModifier: 0
   - playerLine:
       key: 
       pl: ...
       en: 
       de: 
     typeInteraction: 0
+    optionEffect:
+      optionID: 
+      respectModifier: 0
   exitNode: 0
 --- !u!114 &-985802367046627607
 MonoBehaviour:
@@ -650,6 +704,9 @@ MonoBehaviour:
       en: 
       de: 
     typeInteraction: 0
+    optionEffect:
+      optionID: 
+      respectModifier: 0
   actionId: 
   npcLine:
   - key: 
@@ -663,12 +720,18 @@ MonoBehaviour:
       en: 
       de: 
     typeInteraction: 0
+    optionEffect:
+      optionID: 
+      respectModifier: 0
   - playerLine:
       key: 
       pl: Nie twoja sprawa!
       en: 
       de: 
     typeInteraction: 0
+    optionEffect:
+      optionID: 
+      respectModifier: 0
   exitNode: 0
 --- !u!114 &-818105861839218075
 MonoBehaviour:
@@ -718,6 +781,9 @@ MonoBehaviour:
       en: 
       de: 
     typeInteraction: 0
+    optionEffect:
+      optionID: 
+      respectModifier: 0
   actionId: 
   npcLine:
   - key: 
@@ -761,7 +827,7 @@ MonoBehaviour:
   - {fileID: 189458693549787667}
   - {fileID: -818105861839218075}
   - {fileID: 7965478984651827751}
-  NPCData: {fileID: 0}
+  NPCData: {fileID: 11400000, guid: ce97245fff8312f42a20d2fa36220f65, type: 2}
   nodes:
   - {fileID: 544350672810628241}
   - {fileID: 5047316792756882972}
@@ -829,6 +895,9 @@ MonoBehaviour:
       en: 
       de: 
     typeInteraction: 0
+    optionEffect:
+      optionID: 
+      respectModifier: 0
   actionId: 
   npcLine:
   - key: 
@@ -912,6 +981,9 @@ MonoBehaviour:
       en: 
       de: 
     typeInteraction: 0
+    optionEffect:
+      optionID: 
+      respectModifier: 0
   actionId: 
   npcLine:
   - key: 
@@ -925,12 +997,18 @@ MonoBehaviour:
       en: 
       de: 
     typeInteraction: 0
+    optionEffect:
+      optionID: re1
+      respectModifier: 10
   - playerLine:
       key: 
       pl: "Adrien. P\u0142e\u0107 m\u0119\u017Cczyzna, zgadza si\u0119?"
       en: 
       de: 
     typeInteraction: 0
+    optionEffect:
+      optionID: 
+      respectModifier: 0
   exitNode: 0
 --- !u!114 &5047316792756882972
 MonoBehaviour:
@@ -993,6 +1071,9 @@ MonoBehaviour:
       en: 
       de: 
     typeInteraction: 0
+    optionEffect:
+      optionID: 
+      respectModifier: 0
   actionId: 
   npcLine:
   - key: 
@@ -1006,6 +1087,9 @@ MonoBehaviour:
       en: 
       de: 
     typeInteraction: 0
+    optionEffect:
+      optionID: 
+      respectModifier: 0
   exitNode: 0
 --- !u!114 &5826726100323241352
 MonoBehaviour:
@@ -1068,6 +1152,9 @@ MonoBehaviour:
       en: 
       de: 
     typeInteraction: 0
+    optionEffect:
+      optionID: 
+      respectModifier: 0
   actionId: 
   npcLine:
   - key: 
@@ -1090,6 +1177,9 @@ MonoBehaviour:
       en: 
       de: 
     typeInteraction: 0
+    optionEffect:
+      optionID: 
+      respectModifier: 0
   exitNode: 0
 --- !u!114 &6099129444723083675
 MonoBehaviour:
@@ -1152,6 +1242,9 @@ MonoBehaviour:
       en: 
       de: 
     typeInteraction: 0
+    optionEffect:
+      optionID: 
+      respectModifier: 0
   actionId: 
   npcLine:
   - key: 
@@ -1165,6 +1258,9 @@ MonoBehaviour:
       en: 
       de: 
     typeInteraction: 0
+    optionEffect:
+      optionID: 
+      respectModifier: 0
   exitNode: 0
 --- !u!114 &6643611959748058815
 MonoBehaviour:
@@ -1227,6 +1323,9 @@ MonoBehaviour:
       en: 
       de: 
     typeInteraction: 0
+    optionEffect:
+      optionID: 
+      respectModifier: 0
   actionId: happy
   npcLine:
   - key: 
@@ -1240,6 +1339,9 @@ MonoBehaviour:
       en: 
       de: 
     typeInteraction: 0
+    optionEffect:
+      optionID: 
+      respectModifier: 0
   exitNode: 0
 --- !u!114 &7965478984651827751
 MonoBehaviour:
@@ -1289,6 +1391,9 @@ MonoBehaviour:
       en: 
       de: 
     typeInteraction: 0
+    optionEffect:
+      optionID: 
+      respectModifier: 0
   actionId: 
   npcLine:
   - key: 
@@ -1379,6 +1484,9 @@ MonoBehaviour:
       en: 
       de: 
     typeInteraction: 0
+    optionEffect:
+      optionID: 
+      respectModifier: 0
   actionId: 
   npcLine:
   - key: 
@@ -1396,12 +1504,18 @@ MonoBehaviour:
       en: 
       de: 
     typeInteraction: 0
+    optionEffect:
+      optionID: 
+      respectModifier: 0
   - playerLine:
       key: 
       pl: "Masz jakie\u015B plany po szkole?"
       en: 
       de: 
     typeInteraction: 0
+    optionEffect:
+      optionID: 
+      respectModifier: 0
   exitNode: 0
 --- !u!114 &8155533732114509665
 MonoBehaviour:
@@ -1477,6 +1591,9 @@ MonoBehaviour:
       en: 
       de: 
     typeInteraction: 0
+    optionEffect:
+      optionID: 
+      respectModifier: 0
   actionId: muscle
   npcLine:
   - key: 
@@ -1502,12 +1619,18 @@ MonoBehaviour:
       en: 
       de: 
     typeInteraction: 0
+    optionEffect:
+      optionID: 
+      respectModifier: 0
   - playerLine:
       key: 
       pl: "Szanuj\u0119!"
       en: 
       de: 
     typeInteraction: 0
+    optionEffect:
+      optionID: 
+      respectModifier: 0
   exitNode: 0
 --- !u!114 &8349160547384139829
 MonoBehaviour:
@@ -1633,6 +1756,9 @@ MonoBehaviour:
       en: 
       de: 
     typeInteraction: 0
+    optionEffect:
+      optionID: 
+      respectModifier: 0
   actionId: 
   npcLine:
   - key: 
@@ -1646,22 +1772,34 @@ MonoBehaviour:
       en: 
       de: 
     typeInteraction: 0
+    optionEffect:
+      optionID: re2
+      respectModifier: 15
   - playerLine:
       key: 
       pl: "Jeste\u015B w technikum, tak?"
       en: 
       de: 
     typeInteraction: 0
+    optionEffect:
+      optionID: 
+      respectModifier: 0
   - playerLine:
       key: 
       pl: "Opowiesz mi co\u015B tak og\xF3lnie o sobie?"
       en: 
       de: 
     typeInteraction: 0
+    optionEffect:
+      optionID: 
+      respectModifier: 0
   - playerLine:
       key: 
       pl: "Mo\u017Cemy przej\u015B\u0107 do test\xF3w?"
       en: 
       de: 
     typeInteraction: 0
+    optionEffect:
+      optionID: 
+      respectModifier: 0
   exitNode: 0

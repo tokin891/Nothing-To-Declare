@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using System.Collections;
 
 public class NpcDocumentDisplay : MonoBehaviour
 {
@@ -22,6 +23,12 @@ public class NpcDocumentDisplay : MonoBehaviour
     [SerializeField] GameObject armContainer;
     [SerializeField] Image armImage;
 
+    [Header("Eye")]
+    [SerializeField] GameObject eyeContainer;
+    [SerializeField] Image eyeImage;
+    [SerializeField] Sprite[] eyesOpenAnimation;
+    [SerializeField] float speedEyeAnimation;
+
     public void InteractionNode(PlayerInteractionType interactionType, NPCData npcData)
     {
         switch (interactionType)
@@ -31,6 +38,9 @@ public class NpcDocumentDisplay : MonoBehaviour
                 break;
             case PlayerInteractionType.Arms:
                 ShowArms(npcData);
+                break;            
+            case PlayerInteractionType.Eye:
+                ShowEye(npcData);
                 break;
             case PlayerInteractionType.Shoot:
                 GameManager.Instance.MovementManager.SwitchState(GameManager.Instance.MovementManager.ShootState, true);
@@ -59,6 +69,11 @@ public class NpcDocumentDisplay : MonoBehaviour
         armImage.sprite = data.GetConscriptData(GameManager.Instance.CurrentConscript).armSprite;
         armContainer.SetActive(true);
     }
+    private void ShowEye(NPCData data)
+    {
+        StartCoroutine(OpenEyes(data.GetConscriptData(GameManager.Instance.CurrentConscript).eyeSprite));
+        eyeContainer.SetActive(true);
+    }
 
     public void HideFile()
     {
@@ -80,5 +95,24 @@ public class NpcDocumentDisplay : MonoBehaviour
         GameManager.Instance.DialogueManager.StopInteraction();
         armContainer.SetActive(false);
         armImage.sprite = null;
+    }
+
+    public void HideEye()
+    {
+        GameManager.Instance.DialogueManager.StopInteraction();
+        eyeContainer.SetActive(false);
+        eyeImage.sprite = null;
+    }
+
+    private IEnumerator OpenEyes(Sprite eyeFinishd)
+    {
+        eyeImage.sprite = eyesOpenAnimation[0];
+        for (int i = 0; i < eyesOpenAnimation.Length; i++)
+        {
+            eyeImage.sprite = eyesOpenAnimation[i];
+            yield return new WaitForSeconds(speedEyeAnimation);
+        }
+
+        eyeImage.sprite = eyeFinishd;
     }
 }

@@ -6,6 +6,7 @@ using TMPro;
 using UnityEngine;
 using XNode;
 using UnityEngine.InputSystem;
+using System.Linq;
 
 public class DialogueManager : MonoBehaviour
 {
@@ -158,6 +159,7 @@ public class DialogueManager : MonoBehaviour
             // Pobieramy port wyjœciowy dla danej opcji
             NodePort outPort = node.GetOutputPort("options " + j);
             ObjectPlayerOption pObj = obj.GetComponent<ObjectPlayerOption>();
+            pObj.optionEffects = node.options[j].optionEffect;
 
             // Przekazujemy referencjê do nastêpnego wêz³a
             if (outPort != null)
@@ -214,7 +216,6 @@ public class DialogueManager : MonoBehaviour
     {
         // Test
     }
-
 
     public void StopInteraction() => interactionAreOpen = false;
 }

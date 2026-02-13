@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] NpcDocumentDisplay npcDocumentDisplay;
     [SerializeField] MovementManager movementManager;
     [SerializeField] NpcVisuals npcVisuals;
+    [SerializeField] PlayerStats playerStats;
     public NPCObject NpcObject;
     private NPCData[] allNpcDataFromResources;
 
@@ -22,6 +23,7 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public NpcMovement NPCMovement => npcMovement;
     [HideInInspector] public SoundsManager SoundsManager => soundsManager;
     [HideInInspector] public NpcVisuals NpcVisuals => npcVisuals;
+    [HideInInspector] public PlayerStats PlayerStats => playerStats;
 
     [HideInInspector] public NPCData GetCurrentNpcData => NPCMovement.CurrentNPCObject.NpcData;
     [HideInInspector] public Conscript CurrentConscript => NPCMovement.CurrentConscript;

@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-[CreateAssetMenu(menuName = "NPC/Create Conscript NPC")]
+[CreateAssetMenu(menuName = "NPC/Create Conscript NPC", fileName ="NPC_Name Conscript")]
 public class NPCDataConscript : ScriptableObject
 {
     public NPCData NPCData;
@@ -9,6 +9,7 @@ public class NPCDataConscript : ScriptableObject
 
     [Header("Interaction")]
     public Sprite armSprite;
+    public Sprite eyeSprite;
 
     [Header("Dialogue")]
     public DialogueTree dialogueTree;

@@ -3,12 +3,19 @@ public class PlayerOption
 {
     public LocalizedLine playerLine;
     public PlayerInteractionType typeInteraction;
-    // nextNodeId usuwamy - xNode u¿ywa portów
+    public OptionEffect optionEffect;
 }
 public enum PlayerInteractionType
 {
     None,
     Arms,
     Files,
-    Shoot
+    Shoot,
+    Eye
+}
+[System.Serializable]
+public class OptionEffect
+{
+    public string optionID;
+    public int respectModifier;
 }

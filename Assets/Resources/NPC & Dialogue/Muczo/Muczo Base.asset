@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8dc4a063d2a7c6740bb90766467eb1ab, type: 3}
-  m_Name: Muczo
+  m_Name: Muczo Base
   m_EditorClassIdentifier: Assembly-CSharp::NPCData
   humanFace: {fileID: 0}
   humanName: 'Giga '
@@ -26,6 +26,5 @@ MonoBehaviour:
   humanID: 1
   AllConscriptsNPC:
   - {fileID: 11400000, guid: 52dda2277673ebc45bda2a893c3f004a, type: 2}
-  - {fileID: 11400000, guid: 3cb46cd96280ff24ca91bdcd9f40b8e4, type: 2}
   normalMaterial: {fileID: 2100000, guid: 08a1b8768c7e12d449ed220ee5995fe8, type: 2}
   npcCustomScript: []
