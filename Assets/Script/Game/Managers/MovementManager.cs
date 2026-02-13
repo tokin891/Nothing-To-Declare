@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class MovementManager : MonoBehaviour
 {
@@ -265,6 +266,8 @@ public class ShootState : IStateMovement
         Extensions.SetEnabledAll(dataState.lightsActiveWhenShoot, true);
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        dataState.inputActionUndoShoot.action.Enable();
+        dataState.inputActionUndoShoot.action.started += ctx => UndoShoot();
     }
 
     public void Exit()
@@ -280,11 +283,18 @@ public class ShootState : IStateMovement
 
         Extensions.SetActiveAll(dataState.objectActiveWhenShoot, false);
         Extensions.SetEnabledAll(dataState.lightsActiveWhenShoot, false);
+        dataState.inputActionUndoShoot.action.Disable();
     }
 
     public void Update()
     {
         
+    }
+
+    private void UndoShoot()
+    {
+        dataState.inputActionUndoShoot.action.Disable();
+        GameManager.Instance.MovementManager.SwitchState(GameManager.Instance.MovementManager.DeskState, true);
     }
 }
 
@@ -304,4 +314,6 @@ public class DataState
     public GameObject[] objectActiveWhenShoot;
 
     public bool doNotResetPlayerMovePositionFirstTime = true;
+
+    public InputActionReference inputActionUndoShoot;
 }

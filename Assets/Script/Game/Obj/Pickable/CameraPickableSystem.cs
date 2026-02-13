@@ -12,17 +12,6 @@ public class CameraPickableSystem : MonoBehaviour
     private float updateOptimization;
     private bool isHover;
 
-    private void OnEnable()
-    {
-        InputAction.action.Enable();
-        InputAction.action.started += ctx => Click();
-    }
-
-    private void OnDisable()
-    {
-        InputAction.action.Disable();
-    }
-
     private void Update()
     {
 
@@ -36,7 +25,7 @@ public class CameraPickableSystem : MonoBehaviour
             {
                 pob.ExitPick();
                 pob = null;
-                Debug.Log("Update revolver pickup");
+                InputAction.action.Disable();
             }
 
             if (pob == null && objectHit != null)
@@ -53,12 +42,15 @@ public class CameraPickableSystem : MonoBehaviour
                 {
                     pob.EnterPick();
                     isHover = true;
+                    InputAction.action.Enable();
+                    InputAction.action.started += ctx => PerformClick();
                 }
                 if (isHover && objectHit.gameObject != pob.gameObject)
                 {
                     pob.ExitPick();
                     isHover = false;
                     pob = null;
+                    InputAction.action.Disable();
                 }
             }
             else
@@ -68,13 +60,15 @@ public class CameraPickableSystem : MonoBehaviour
                     pob.ExitPick();
                     isHover = false;
                     pob = null;
+                    InputAction.action.Disable();
                 }
             }
         }
     }
 
-    public void Click()
+    public void PerformClick()
     {
+        Debug.Log("perform click");
         if (GameManager.Instance.MovementManager.CurrentState is not DeskState)
             return;
 
@@ -82,6 +76,8 @@ public class CameraPickableSystem : MonoBehaviour
         {
             pob.Click();
         }
+        else
+            Debug.Log("null pob");
     }
 
     private void CatchRay()
@@ -148,6 +144,7 @@ public abstract class PickableObjectBehaviour : MonoBehaviour
         Quaternion targetRot = awakeRot * Quaternion.Euler(offsetRotHighlight);
 
         isClick = false;
+        Debug.Log("Reset click button");
         light.intensity = lightIntensityAwake + offsetLightIntenstiyHighligh;
 
         // Warunek pêtli sprawdzaj¹cy zarówno pozycjê, jak i k¹t
@@ -161,6 +158,7 @@ public abstract class PickableObjectBehaviour : MonoBehaviour
                 transform.position = targetPos;
                 transform.rotation = targetRot;
                 fastClick = true;
+                Debug.Log("Click fast grab");
             }
             yield return null;
         }
@@ -168,10 +166,13 @@ public abstract class PickableObjectBehaviour : MonoBehaviour
         transform.position = targetPos;
         transform.rotation = targetRot;
 
+        Debug.Log("Wait for click");
         yield return new WaitUntil(() => (isClick == true || fastClick == true));
         isClick = false;
         fastClick = false;
 
+        transform.position = awakePos;
+        transform.rotation = awakeRot;
         ExitPick();
         GameManager.Instance.SoundsManager.PlayOneTimeClip(clipEquip, 0.35f);
         OnClickSuccesfully();
@@ -200,7 +201,11 @@ public abstract class PickableObjectBehaviour : MonoBehaviour
 
     public abstract void OnClickSuccesfully();
 
-    public void Click() => isClick = true;
+    public void Click()
+    {
+        isClick = true;
+        Debug.Log("click pickup");
+    }
     public void EnterPick() => coroutineEnter = StartCoroutine(Enter());
     public void ExitPick() => coroutineEnd = StartCoroutine(Exit());
 }

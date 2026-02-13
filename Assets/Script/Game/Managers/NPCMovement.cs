@@ -27,16 +27,20 @@ public class NpcMovement : MonoBehaviour
     public void SetupNPC(NPCObject npcObj, NPCData data, NPCDataConscript conscript)
     {
         NPCData useData = data;
+        NPCDataConscript useConscript = conscript;
 
 #if UNITY_EDITOR
         if (testNpc != null)
+        {
             useData = testNpc;
+            useConscript = testNpc.AllConscriptsNPC[0];
+        }
 #endif
 
         CurrentNPCObject = npcObj;
         npcData = useData;
         npcObj.NpcData = useData;
-        npcDataConscript = conscript;
+        npcDataConscript = useConscript;
         CurrentConscript = npcDataConscript.humanConscript;
         Debug.Log("Conscript: " + npcDataConscript.humanConscript.ToString());
         npcObj.NpcData = npcData;

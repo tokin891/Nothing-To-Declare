@@ -31,15 +31,6 @@ MonoBehaviour:
       - fieldName: options 0
         node: {fileID: 6099129444723083675}
         reroutePoints: []
-      - fieldName: options 0
-        node: {fileID: -8705731669258593900}
-        reroutePoints: []
-      - fieldName: options 1
-        node: {fileID: -8705731669258593900}
-        reroutePoints: []
-      - fieldName: options 2
-        node: {fileID: -8705731669258593900}
-        reroutePoints: []
       _direction: 0
       _connectionType: 0
       _typeConstraint: 0
@@ -58,10 +49,7 @@ MonoBehaviour:
       _node: {fileID: -8705731669258593900}
       _typeQualifiedName: PlayerOption, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
-      connections:
-      - fieldName: entry
-        node: {fileID: -8705731669258593900}
-        reroutePoints: []
+      connections: []
       _direction: 1
       _connectionType: 1
       _typeConstraint: 0
@@ -70,10 +58,7 @@ MonoBehaviour:
       _node: {fileID: -8705731669258593900}
       _typeQualifiedName: PlayerOption, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
-      connections:
-      - fieldName: entry
-        node: {fileID: -8705731669258593900}
-        reroutePoints: []
+      connections: []
       _direction: 1
       _connectionType: 1
       _typeConstraint: 0
@@ -82,10 +67,7 @@ MonoBehaviour:
       _node: {fileID: -8705731669258593900}
       _typeQualifiedName: PlayerOption, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
-      connections:
-      - fieldName: entry
-        node: {fileID: -8705731669258593900}
-        reroutePoints: []
+      connections: []
       _direction: 1
       _connectionType: 1
       _typeConstraint: 0

@@ -26,6 +26,12 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public NPCData GetCurrentNpcData => NPCMovement.CurrentNPCObject.NpcData;
     [HideInInspector] public Conscript CurrentConscript => NPCMovement.CurrentConscript;
     [HideInInspector] public NPCData[] GetAllNpcDatas => allNpcDataFromResources;
+    public bool IsNpcInOffice { get
+        {
+            if (npcMovement.CurrentNPCObject != null)
+                return true;
+            return false;
+        } }
 
     private void Start()
     {

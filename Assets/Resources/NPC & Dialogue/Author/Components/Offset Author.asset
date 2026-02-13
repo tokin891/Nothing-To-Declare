@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Offset Author
   m_EditorClassIdentifier: Assembly-CSharp::NPCOffset
   actionID: Start
-  positionOffset: {x: 0, y: 0.029, z: 0.122}
-  scaleMultiplier: {x: 0.88728, y: 1, z: 1}
+  positionOffset: {x: 0, y: 0.05, z: 0.08}
+  scaleMultiplier: {x: 0.99, y: 1.04, z: 1}

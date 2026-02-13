@@ -17,6 +17,7 @@ public class NPCObject : MonoBehaviour
     {
         TransformOfRenderMesh.localPosition = Vector3.zero;
         TransformOfRenderMesh.localScale = Vector3.one;
+        PositionAwakeOfRenderMesh = TransformOfRenderMesh.localPosition;
 
         for (int i = 0; i < NpcData.npcCustomScript.Count; i++)
         {
@@ -51,11 +52,6 @@ public class NPCObject : MonoBehaviour
             }
             actionDictionary[behaviour.actionID].Add(behaviour);
         }
-    }
-
-    private void Awake()
-    {
-        PositionAwakeOfRenderMesh = renderNPC.transform.localPosition;
     }
 
     public void ActionNPC(string actionID)

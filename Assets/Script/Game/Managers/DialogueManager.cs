@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using XNode;
-using static UnityEditor.Rendering.MaterialUpgrader;
+using UnityEngine.InputSystem;
 
 public class DialogueManager : MonoBehaviour
 {
@@ -15,11 +15,13 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] TMP_Text dialogueText;
     [SerializeField] float speedShowingText = 1;
     [SerializeField] AudioClip typingClip;
+    [SerializeField] InputActionReference inputAction;
 
     private DialogueTree dialogueTree;
     private DialogueNode currentNode;
     private List<GameObject> dialoguePOList;
     private bool interactionAreOpen = false;
+    private bool isClicking;
     private PlayerInteractionType playerInteractionType = PlayerInteractionType.None;
 
     private Coroutine dialogueCorutine;
@@ -28,11 +30,7 @@ public class DialogueManager : MonoBehaviour
     {
         dialogueParent.SetActive(false);
         dialoguePOList = new List<GameObject>();
-    }
-
-    private void OnEnable()
-    {
-        
+        inputAction.action.started += ctx => Click();
     }
 
     // Trigger By NPCMovement
@@ -69,12 +67,19 @@ public class DialogueManager : MonoBehaviour
     // Zmieñ sygnaturê metody, by przyjmowa³a obiekt wêz³a zamiast ID
     public void ChoseDialogueByNode(DialogueNode node, PlayerInteractionType pit = PlayerInteractionType.None)
     {
+        if(node == null)
+        {
+            Debug.Log("There you need a node");
+            return;
+        }
+
         if (dialogueCorutine != null) StopCoroutine(dialogueCorutine);
         dialogueCorutine = StartCoroutine(Dialogue(node, pit));
     }
 
     private IEnumerator Dialogue(DialogueNode node, PlayerInteractionType pit)
     {
+        inputAction.action.Enable();
         dialogueParent.SetActive(true);
         if (playerInteractionType == PlayerInteractionType.Shoot)
         {
@@ -113,16 +118,24 @@ public class DialogueManager : MonoBehaviour
             char[] dialogueTextInChar = node.npcLine[i].Get().ToCharArray();
             dialogueText.text = GameManager.Instance.NPCMovement.CurrentNPCObject.NpcData.humanName + ": ";
             float waitForNextChar = 0f;
+            float speed = speedShowingText;
             GameManager.Instance.SoundsManager.PlayOneTimeClipWithoutDestroying(typingClip, 0.6f, true);
+            isClicking = false;
             for (int j = 0; j < dialogueTextInChar.Length; j++)
             {
                 while (waitForNextChar > 0)
                 {
                     waitForNextChar -= Time.deltaTime;
+
+                    if(isClicking)
+                    {
+                        speed = 0;
+                        isClicking = false;
+                    }
                     yield return null;
                 }
                 dialogueText.text += dialogueTextInChar[j];
-                waitForNextChar = speedShowingText;
+                waitForNextChar = speed;
             }
             GameManager.Instance.SoundsManager.DestroyAudioSourceByClipFromAdditionalAudio(typingClip);
             Debug.Log("First dialogue ");
@@ -130,7 +143,9 @@ public class DialogueManager : MonoBehaviour
             if (countDialogs != 0)
             {
                 yield return new WaitForSeconds(.5f);
-                yield return new WaitUntil(() => Input.GetMouseButtonDown(0));
+                isClicking = false;
+                yield return new WaitUntil(() => isClicking);
+                isClicking = false;
             }
         }
 
@@ -152,7 +167,7 @@ public class DialogueManager : MonoBehaviour
                     pObj.nextNode = outPort.Connection.node as DialogueNode;
                 }
                 else
-                    pObj.nextNode = outPort.node as DialogueNode;
+                    pObj.nextNode = null;
             }
 
             pObj.interactionType = node.options[j].typeInteraction;
@@ -165,7 +180,10 @@ public class DialogueManager : MonoBehaviour
             EndDialogue();
             GameManager.Instance.NPCMovement.EndDialogue();
         }
+        inputAction.action.Disable();
     }
+
+    private void Click() => isClicking = true;
 
     public void EndDialogue()
     {
@@ -176,6 +194,7 @@ public class DialogueManager : MonoBehaviour
         }
         currentNode = null;
         dialogueTree = null;
+        inputAction.action.Disable();
 
         if (dialoguePOList != null)
         {

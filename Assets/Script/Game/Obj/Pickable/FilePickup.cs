@@ -5,9 +5,10 @@ public class FilePickup : PickableObjectBehaviour
     public override void OnClickSuccesfully()
     {
         Debug.Log("See file");
-        if(GameManager.Instance.GetCurrentNpcData != null)
+        if(!GameManager.Instance.IsNpcInOffice)
         {
-            GameManager.Instance.NPCDocumentDisplay.InteractionNode(PlayerInteractionType.Files,GameManager.Instance.GetCurrentNpcData);
+            return;
         }
+        GameManager.Instance.NPCDocumentDisplay.InteractionNode(PlayerInteractionType.Files, GameManager.Instance.GetCurrentNpcData);
     }
 }
