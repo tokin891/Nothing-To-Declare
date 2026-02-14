@@ -63,32 +63,32 @@ public class NpcFlowController : MonoBehaviour
     private void PrepareDayQueue(int day)
     {
         var dayConfig = dayOptions.FirstOrDefault(d => d.selectDay == day);
-        List<DayOption.DayNpcData> todayNpcs = new List<DayOption.DayNpcData>();
+        AllNpcForToday = new List<DayOption.DayNpcData>();
+        AllNpcForToday.Clear();
 
         if (dayConfig != null)
         {
-            todayNpcs.AddRange(dayConfig.dayNpcDatas);
+            AllNpcForToday.AddRange(dayConfig.dayNpcDatas);
         }
-        for (int i = 0; i < dayConfig.dayNpcDatas.Length; i++)
-        {
-            GameManager.Instance.PlayerStats.TrySaveNpc(
-                dayConfig.dayNpcDatas[i].npc,
-                dayConfig.dayNpcDatas[i].selectConscript.humanConscript);
-        }
+        //for (int i = 0; i < dayConfig.dayNpcDatas.Length; i++)
+        //{
+        //    GameManager.Instance.PlayerStats.TrySaveNpc(
+        //        dayConfig.dayNpcDatas[i].npc,
+        //        dayConfig.dayNpcDatas[i].selectConscript.humanConscript);
+        //}
 
-        int randomsNeeded = candidatPerDay - todayNpcs.Count;
+        int randomsNeeded = candidatPerDay - AllNpcForToday.Count;
         for (int i = 0; i < randomsNeeded; i++)
         {
             DayOption.DayNpcData dnd = GenerateRandomNpcData();
             if (dnd.npc != null)
             {
-                GameManager.Instance.PlayerStats.TrySaveNpc(dnd.npc, dnd.selectConscript.humanConscript);
-                todayNpcs.Add(dnd);
+                //GameManager.Instance.PlayerStats.TrySaveNpc(dnd.npc, dnd.selectConscript.humanConscript);
+                AllNpcForToday.Add(dnd);
             }
         }
 
-        todayNpcs = todayNpcs.OrderBy(x => Random.value).ToList();
-        AllNpcForToday = todayNpcs;
+        AllNpcForToday = AllNpcForToday.OrderBy(x => Random.value).ToList();
 
         totalNpcsToday = AllNpcForToday.Count;
         npcsLeftToday = totalNpcsToday;
@@ -101,7 +101,9 @@ public class NpcFlowController : MonoBehaviour
         DayOption.DayNpcData fnd = new DayOption.DayNpcData();
         NPCData npc = null;
         int maxAttempts = 100;
-        while((npc == null || IsFabularNpc(npc) || GameManager.Instance.PlayerStats.CheckIsHumanWasHere(npc)) && maxAttempts > 0)
+        while((npc == null || IsFabularNpc(npc) || 
+            GameManager.Instance.PlayerStats.CheckIsHumanWasHere(npc) ||
+            IsListContainsNpc(AllNpcForToday,npc)) && maxAttempts > 0)
         {
             npc = GameManager.Instance.GetAllNpcDatas[
                 Random.Range(0, GameManager.Instance.GetAllNpcDatas.Length)];
@@ -114,6 +116,17 @@ public class NpcFlowController : MonoBehaviour
         if(npc != null)
             fnd.selectConscript = npc.AllConscriptsNPC[Random.Range(0, npc.AllConscriptsNPC.Length)];
         return fnd;
+    }
+
+    private bool IsListContainsNpc(List<DayOption.DayNpcData> list, NPCData npc)
+    {
+        foreach(var l in list)
+        {
+            if (l.npc == npc)
+                return true;
+        }
+
+        return false;
     }
 
     private void SpawnNextNpcWithDelay()

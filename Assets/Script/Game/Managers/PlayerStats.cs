@@ -1,41 +1,38 @@
-using UnityEngine;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using UnityEngine;
 
 public class PlayerStats : MonoBehaviour
 {
     private Dictionary<string, int> savedRespectModifier;
-    private Dictionary<string, bool> savedHumansWhoWhere;
+    private Dictionary<string, bool> visitedNpcs;
+    private List<NpcSaveEntry> saveNpcs;
 
-    private string SavePath => Path.Combine(Application.persistentDataPath, "ntd_save_file.json");
+    private string SavePath => Path.Combine(Application.persistentDataPath, "ntd_save_playerStats.json");
 
     public int RespectTotal { set; get; }
 
-    public List<string> humanKeys = new List<string>();
-    public List<bool> humanValues = new List<bool>();
-
     private void Awake()
     {
-        savedHumansWhoWhere = new Dictionary<string, bool>();
-        savedHumansWhoWhere.Clear();
+        visitedNpcs = new Dictionary<string, bool>();
+        visitedNpcs.Clear();
         savedRespectModifier = new Dictionary<string, int>();
         savedRespectModifier.Clear();
-    }
-
-    private void Update()
-    {
-        humanKeys = savedHumansWhoWhere.Keys.ToList();
-        humanValues = savedHumansWhoWhere.Values.ToList();
+        saveNpcs = new List<NpcSaveEntry>();
+        saveNpcs.Clear();
     }
 
     #region Methods
 
     public void TrySaveTotalRespectByOptionEffect(NPCData npcData, Conscript cons, OptionEffect optionEffect)
     {
-        string save = GetPathToSearchRespectValue(npcData, cons) + optionEffect.optionID;
+        string save = GetRespectModifierKey(npcData, cons, optionEffect.optionID);
         if (!HasSavedRespecModifierByOptionId(optionEffect, npcData, cons))
         {
+            NpcSaveEntry nse = GetNpcSaveByData(npcData);
+            nse.KeyRespect.Add(save);
+            nse.ValueRespect.Add(optionEffect.respectModifier);
             savedRespectModifier.Add(save, optionEffect.respectModifier);
             Debug.Log("Save :" + "'" + save + "' and value: " + optionEffect.respectModifier.ToString());
             RespectTotal += optionEffect.respectModifier;
@@ -47,7 +44,7 @@ public class PlayerStats : MonoBehaviour
     public int TryGetRespectFromNpcData(NPCData data, Conscript cons)
     {
         var matches = savedRespectModifier.Where(kvp =>
-        kvp.Key.StartsWith(GetPathToSearchRespectValue(data, cons)));
+        kvp.Key.StartsWith(GetRespectModifierKey(data, cons,"")));
         int respectOfNpc = 0;
 
         foreach(var match in matches)
@@ -60,24 +57,27 @@ public class PlayerStats : MonoBehaviour
 
     public void TrySaveNpc(NPCData npcData, Conscript con)
     {
-        string path = GetPathToNpc(npcData, con);
-        if (savedHumansWhoWhere.ContainsKey(path))
+        string path = GetNpcSaveKey(npcData, con);
+        if (visitedNpcs.ContainsKey(path))
             return;
 
-            savedHumansWhoWhere.Add(path, true);
+        NpcSaveEntry nse = new NpcSaveEntry();
+        nse.HasVisited = true;
+        nse.KeyNpc = GetNpcSaveKey(npcData, con);
+        visitedNpcs.Add(path, true);
+        saveNpcs.Add(nse);
     }
     public bool CheckIsHumanWasHere(NPCData npcData)
     {
         List<string> allPathToNpc = new List<string>();
         for (int i = 0; i < npcData.AllConscriptsNPC.Length; i++)
         {
-            allPathToNpc.Add(GetPathToNpc(npcData, npcData.AllConscriptsNPC[i].humanConscript));
+            allPathToNpc.Add(GetNpcSaveKey(npcData, npcData.AllConscriptsNPC[i].humanConscript));
         }
-
         
         foreach (var path in allPathToNpc)
         {
-            if (savedHumansWhoWhere.ContainsKey(path))
+            if (visitedNpcs.ContainsKey(path))
             {
                 Debug.Log("human was here");
                 return true;
@@ -96,8 +96,8 @@ public class PlayerStats : MonoBehaviour
         SaveData data = new SaveData
         {
             RespectTotal = RespectTotal,
-            keys = savedRespectModifier.Keys.ToList(),
-            values = savedRespectModifier.Values.ToList(),
+
+            SaveNpcs = saveNpcs,
 
             Day = GameManager.Instance.NpcFlowController.GetCurrentDay,
 
@@ -117,10 +117,19 @@ public class PlayerStats : MonoBehaviour
 
         SaveData data = JsonUtility.FromJson<SaveData>(json);
         savedRespectModifier.Clear();
-        for (int i = 0; i < data.keys.Count; i++)
+        visitedNpcs.Clear();
+        for (int i = 0; i < data.SaveNpcs.Count; i++)
         {
-            savedRespectModifier.Add(data.keys[i], data.values[i]);
+            for (int j = 0; j < data.SaveNpcs[i].KeyRespect.Count; j++)
+            {
+                savedRespectModifier.Add(data.SaveNpcs[i].KeyRespect[i], data.SaveNpcs[i].ValueRespect[i]);
+            }
         }
+        for (int i = 0; i < data.SaveNpcs.Count; i++)
+        {
+            visitedNpcs.Add(data.SaveNpcs[i].KeyNpc, data.SaveNpcs[i].HasVisited);
+        }
+        saveNpcs = data.SaveNpcs;
 
         //GameManager.Instance.MovementManager.SwitchState(
         //    GetStateFromString(data.CurrentState));
@@ -156,25 +165,9 @@ public class PlayerStats : MonoBehaviour
 
     #region Logic
 
-    private OptionEffect SearchForOptionId(DialogueTree tree, NPCData data, Conscript conscript, string optionID)
-    {
-        string searchingOptionID = GetPathToOptionID(data, conscript) + optionID;
-
-        for (int i = 0; i < tree.nodes.Count; i++)
-        {
-            for (int j = 0; j < tree.nodes[i].options.Count; j++)
-            {
-                if (!string.IsNullOrEmpty(tree.nodes[i].options[j].optionEffect.optionID))
-                {
-                    return tree.nodes[i].options[j].optionEffect;
-                }
-            }
-        }
-        return null;
-    }   
     private bool HasSavedRespecModifierByOptionId(OptionEffect optionEffect, NPCData npcData, Conscript cons)
     {
-        if (savedRespectModifier.ContainsKey(GetPathToSearchRespectValue(npcData, cons) + optionEffect.optionID))
+        if (GetNpcSaveByData(npcData).KeyRespect.Contains(GetRespectModifierKey(npcData, cons, optionEffect.optionID)))
         {
             return true;
         }
@@ -182,11 +175,32 @@ public class PlayerStats : MonoBehaviour
         return false;
     }
 
-    public string GetPathToNpc(NPCData npcd, Conscript con) => GetPathToNpcWithConscript(con) + npcd.humanID;
-    private string GetPathToNpcWithConscript(Conscript con) => GetPathToBaseNpc() + ("con_" + con.ToString()+"_");
-    private string GetPathToBaseNpc() => "npc_"; 
-    private string GetPathToOptionID(NPCData data, Conscript cons) => "optionId_"+ data.humanID + cons.ToString();
-    private string GetPathToSearchRespectValue(NPCData data, Conscript cons) => GetPathToOptionID(data, cons) + "_respect_";
+    private NpcSaveEntry GetNpcSaveByData(NPCData data)
+    {
+        NpcSaveEntry nse = null;
+
+        foreach(var n in saveNpcs)
+        {
+            List<string> allPathToNpc = new List<string>();
+            for (int i = 0; i < data.AllConscriptsNPC.Length; i++)
+            {
+                allPathToNpc.Add(SaveKeyGenerator.ForNpc(data, data.AllConscriptsNPC[i].humanConscript));
+            }
+            foreach(var p in allPathToNpc)
+            {
+                if (n.KeyNpc == p)
+                    return n;
+            }
+        }
+
+        return nse;
+    }
+
+    public string GetNpcSaveKey(NPCData npcd, Conscript con) 
+    {
+        return SaveKeyGenerator.ForNpc(npcd, con);
+    }
+    private string GetRespectModifierKey(NPCData data, Conscript cons, string option) => SaveKeyGenerator.ForRespect(data, cons, option);
 
     #endregion
 }
@@ -194,10 +208,25 @@ public class PlayerStats : MonoBehaviour
 public class SaveData
 {
     public int RespectTotal;
-    public List<string> keys;
-    public List<int> values;
+
+    public List<NpcSaveEntry> SaveNpcs;
 
     public int Day;
 
     public string CurrentState;
+}
+
+[System.Serializable]
+public class NpcSaveEntry
+{
+    public NpcSaveEntry()
+    {
+        KeyRespect = new List<string>();
+        ValueRespect = new List<int>();
+    }
+
+    public string KeyNpc;
+    public bool HasVisited;
+    public List<string> KeyRespect;
+    public List<int> ValueRespect;
 }
