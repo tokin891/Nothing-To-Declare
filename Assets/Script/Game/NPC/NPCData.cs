@@ -5,6 +5,9 @@ using System.Collections.Generic;
 [CreateAssetMenu(menuName ="NPC/Create NPC Base", fileName ="NPC_NAME Base")]
 public class NPCData : ScriptableObject
 {
+    [Header("Unique")]
+    public string uniqueDataID;
+
     [Header("Inforamtions")]
     public Sprite humanFace;
     public string humanName;

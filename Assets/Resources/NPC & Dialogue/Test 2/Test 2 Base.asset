@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8dc4a063d2a7c6740bb90766467eb1ab, type: 3}
+  m_Name: Test 2 Base
+  m_EditorClassIdentifier: Assembly-CSharp::NPCData
+  uniqueDataID: Test_2
+  humanFace: {fileID: 0}
+  humanName: test
+  humanSecondName: 2
+  humanAge: 
+  humanWeight: 
+  humanHeight: 180
+  humanEyesColor: black
+  humanDate: 2000.01.01
+  humanGender: 
+  humanAdditionalInfo: 
+  humanCountry: 2
+  humanID: 0
+  AllConscriptsNPC:
+  - {fileID: 11400000, guid: d59948e774894e045879005b92a2df30, type: 2}
+  - {fileID: 11400000, guid: ad13adc80d921e5489bcc51b3b543f89, type: 2}
+  - {fileID: 11400000, guid: 50cdc03280a24ed46949e490ddbe284e, type: 2}
+  normalMaterial: {fileID: 2100000, guid: e449718868674734c91aea59bddd07ef, type: 2}
+  npcCustomScript: []

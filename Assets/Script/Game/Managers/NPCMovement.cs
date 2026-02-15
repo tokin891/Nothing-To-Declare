@@ -46,7 +46,7 @@ public class NpcMovement : MonoBehaviour
         npcObj.NpcData = npcData;
         npcObj.renderNPC.enabled = true;
         npcObj.Initialize();
-        GameManager.Instance.PlayerStats.TrySaveNpc(npcData, npcDataConscript.humanConscript);
+        GameManager.Instance.PlayerStats.TryGenereteSaveNpc(npcData, npcDataConscript.humanConscript);
         coroutineStart = StartCoroutine(ShowNPC());
 
         Debug.Log(npcData.humanName + " " + GameManager.Instance.PlayerStats.TryGetRespectFromNpcData(useData, CurrentConscript));
@@ -94,7 +94,9 @@ public class NpcMovement : MonoBehaviour
         {
             StopCoroutine(coroutineStart);
         }
-    
+
+        GameManager.Instance.PlayerStats.TryToSaveNpcVisited(npcData, npcDataConscript.humanConscript);
+
         npcData = null;
         npcDataConscript = null;
 

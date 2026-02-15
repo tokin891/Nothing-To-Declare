@@ -107,8 +107,8 @@ MonoBehaviour:
       de: 
     typeInteraction: 0
     optionEffect:
-      optionID: 
-      respectModifier: 0
+      optionID: greeting
+      respectModifier: 16
   - playerLine:
       key: 
       pl: "zaci\u0105gneli\u015Bmy cie tu by cie zgwalici"

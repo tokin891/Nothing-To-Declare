@@ -3220,7 +3220,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e683b444d47ce2a45a5527c5dd367969, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DeskInteract
-  waitForCandidant: 5
 --- !u!65 &566195742
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6928,6 +6927,7 @@ MonoBehaviour:
   countDay: {fileID: 518620435}
   delayBetweenNpcs: 10
   candidatPerDay: 4
+  killerCandidatPercent: 0.31
   dayOptions:
   - selectDay: 1
     dayNpcDatas:
@@ -6935,6 +6935,7 @@ MonoBehaviour:
       selectConscript: {fileID: 11400000, guid: 731061e5cb663714b9f42a518102ccbd, type: 2}
     - npc: {fileID: 11400000, guid: fa19a2f3c9bc2194a98c1d811d06e893, type: 2}
       selectConscript: {fileID: 11400000, guid: 75e8aee0f94388345b413ebd5c44f0e8, type: 2}
+  candidatCanRepet: 0
 --- !u!1 &1114552649
 GameObject:
   m_ObjectHideFlags: 0

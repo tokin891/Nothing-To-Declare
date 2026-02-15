@@ -54,7 +54,7 @@ public class GameManager : MonoBehaviour
 
     public void SetupNPC()
     {
-        DayOption.DayNpcData npcCurrent = GetNextCandidat();
+        DayNpcData npcCurrent = GetNextCandidat();
         npcMovement.SetupNPC(NpcObject,npcCurrent.npc , npcCurrent.selectConscript);
     }
 
@@ -70,7 +70,7 @@ public class GameManager : MonoBehaviour
         SetupNPC();
     }
 
-    private DayOption.DayNpcData GetNextCandidat()
+    private DayNpcData GetNextCandidat()
     {
         return NpcFlowController.AllNpcForToday[NpcFlowController.GetCurrentNpcIndex];
     }

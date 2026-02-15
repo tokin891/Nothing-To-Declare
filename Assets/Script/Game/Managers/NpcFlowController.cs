@@ -2,6 +2,7 @@ using UnityEngine;
 using TMPro;
 using System.Collections.Generic;
 using System.Linq;
+using System;
 
 public class NpcFlowController : MonoBehaviour
 {
@@ -9,12 +10,27 @@ public class NpcFlowController : MonoBehaviour
     public TMP_Text countCandidat;
     public TMP_Text countDay;
 
-    [Header("Settings")]
+    [Space]
     [SerializeField] private float delayBetweenNpcs = 3f;
     [SerializeField] private int candidatPerDay;
+    [Range(0,1)]
+    [SerializeField] private float killerCandidatPercent;  
 
     [Header("Day")]
     public DayOption[] dayOptions;
+
+    [Header("Only For Editor Test")]
+    [SerializeField] private bool candidatCanRepet = false;
+    private bool ccr
+    {
+        get
+        {
+#if UNITY_EDITOR
+            return candidatCanRepet;
+#endif
+            return false;
+        }
+    }
 
     private int currentDay = 1;
     private int npcsLeftToday;
@@ -23,7 +39,7 @@ public class NpcFlowController : MonoBehaviour
 
     public int GetCurrentDay => currentDay;
     public int GetCurrentNpcIndex => currentNpcIndex;
-    public List<DayOption.DayNpcData> AllNpcForToday { private set; get; }
+    public List<DayNpcData> AllNpcForToday { private set; get; }
 
 
     public void Initialize()
@@ -63,62 +79,100 @@ public class NpcFlowController : MonoBehaviour
     private void PrepareDayQueue(int day)
     {
         var dayConfig = dayOptions.FirstOrDefault(d => d.selectDay == day);
-        AllNpcForToday = new List<DayOption.DayNpcData>();
+        AllNpcForToday = new List<DayNpcData>();
         AllNpcForToday.Clear();
 
         if (dayConfig != null)
         {
             AllNpcForToday.AddRange(dayConfig.dayNpcDatas);
         }
-        //for (int i = 0; i < dayConfig.dayNpcDatas.Length; i++)
-        //{
-        //    GameManager.Instance.PlayerStats.TrySaveNpc(
-        //        dayConfig.dayNpcDatas[i].npc,
-        //        dayConfig.dayNpcDatas[i].selectConscript.humanConscript);
-        //}
 
         int randomsNeeded = candidatPerDay - AllNpcForToday.Count;
-        for (int i = 0; i < randomsNeeded; i++)
+        int randomsKillerNeeded = (int)(randomsNeeded * killerCandidatPercent);
+        int restFromKiller = (randomsNeeded - randomsKillerNeeded);
+        int randomsGoodNeeded = (int)(restFromKiller - (restFromKiller * UnityEngine.Random.Range(0.35f, 0.65f)));
+        int randomsBadNeeded = randomsNeeded - randomsKillerNeeded - randomsGoodNeeded;
+
+        for (int i = 0; i < randomsKillerNeeded; i++)
         {
-            DayOption.DayNpcData dnd = GenerateRandomNpcData();
+            DayNpcData dnd = GenerateRandomNpcData(Conscript.Killer);
             if (dnd.npc != null)
             {
-                //GameManager.Instance.PlayerStats.TrySaveNpc(dnd.npc, dnd.selectConscript.humanConscript);
+                AllNpcForToday.Add(dnd);
+            }
+        }
+        for (int i = 0; i < randomsGoodNeeded; i++)
+        {
+            DayNpcData dnd = GenerateRandomNpcData(Conscript.Good);
+            if (dnd.npc != null)
+            {
+                AllNpcForToday.Add(dnd);
+            }
+        }
+        for (int i = 0; i < randomsBadNeeded; i++)
+        {
+            DayNpcData dnd = GenerateRandomNpcData(Conscript.Bad);
+            if (dnd.npc != null)
+            {
                 AllNpcForToday.Add(dnd);
             }
         }
 
-        AllNpcForToday = AllNpcForToday.OrderBy(x => Random.value).ToList();
+        AllNpcForToday = AllNpcForToday.OrderBy(x => UnityEngine.Random.value).ToList();
+        GameManager.Instance.PlayerStats.GenereteSaveQueueNpc(AllNpcForToday, day);
 
         totalNpcsToday = AllNpcForToday.Count;
         npcsLeftToday = totalNpcsToday;
         UpdateUI();
     }
 
-    private DayOption.DayNpcData GenerateRandomNpcData()
+    private DayNpcData GenerateRandomNpcData(Conscript con)
     {
         // Tutaj logika losowania zwyk³ego NPC z puli ogólnej
-        DayOption.DayNpcData fnd = new DayOption.DayNpcData();
+        DayNpcData fnd = new DayNpcData();
         NPCData npc = null;
         int maxAttempts = 100;
-        while((npc == null || IsFabularNpc(npc) || 
-            GameManager.Instance.PlayerStats.CheckIsHumanWasHere(npc) ||
-            IsListContainsNpc(AllNpcForToday,npc)) && maxAttempts > 0)
+
+        Func<NPCData, bool> wasVisitedCheck = npc =>
+        {
+            if (ccr) return false; // pozwalamy na powtórki
+            return GameManager.Instance.PlayerStats.TryCheckIsHumanWasVisited(npc);
+        };
+
+        Func<NPCData, bool> isInListCheck = npc =>
+        {
+            if (ccr) return false; // pozwalamy na powtórki
+            return IsListContainsNpc(AllNpcForToday, npc);
+        };
+
+
+        while (maxAttempts > 0)
         {
             npc = GameManager.Instance.GetAllNpcDatas[
-                Random.Range(0, GameManager.Instance.GetAllNpcDatas.Length)];
+                UnityEngine.Random.Range(0, GameManager.Instance.GetAllNpcDatas.Length)];
+
+            if (npc != null &&
+                !IsFabularNpc(npc) &&
+                !wasVisitedCheck(npc) &&
+                !isInListCheck(npc) &&
+                DoesNpcHaveConscript(con, npc))
+            {
+                break;
+            }
+
             maxAttempts--;
         }
+
         if (maxAttempts <= 0)
             npc = null;
 
         fnd.npc = npc;
         if(npc != null)
-            fnd.selectConscript = npc.AllConscriptsNPC[Random.Range(0, npc.AllConscriptsNPC.Length)];
+            fnd.selectConscript = GetConscriptDataByEnum(con, npc);
         return fnd;
     }
 
-    private bool IsListContainsNpc(List<DayOption.DayNpcData> list, NPCData npc)
+    private bool IsListContainsNpc(List<DayNpcData> list, NPCData npc)
     {
         foreach(var l in list)
         {
@@ -127,6 +181,24 @@ public class NpcFlowController : MonoBehaviour
         }
 
         return false;
+    }
+
+    private bool DoesNpcHaveConscript(Conscript conscriptEnum, NPCData data)
+    {
+        List<NPCDataConscript> conscriptsData = data.AllConscriptsNPC.ToList();
+        foreach (var c in conscriptsData)
+            if (c.humanConscript == conscriptEnum)
+                return true;
+        return false;
+    }
+
+    private NPCDataConscript GetConscriptDataByEnum(Conscript conscriptEnum, NPCData data)
+    {
+        List<NPCDataConscript> conscriptsData = data.AllConscriptsNPC.ToList();
+        foreach (var c in conscriptsData)
+            if (c.humanConscript == conscriptEnum)
+                return c;
+        return null;
     }
 
     private void SpawnNextNpcWithDelay()
@@ -163,11 +235,10 @@ public class DayOption
     public int selectDay;
     [Tooltip("Those npc's must be in selected day")]
     public DayNpcData[] dayNpcDatas;
-
-    [System.Serializable]
-    public class DayNpcData
-    {
-        public NPCData npc;
-        public NPCDataConscript selectConscript;
-    }
+}
+[System.Serializable]
+public class DayNpcData
+{
+    public NPCData npc;
+    public NPCDataConscript selectConscript;
 }

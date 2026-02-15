@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8dc4a063d2a7c6740bb90766467eb1ab, type: 3}
   m_Name: Author Base
   m_EditorClassIdentifier: Assembly-CSharp::NPCData
+  uniqueDataID: Author_1
   humanFace: {fileID: 0}
   humanName: Adrien
   humanSecondName: Dres

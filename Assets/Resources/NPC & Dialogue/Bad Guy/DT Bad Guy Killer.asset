@@ -293,8 +293,8 @@ MonoBehaviour:
       de: 
     typeInteraction: 0
     optionEffect:
-      optionID: 
-      respectModifier: 0
+      optionID: re tralala
+      respectModifier: 15
   - playerLine:
       key: 
       pl: "Przejd\u017Amy do test\xF3w"
@@ -302,8 +302,8 @@ MonoBehaviour:
       de: 
     typeInteraction: 0
     optionEffect:
-      optionID: 
-      respectModifier: 0
+      optionID: re testy
+      respectModifier: 10
   exitNode: 0
 --- !u!114 &-5973993469272994717
 MonoBehaviour:
@@ -509,8 +509,8 @@ MonoBehaviour:
       de: 
     typeInteraction: 0
     optionEffect:
-      optionID: 
-      respectModifier: 0
+      optionID: re finish
+      respectModifier: 15
   exitNode: 0
 --- !u!114 &-2152636447115699077
 MonoBehaviour:
@@ -739,7 +739,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 783b0835035eaa841bcc8271612a153f, type: 3}
-  m_Name: DT Bad Guy Spy
+  m_Name: DT Bad Guy Killer
   m_EditorClassIdentifier: Assembly-CSharp::DialogueTree
   nodes:
   - {fileID: -5973993469272994717}
