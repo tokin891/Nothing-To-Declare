@@ -138,6 +138,7 @@ MonoBehaviour:
       optionID: 
       respectModifier: 0
   exitNode: 0
+  applied: 0
 --- !u!114 &-7667168868899745430
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -223,6 +224,7 @@ MonoBehaviour:
       optionID: 
       respectModifier: 0
   exitNode: 0
+  applied: 0
 --- !u!114 &-4352043426878378295
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -348,6 +350,7 @@ MonoBehaviour:
       optionID: 
       respectModifier: 0
   exitNode: 0
+  applied: 0
 --- !u!114 &-2689614875484667085
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -429,6 +432,7 @@ MonoBehaviour:
       optionID: 
       respectModifier: 0
   exitNode: 0
+  applied: 0
 --- !u!114 &-2429798682386861190
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -510,6 +514,7 @@ MonoBehaviour:
       optionID: 
       respectModifier: 0
   exitNode: 0
+  applied: 0
 --- !u!114 &-1569523496213903518
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -630,6 +635,7 @@ MonoBehaviour:
       optionID: 
       respectModifier: 0
   exitNode: 0
+  applied: 0
 --- !u!114 &-985802367046627607
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -733,6 +739,7 @@ MonoBehaviour:
       optionID: 
       respectModifier: 0
   exitNode: 0
+  applied: 0
 --- !u!114 &-818105861839218075
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -796,6 +803,7 @@ MonoBehaviour:
     de: 
   options: []
   exitNode: 1
+  applied: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -827,7 +835,6 @@ MonoBehaviour:
   - {fileID: 189458693549787667}
   - {fileID: -818105861839218075}
   - {fileID: 7965478984651827751}
-  NPCData: {fileID: 11400000, guid: ce97245fff8312f42a20d2fa36220f65, type: 2}
   nodes:
   - {fileID: 544350672810628241}
   - {fileID: 5047316792756882972}
@@ -910,6 +917,7 @@ MonoBehaviour:
     de: 
   options: []
   exitNode: 1
+  applied: 1
 --- !u!114 &544350672810628241
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1010,6 +1018,7 @@ MonoBehaviour:
       optionID: 
       respectModifier: 0
   exitNode: 0
+  applied: 0
 --- !u!114 &5047316792756882972
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1091,6 +1100,7 @@ MonoBehaviour:
       optionID: 
       respectModifier: 0
   exitNode: 0
+  applied: 0
 --- !u!114 &5826726100323241352
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1181,6 +1191,7 @@ MonoBehaviour:
       optionID: 
       respectModifier: 0
   exitNode: 0
+  applied: 0
 --- !u!114 &6099129444723083675
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1262,6 +1273,7 @@ MonoBehaviour:
       optionID: 
       respectModifier: 0
   exitNode: 0
+  applied: 0
 --- !u!114 &6643611959748058815
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1343,6 +1355,7 @@ MonoBehaviour:
       optionID: 
       respectModifier: 0
   exitNode: 0
+  applied: 0
 --- !u!114 &7965478984651827751
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1356,7 +1369,7 @@ MonoBehaviour:
   m_Name: Nie jestem pewien czemu?
   m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
   graph: {fileID: 11400000}
-  position: {x: 1992, y: 200}
+  position: {x: 1992, y: 296}
   ports:
     keys:
     - entry
@@ -1410,6 +1423,7 @@ MonoBehaviour:
     de: 
   options: []
   exitNode: 1
+  applied: 0
 --- !u!114 &8010026312086219707
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1517,6 +1531,7 @@ MonoBehaviour:
       optionID: 
       respectModifier: 0
   exitNode: 0
+  applied: 0
 --- !u!114 &8155533732114509665
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1632,6 +1647,7 @@ MonoBehaviour:
       optionID: 
       respectModifier: 0
   exitNode: 0
+  applied: 0
 --- !u!114 &8349160547384139829
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1803,3 +1819,4 @@ MonoBehaviour:
       optionID: 
       respectModifier: 0
   exitNode: 0
+  applied: 0

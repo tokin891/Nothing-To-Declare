@@ -85,6 +85,7 @@ MonoBehaviour:
       optionID: 
       respectModifier: 0
   exitNode: 0
+  applied: 0
 --- !u!114 &-7478938552777752635
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -174,6 +175,7 @@ MonoBehaviour:
       optionID: 
       respectModifier: 0
   exitNode: 0
+  applied: 0
 --- !u!114 &-6715674178912165352
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -305,6 +307,7 @@ MonoBehaviour:
       optionID: re testy
       respectModifier: 10
   exitNode: 0
+  applied: 0
 --- !u!114 &-5973993469272994717
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -409,6 +412,7 @@ MonoBehaviour:
       optionID: 
       respectModifier: 0
   exitNode: 0
+  applied: 0
 --- !u!114 &-3489191535056230950
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -512,6 +516,7 @@ MonoBehaviour:
       optionID: re finish
       respectModifier: 15
   exitNode: 0
+  applied: 0
 --- !u!114 &-2152636447115699077
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -662,6 +667,7 @@ MonoBehaviour:
       optionID: 
       respectModifier: 0
   exitNode: 0
+  applied: 0
 --- !u!114 &-1332275014040890410
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -729,6 +735,7 @@ MonoBehaviour:
     de: 
   options: []
   exitNode: 1
+  applied: 1
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -752,7 +759,6 @@ MonoBehaviour:
   - {fileID: -3489191535056230950}
   - {fileID: -1332275014040890410}
   - {fileID: 4741394630664691633}
-  NPCData: {fileID: 0}
   nodes:
   - {fileID: -5973993469272994717}
   - {fileID: 8606082006083547352}
@@ -831,6 +837,7 @@ MonoBehaviour:
     de: 
   options: []
   exitNode: 1
+  applied: 0
 --- !u!114 &8116840987896097486
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -912,6 +919,7 @@ MonoBehaviour:
       optionID: 
       respectModifier: 0
   exitNode: 0
+  applied: 0
 --- !u!114 &8606082006083547352
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -971,3 +979,4 @@ MonoBehaviour:
     de: 
   options: []
   exitNode: 1
+  applied: 0

@@ -55,13 +55,20 @@ public class NpcFlowController : MonoBehaviour
         SpawnNextNpcWithDelay();
     }
 
-    public void OnNpcFinished(bool eliminated)
+    public void OnNpcFinished(bool eliminated, bool applied = false)
     {
         npcsLeftToday--;
 
         if (eliminated)
         {
-            Debug.Log("NPC zosta³ wyeliminowany. Notujemy to w statystykach...");
+            //Shoot
+        }
+        if (applied)
+        {
+            //Applied
+        }else
+        {
+            //Rejected
         }
 
         if (npcsLeftToday > 0)

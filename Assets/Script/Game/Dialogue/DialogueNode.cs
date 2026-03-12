@@ -15,6 +15,8 @@ public class DialogueNode : Node
     [Output(dynamicPortList = true, connectionType = ConnectionType.Override)] public List<PlayerOption> options;
 
     public bool exitNode = false;
+    [Tooltip("Set only if exit node is true")]
+    public bool applied = false;
 
     protected override void Init()
     {

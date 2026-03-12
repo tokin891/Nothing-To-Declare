@@ -9,6 +9,10 @@ public class PlayerStats : MonoBehaviour
     private Dictionary<string, NpcSaveEntry> saveNpcs;
     private List<QueueNpcsSave> allQueuesNpc;
 
+    private List<string> appliedNpcKeys;
+    private List<string> rejectedNpcKeys;
+    private List<string> killedNpcKeys;
+
     private string SavePath => Path.Combine(Application.persistentDataPath, "ntd_save_playerStats.json");
 
     public int RespectTotal { set; get; }
@@ -21,6 +25,12 @@ public class PlayerStats : MonoBehaviour
         saveNpcs.Clear();
         allQueuesNpc = new List<QueueNpcsSave>();
         allQueuesNpc.Clear();
+        rejectedNpcKeys = new List<string>();
+        appliedNpcKeys = new List<string>();
+        killedNpcKeys = new List<string>();
+        rejectedNpcKeys.Clear();
+        appliedNpcKeys.Clear();
+        killedNpcKeys.Clear();
     }
 
     #region Methods
@@ -93,6 +103,43 @@ public class PlayerStats : MonoBehaviour
         allQueuesNpc.Add(queueNpcs);
     }
 
+    public void SaveApplyNpc(NPCData npc, Conscript con)
+    {
+        string keyNpc = GetNpcSaveKey(npc, con);
+
+        if (!saveNpcs.ContainsKey(keyNpc))
+        {
+            Debug.Log("Lack of npc save");
+            return;
+        }
+
+        appliedNpcKeys.Add(keyNpc);
+    }
+    public void SaveRejectNpc(NPCData npc, Conscript con)
+    {
+        string keyNpc = GetNpcSaveKey(npc, con);
+
+        if (!saveNpcs.ContainsKey(keyNpc))
+        {
+            Debug.Log("Lack of npc save");
+            return;
+        }
+
+        rejectedNpcKeys.Add(keyNpc);
+    }
+    public void SaveKilledNpc(NPCData npc, Conscript con)
+    {
+        string keyNpc = GetNpcSaveKey(npc, con);
+
+        if (!saveNpcs.ContainsKey(keyNpc))
+        {
+            Debug.Log("Lack of npc save");
+            return;
+        }
+
+        killedNpcKeys.Add(keyNpc);
+    }
+
     public int TryGetRespectFromNpcData(NPCData data, Conscript cons)
     {
         var matches = savedRespectModifier.Where(kvp =>
@@ -142,6 +189,10 @@ public class PlayerStats : MonoBehaviour
 
             AllQueuesNpc = allQueuesNpc,
 
+            NpcAppliedKeys = appliedNpcKeys,
+            NpcRejectedKeys = rejectedNpcKeys,
+            NpcKilledKeys = killedNpcKeys,
+
             Day = GameManager.Instance.NpcFlowController.GetCurrentDay,
 
             CurrentState = GetMovementStateString(GameManager.Instance.MovementManager.CurrentState)
@@ -180,6 +231,9 @@ public class PlayerStats : MonoBehaviour
                 data.SaveNpcs[i]);
         }
         allQueuesNpc = data.AllQueuesNpc;
+        rejectedNpcKeys = data.NpcRejectedKeys;
+        appliedNpcKeys = data.NpcAppliedKeys;
+        killedNpcKeys = data.NpcKilledKeys;
 
         //GameManager.Instance.MovementManager.SwitchState(
         //    GetStateFromString(data.CurrentState));
@@ -249,6 +303,10 @@ public class SaveData
     public List<string> KeySaveNpcs;
 
     public List<QueueNpcsSave> AllQueuesNpc;
+
+    public List<string> NpcAppliedKeys;
+    public List<string> NpcRejectedKeys;
+    public List<string> NpcKilledKeys;
 
     public int Day;
 

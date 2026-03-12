@@ -27,11 +27,14 @@ public class DialogueManager : MonoBehaviour
 
     private Coroutine dialogueCorutine;
 
+    public bool AppliedNpc;
+
     private void Awake()
     {
         dialogueParent.SetActive(false);
         dialoguePOList = new List<GameObject>();
         inputAction.action.started += ctx => Click();
+        AppliedNpc = false;
     }
 
     // Trigger By NPCMovement
@@ -181,6 +184,9 @@ public class DialogueManager : MonoBehaviour
             yield return new WaitUntil(() => Input.GetMouseButtonDown(0));
             EndDialogue();
             GameManager.Instance.NPCMovement.EndDialogue();
+
+            if (node.applied)
+                AppliedNpc = true;
         }
         inputAction.action.Disable();
     }

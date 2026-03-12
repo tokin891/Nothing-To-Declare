@@ -59,10 +59,10 @@ public class NpcMovement : MonoBehaviour
         while (Vector3.Distance(CurrentNPCObject.transform.position, targetPositionNPC.position) > 0.01f)
         {
             CurrentNPCObject.transform.position = Vector3.MoveTowards(CurrentNPCObject.transform.position, targetPositionNPC.position, speed * Time.deltaTime);
-            yield return null; // czekaj do nastêpnej klatki
+            yield return null; 
         }
 
-        CurrentNPCObject.transform.position = targetPositionNPC.position; // wyrównanie pozycji na koniec
+        CurrentNPCObject.transform.position = targetPositionNPC.position; 
         yield return new WaitForSeconds(1f);
         GameManager.Instance.DialogueManager.StartDialogue(npcDataConscript.dialogueTree); // Open Dialogue
     }
@@ -73,14 +73,15 @@ public class NpcMovement : MonoBehaviour
     }
     private IEnumerator HideNPCCorutine()
     {
-        yield return new WaitForSeconds(1.5f);  //Wait 3 second
+        yield return new WaitForSeconds(1.5f); 
         
         while (Vector3.Distance(CurrentNPCObject.transform.position, startPositionNPC) > 0.01f)
         {
             CurrentNPCObject.transform.position = Vector3.MoveTowards(CurrentNPCObject.transform.position, startPositionNPC, speed * Time.deltaTime);
-            yield return null; // czekaj do nastêpnej klatki
+            yield return null; 
         }
-        GameManager.Instance.NpcFlowController.OnNpcFinished(false);
+        GameManager.Instance.NpcFlowController.OnNpcFinished(false, GameManager.Instance.DialogueManager.AppliedNpc);
+        GameManager.Instance.DialogueManager.AppliedNpc = false; // Reset
         ClearDialogueNPC();
     }
 
